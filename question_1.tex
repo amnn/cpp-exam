@@ -1,4 +1,20 @@
 \subsection{Part (a.i)}\label{sec:q-1-a-i}
+\newthought{The Covariant Hom-functor}
+\begin{align*}
+\text{define }\mathcal{C}(A,-) & : \mathcal{C} \rightarrow \textbf{Set}
+\mathnote{Let $\mathcal{C}$ be a category, $A\in\mathcal{C}$}\\
+\mathcal{C}(A,-) & : B \mapsto \mathcal{C}(A, B)\\
+\mathcal{C}(A,-) & : (f : B \rightarrow C) \mapsto (g \mapsto f \compose g)
+\end{align*}
+
+\newthought{The Contravariant Hom-functor}
+\begin{align*}
+\text{define }\mathcal{C}(-,A) & : \mathcal{C}^{\text{op}} \rightarrow \textbf{Set}
+\mathnote{Let $\mathcal{C}$ be a category, $A\in\mathcal{C}$}\\
+\mathcal{C}(-,A) & : B \mapsto \mathcal{C}(B, A)\\
+\mathcal{C}(-,A) & : (f : B \rightarrow C) \mapsto (g \mapsto g \compose f)
+\end{align*}
+
 \subsection{Part (a.ii)}\label{sec:q-1-a-ii}
 \subsection{Part (a.iii)}\label{sec:q-1-a-iii}
 \subsection{Part (b.i)}\label{sec:q-1-b-i}
