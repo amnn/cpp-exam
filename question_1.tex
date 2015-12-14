@@ -37,37 +37,75 @@ Then we define the action of the functor on objects and morphisms. The covariant
       and $h : B \to C$, Figure~\ref{fig:co-functor} commutes.
   \end{enumerate}
   \begin{proof}[Proof (i)]
-    Let $B\in\cat{C}$, $g : A \to B$
-    \begin{align*}
-      \hom{C}{A}{\id_B}(g) & = \id_B\compose g
-      \mathnote{\Def-\ref{def:co-hom}}\\
-      & = g
-      \mathnote{\Def-$\id$}\\
-      & = \id_{\hom{C}{A}{B}}(g)
-      \mathnote{\Def-$\id$}\\
-      \iff \hom{C}{A}{B} & = \id_{\hom{C}{A}{B}}
-      \tag*{\qedhere}
-    \end{align*}
+    Let $B\in\cat{C}$
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+            \item[\phs] \Let~$g : A \to B$
+              \marginnote{\Hyp}
+            \item[\phs]
+              $\hom{C}{A}{\id_B}(g)$
+
+            \item[\eqs]
+              $\id_B\compose g$
+              \marginnote{\Def-\ref{def:co-hom}}
+
+            \item[\eqs]
+              $g$
+              \marginnote{\Def-$\id$}
+
+            \item[\eqs]
+              $\id_{\hom{C}{A}{B}}(g)$
+              \marginnote{\Def-$\id$}
+        \end{itemize}
+
+      \item[\imps]
+        $\forall g : A \to B\ldotp~\hom{C}{A}{B}(g) = \id_{\hom{C}{A}{B}}(g)$
+        \marginnote{$\forall$-\Intro-$\star$}
+
+      \item[\iffs]
+        $\hom{C}{A}{B} = \id_{\hom{C}{A}{B}}$
+        \marginnote{\Def-=}
+        \qedhere
+    \end{itemize}
   \end{proof}
 
   \begin{proof}[Proof (ii)]
-    Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$ and ${i : A\to B}$.
-    \begin{align*}
-      (\hom{C}{A}{g}\compose\hom{C}{A}{h})(i)
-      & = \hom{C}{A}{g}(\hom{C}{A}{h}(i))
-      \mathnote{\Def-$\compose$}
-      \\ & = \hom{C}{A}{g}(h\compose i)
-      \mathnote{\Def-\ref{def:co-hom}}
-      \\ & = g\compose (h\compose i)
-      \mathnote{\Def-\ref{def:co-hom}}
-      \\ & = (g\compose h)\compose i
-      \mathnote{\Assoc-$\compose$}
-      \\ & = \hom{C}{A}{g\compose h}(i)
-      \mathnote{\Def-\ref{def:co-hom}}
-      \\ \iff \hom{C}{A}{g}\compose\hom{C}{A}{h}
-      & = \hom{C}{A}{g\compose h}
-      \tag*{\qedhere}
-    \end{align*}
+    Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$.
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs] \Let~$i : A\to B$
+            \marginnote{\Hyp}
+
+          \item[\phs]
+            $(\hom{C}{A}{g}\compose\hom{C}{A}{h})(i)$
+
+          \item[\eqs] $\hom{C}{A}{g}(\hom{C}{A}{h}(i))$
+            \marginnote{\Def-$\compose$}
+
+          \item[\eqs] $\hom{C}{A}{g}(h\compose i)$
+            \marginnote{\Def-\ref{def:co-hom}}
+
+          \item[\eqs] $g\compose (h\compose i)$
+            \marginnote{\Def-\ref{def:co-hom}}
+
+          \item[\eqs] $(g\compose h)\compose i$
+            \marginnote{\Assoc-$\compose$}
+
+          \item[\eqs] $\hom{C}{A}{g\compose h}(i)$
+            \marginnote{\Def-\ref{def:co-hom}}
+        \end{itemize}
+
+      \item[\imps]
+        $\forall i : A\to B\ldotp~(\hom{C}{A}{g}\compose\hom{C}{A}{h})(i) = \hom{C}{A}{g\compose h}(i)$
+        \marginnote{$\forall$-\Intro-$\star$}
+
+      \item[\iffs]
+        $\hom{C}{A}{g}\compose\hom{C}{A}{h} = \hom{C}{A}{g\compose h}$
+        \marginnote{\Def-$=$}
+        \qedhere
+    \end{itemize}
   \end{proof}
 \end{prop}
 
@@ -101,42 +139,151 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
     \item $\hom{C}{-}{A}$ preserves composition. That is to say, for any $B,C,D\in\cat{C}$ with morphisms $g : C \to D$
       and $h : B \to C$, Figure~\ref{fig:contra-functor} commutes.
   \end{enumerate}
+
   \begin{proof}[Proof (i)]
-    Let $B\in\cat{C}$, $g : B \to A$
-    \begin{align*}
-      \hom{C}{\id_B}{A}(g) & = g\compose\id_B
-      \mathnote{\Def-\ref{def:contra-hom}}\\
-      & = g
-      \mathnote{\Def-$\id$}\\
-      & = \id_{\hom{C}{B}{A}}(g)
-      \mathnote{\Def-$\id$}\\
-      \iff \hom{C}{\id_B}{A} & = \id_{\hom{C}{B}{A}}
-      \tag*{\qedhere}
-    \end{align*}
+    Let $B\in\cat{C}$
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+            \item[\phs] \Let~$g : B \to A$
+              \marginnote{\Hyp}
+            \item[\phs]
+              $\hom{C}{\id_B}{A}(g)$
+
+            \item[\eqs]
+              $g\compose\id_B$
+              \marginnote{\Def-\ref{def:contra-hom}}
+
+            \item[\eqs]
+              $g$
+              \marginnote{\Def-$\id$}
+
+            \item[\eqs]
+              $\id_{\hom{C}{B}{A}}(g)$
+              \marginnote{\Def-$\id$}
+        \end{itemize}
+
+      \item[\imps]
+        $\forall g : B \to A\ldotp~\hom{C}{\id_B}{A}(g) = \id_{\hom{C}{B}{A}}(g)$
+        \marginnote{$\forall$-\Intro-$\star$}
+
+      \item[\iffs]
+        $\hom{C}{B}{A} = \id_{\hom{C}{B}{A}}$
+        \marginnote{\Def-=}
+        \qedhere
+    \end{itemize}
   \end{proof}
 
   \begin{proof}[Proof (ii)]
-    Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$ and ${i : B\to A}$.
-    \begin{align*}
-      (\hom{C}{g}{A}\compose\hom{C}{h}{A})(i)
-      & = \hom{C}{g}{A}(\hom{C}{h}{A}(i))
-      \mathnote{\Def-$\compose$}
-      \\ & = \hom{C}{g}{A}(i\compose h)
-      \mathnote{\Def-\ref{def:contra-hom}}
-      \\ & = (i\compose h)\compose g
-      \mathnote{\Def-\ref{def:contra-hom}}
-      \\ & = i\compose (h\compose g)
-      \mathnote{\Assoc-$\compose$}
-      \\ & = \hom{C}{h\compose g}{A}(i)
-      \mathnote{\Def-\ref{def:contra-hom}}
-      \\ \iff \hom{C}{g}{A}\compose\hom{C}{h}{A}
-      & = \hom{C}{h\compose g}{A}
-      \tag*{\qedhere}
-    \end{align*}
+    Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$.
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs] \Let~$i : B\to A$
+            \marginnote{\Hyp}
+
+          \item[\phs]
+            $(\hom{C}{g}{A}\compose\hom{C}{h}{A})(i)$
+
+          \item[\eqs] $\hom{C}{g}{A}(\hom{C}{h}{A}(i))$
+            \marginnote{\Def-$\compose$}
+
+          \item[\eqs] $\hom{C}{g}{A}(i\compose h)$
+            \marginnote{\Def-\ref{def:contra-hom}}
+
+          \item[\eqs] $(i\compose h)\compose g$
+            \marginnote{\Def-\ref{def:contra-hom}}
+
+          \item[\eqs] $i\compose (h\compose g)$
+            \marginnote{\Assoc-$\compose$}
+
+          \item[\eqs] $\hom{C}{h\compose g}{A}(i)$
+            \marginnote{\Def-\ref{def:contra-hom}}
+        \end{itemize}
+
+      \item[\imps]
+        $\forall i : B\to A\ldotp~(\hom{C}{g}{A}\compose\hom{C}{h}{A})(i) = \hom{C}{h\compose g}{A}(i)$
+        \marginnote{$\forall$-\Intro-$\star$}
+
+      \item[\iffs]
+        $\hom{C}{g}{A}\compose\hom{C}{h}{A} = \hom{C}{h\compose g}{A}$
+        \marginnote{\Def-$=$}
+        \qedhere
+    \end{itemize}
   \end{proof}
 \end{prop}
 
 \subsection{Part (a.ii)}\label{sec:q-1-a-ii}
+
+\begin{prop}
+  $f$ epic $\iff$ $\hom{C}{f}{C}$ injective for any $C\in\cat{C}$
+  \marginnote{Let $f : A \to B$ be a morphism in category $\cat{C}$.}
+
+  \begin{proof}[Proof $\Rightarrow$]
+    Let $C\in\cat{C}$.
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs] \Let~$g, h : B\to C$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+            \item[\phs] \Ass~$\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h)$
+              \marginnote{\Hyp}
+
+            \item[\iffs] $g\compose f = h\compose f$
+              \marginnote{\Def-\ref{def:contra-hom}}
+
+            \item[\imps] $g = h$
+              \marginnote{\Hyp-($f$~\Epic)}
+            \end{itemize}
+
+          \item[\imps] $\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h) \implies g = h$
+            \marginnote{\imps-\Intro-$\dagger$}
+        \end{itemize}
+      \item[\imps] $\forall g, h : B \to C\ldotp~\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h) \implies g = h$
+        \marginnote{$\forall$-\Intro-$\star$}
+
+      \item[\iffs] $\hom{C}{f}{C}$ injective
+        \marginnote{\Def-injective}
+        \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Proof $\Leftarrow$]
+    Let $C\in\cat{C}$.
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs] \Let~$g, h : B\to C$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+            \item[\phs] \Ass~$g\compose f = h\compose f$
+              \marginnote{\Hyp}
+
+            \item[\iffs] $\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h)$
+              \marginnote{\Def-\ref{def:contra-hom}}
+
+            \item[\imps] $g = h$
+              \marginnote{\Hyp-($\hom{C}{f}{C}$~\textbf{injective})}
+            \end{itemize}
+
+          \item[\imps] $g\compose f = h\compose f \implies g = h$
+            \marginnote{\imps-\Intro-$\dagger$}
+        \end{itemize}
+      \item[\imps] $\forall g, h : B \to C\ldotp~g\compose f = h\compose f \implies g = h$
+        \marginnote{$\forall$-\Intro-$\star$}
+
+      \item[\iffs] $f$ epic
+        \marginnote{\Def-epic}
+        \qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (a.iii)}\label{sec:q-1-a-iii}
 \subsection{Part (b.i)}\label{sec:q-1-b-i}
 \subsection{Part (b.ii)}\label{sec:q-1-b-ii}

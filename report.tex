@@ -7,6 +7,7 @@
 \usepackage{amsthm}
 \usepackage{enumerate}
 \usepackage{tikz}
+\usepackage{wasysym}
 
 \usetikzlibrary{cd}
 
@@ -19,10 +20,21 @@
 
 \newcommand{\Def}{\textbf{def}}
 \newcommand{\Assoc}{\textbf{assoc}}
+\newcommand{\Hyp}{\textbf{hyp}}
+\newcommand{\Ass}{\textbf{assume}}
+\newcommand{\Intro}{\textbf{intro}}
+\newcommand{\Let}{\textbf{let}}
+\newcommand{\Epic}{\textbf{epic}}
+\newcommand{\Monic}{\textbf{monic}}
 \newcommand{\compose}{\circ}
 \newcommand{\cat}[1]{\mathcal{#1}}
 \newcommand{\opcat}[1]{\mathcal{#1}^{\text{op}}}
 \renewcommand{\hom}[3]{\cat{#1}(#2, #3)}
+
+\newcommand{\phs}{\phantom{$=$}}
+\newcommand{\iffs}{$\Leftrightarrow$}
+\newcommand{\imps}{$\Rightarrow$}
+\newcommand{\eqs}{$=$}
 
 \def\mathnote#1{%
   \tag*{\rlap{\hspace\marginparsep\smash{\parbox[t]{\marginparwidth}{%
