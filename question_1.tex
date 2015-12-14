@@ -433,7 +433,7 @@ Our intended result then follows from the previous lemma, and a general result f
         \marginnote{\imps-\Intro-$\star$}
       \item[\phantom{\imps}]
         $(\forall x\in X\ldotp~Q(x))\implies(\forall x\in X\ldotp~P(x))$
-        \marginnote{follows from a similar argument}
+        \marginnote{follows from a symmetric argument}
       \item[\iffs]
         $(\forall x\in X\ldotp~P(x))\iff(\forall x\in X\ldotp~Q(x))$
         \qedhere
@@ -454,7 +454,7 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
   \caption{Epic preserving object, $E$.}\label{fig:epic-preserving}
 \end{marginfigure}
 
-\begin{prop}
+\begin{prop}\label{prop:epic-preserving}
   $E$ preserves epics $\iff$ for every epic $e : B \epic C$, and every morphism $f : E \to C$, there exists $h : E \to B$ such that Figure~\ref{fig:epic-preserving} commutes.
 
   \begin{proof}
@@ -481,6 +481,64 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
 \end{prop}
 
 \subsection{Part (b.ii)}\label{sec:q-1-b-ii}
+
+\begin{prop}
+  If $E$ preserves epics then any retract $F$ of $E$ also preserves epics.
+
+  \begin{proof}
+    Suppose $E\in\cat{C}$ preserves epics$.^{\text~(1)}$
+
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]
+            \Let~$F \in \cat{C}$, $r : E \leftrightarrows F : s$ be a retract of $E^{\text~(2)}$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+              \item[\phs]
+                \Let~$e : B \epic C^{\text~(3)}$
+                \marginnote{\Hyp}
+
+              \item[\phs]
+                \Let~$f : F \to C$
+                \marginnote{\Hyp}
+
+              \item[\imps]
+                The following diagram commutes
+                \marginnote[2em]{The top half of this diagram commutes because of assumptions (1) and (3) above, whilst the bottom half commutes because of assumption (2).}
+                \begin{center}
+                  \begin{tikzcd}[sep=large]
+                    && B \arrow[d, two heads, "e"]
+                    \\ E \arrow[r, "r"'] \arrow[urr, dashed, "h"]
+                    &  F \arrow[r, "f"']
+                    &  C
+                    \\ F \arrow[u, "s"] \arrow[ur, "\id_F"']
+                  \end{tikzcd}
+                \end{center}
+
+              \item[\imps] $f\compose\id_F = e\compose h\compose s$
+                \marginnote{\textbf diagram chase}
+
+              \item[\imps] $f = e\compose h\compose s$
+                \marginnote{\Def-$\id$}
+
+              \item[\imps] $\exists h^\prime : F\to B\ldotp~f = e\compose h^\prime$
+                \marginnote{$\exists$-\Intro}
+            \end{itemize}
+            \item[\imps]
+              $\forall e : B \epic C\ldotp~\forall f : F \to C\ldotp~\exists h^\prime : F\to B\ldotp~f = e\compose h^\prime$
+              \marginnote{$\forall$-\Intro-$\dagger$}
+
+            \item[\iffs] $F$ preserves epics
+              \marginnote{\Thm-\ref{prop:epic-preserving}}
+              \qedhere
+        \end{itemize}
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (b.iii)}\label{sec:q-1-b-iii}
 \subsection{Part (b.iv)}\label{sec:q-1-b-iv}
 \subsection{Part (b.v)}\label{sec:q-1-b-v}
