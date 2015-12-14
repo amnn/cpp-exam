@@ -4,17 +4,52 @@
 \author{Candidate No. 683444}
 
 \usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+\usetikzlibrary{cd}
+
+%%% Title Formatting
 
 \titleformat*{\section}{\normalfont\Large\scshape}
 \titleformat*{\subsection}{\normalfont\large\scshape}
 
+%%% Custom Commands
+
+\newcommand{\Def}{\textbf{def}}
+\newcommand{\Assoc}{\textbf{assoc}}
 \newcommand{\compose}{\circ}
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\opcat}[1]{\mathcal{#1}^{\text{op}}}
+\renewcommand{\hom}[3]{\cat{#1}(#2, #3)}
 
 \def\mathnote#1{%
   \tag*{\rlap{\hspace\marginparsep\smash{\parbox[t]{\marginparwidth}{%
   \footnotesize#1}}}}
 }
 
+\DeclareMathOperator{\id}{id}
+
+%%% Theorem styles
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{section}
+
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}
+\numberwithin{prop}{section}
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{section}
+
+%%% Initialise Counters
+
+\setcounter{section}{1}
+
+%%% Content
 \begin{document}
 \maketitle
 

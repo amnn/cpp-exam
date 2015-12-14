@@ -1,19 +1,79 @@
 \subsection{Part (a.i)}\label{sec:q-1-a-i}
-\newthought{The Covariant Hom-functor}
-\begin{align*}
-\text{define }\mathcal{C}(A,-) & : \mathcal{C} \rightarrow \textbf{Set}
-\mathnote{Let $\mathcal{C}$ be a category, $A\in\mathcal{C}$}\\
-\mathcal{C}(A,-) & : B \mapsto \mathcal{C}(A, B)\\
-\mathcal{C}(A,-) & : (f : B \rightarrow C) \mapsto (g \mapsto f \compose g)
-\end{align*}
+\begin{definition}[Hom-set]\label{def:hom-set}
+  The set of all morphisms from object $A$ to object $B$ in category $\cat{C}$, denoted $\hom{C}{A}{B}$.
+\end{definition}
 
-\newthought{The Contravariant Hom-functor}
-\begin{align*}
-\text{define }\mathcal{C}(-,A) & : \mathcal{C}^{\text{op}} \rightarrow \textbf{Set}
-\mathnote{Let $\mathcal{C}$ be a category, $A\in\mathcal{C}$}\\
-\mathcal{C}(-,A) & : B \mapsto \mathcal{C}(B, A)\\
-\mathcal{C}(-,A) & : (f : B \rightarrow C) \mapsto (g \mapsto g \compose f)
-\end{align*}
+\begin{definition}[Covariant Hom-functor]\label{def:co-hom}
+  $\hom{C}{A}{-} : \cat{C} \to \textbf{Set}$
+  \marginnote{Let $\cat{C}$ be a category, $A\in\cat{C}$}
+  \begin{align*}
+    \hom{C}{A}{-} & : B \mapsto \hom{C}{A}{B}\\
+    \hom{C}{A}{-} & : (f : B \to C) \mapsto (g \mapsto f \compose g)
+  \end{align*}
+\end{definition}
+
+\begin{marginfigure}[10em]
+  \begin{tikzcd}[sep=large]
+    & \hom{C}{A}{D} \\
+      \hom{C}{A}{B} \arrow[ru,"\hom{C}{A}{g\compose h}"]
+                    \arrow[r, "\hom{C}{A}{h}"']
+    & \hom{C}{A}{C} \arrow[u, "\hom{C}{A}{g}"']
+  \end{tikzcd}
+  \caption{Preservation of composition in the image of $\hom{C}{A}{-}$.}\label{fig:co-functor}
+\end{marginfigure}
+
+\begin{prop}
+  $\hom{C}{A}{-}$ is a functor.
+
+  It suffices to prove that:
+  \begin{enumerate}[(i)]
+    \item $\hom{C}{A}{-}$ preserves identity morphisms. That is to say, for any $B\in\cat{C}$ it follows that $\hom{C}{A}{\id_B} = \id_{\hom{C}{A}{B}}$
+    \item $\hom{C}{A}{-}$ preserves composition. That is to say, for any $B,C,D\in\cat{C}$ with morphisms $g : C \to D$
+      and $h : B \to C$, Figure~\ref{fig:co-functor} commutes.
+  \end{enumerate}
+  \begin{proof}[Proof (i)]
+    Let $B\in\cat{C}$, $g : A \to B$
+    \begin{align*}
+      \hom{C}{A}{\id_B}(g) & = \id_B\compose g
+      \mathnote{\Def-\ref{def:co-hom}}\\
+      & = g
+      \mathnote{\Def-$\id$}\\
+      & = \id_{\hom{C}{A}{B}}(g)
+      \mathnote{\Def-$\id$}\\
+      \iff \hom{C}{A}{B} & = \id_{\hom{C}{A}{B}}
+      \tag*{\qedhere}
+    \end{align*}
+  \end{proof}
+
+  \begin{proof}[Proof (ii)]
+    Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$ and ${i : A\to B}$.
+    \begin{align*}
+      (\hom{C}{A}{g}\compose\hom{C}{A}{h})(i)
+      & = \hom{C}{A}{g}(\hom{C}{A}{h}(i))
+      \mathnote{\Def-$\compose$}
+      \\ & = \hom{C}{A}{h}(h\compose i)
+      \mathnote{\Def-\ref{def:co-hom}}
+      \\ & = g\compose (h\compose i)
+      \mathnote{\Def-\ref{def:co-hom}}
+      \\ & = (g\compose h)\compose i
+      \mathnote{\Assoc-$\compose$}
+      \\ & = \hom{C}{A}{g\compose h}(i)
+      \mathnote{\Def-\ref{def:co-hom}}
+      \\ \iff \hom{C}{A}{g}\compose\hom{C}{A}{h}
+      & = \hom{C}{A}{g\compose h}
+      \tag*{\qedhere}
+    \end{align*}
+  \end{proof}
+\end{prop}
+
+\begin{definition}[Contravariant Hom-functor]\label{def:contra-hom}
+  $\hom{C}{-}{A} : \opcat{C} \to \textbf{Set}$
+  \marginnote{Let $\cat{C}$ be a category, $A\in\cat{C}$}
+  \begin{align*}
+    \hom{C}{-}{A} & : B \mapsto \hom{C}{B}{A}\\
+    \hom{C}{-}{A} & : (f : B \to C) \mapsto (g \mapsto g \compose f)
+  \end{align*}
+\end{definition}
 
 \subsection{Part (a.ii)}\label{sec:q-1-a-ii}
 \subsection{Part (a.iii)}\label{sec:q-1-a-iii}
