@@ -56,7 +56,7 @@ Then we define the action of the functor on objects and morphisms. The covariant
       (\hom{C}{A}{g}\compose\hom{C}{A}{h})(i)
       & = \hom{C}{A}{g}(\hom{C}{A}{h}(i))
       \mathnote{\Def-$\compose$}
-      \\ & = \hom{C}{A}{h}(h\compose i)
+      \\ & = \hom{C}{A}{g}(h\compose i)
       \mathnote{\Def-\ref{def:co-hom}}
       \\ & = g\compose (h\compose i)
       \mathnote{\Def-\ref{def:co-hom}}
@@ -81,6 +81,60 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
     \hom{C}{-}{A} & : (f : B \to C) \mapsto (g \mapsto g \compose f)
   \end{align*}
 \end{definition}
+
+\begin{marginfigure}[6em]
+  \begin{tikzcd}[sep=large]
+    & \hom{C}{D}{A} \\
+      \hom{C}{B}{A} \arrow[ru,"\hom{C}{h\compose g}{A}"]
+                    \arrow[r, "\hom{C}{h}{A}"']
+    & \hom{C}{C}{A} \arrow[u, "\hom{C}{g}{A}"']
+  \end{tikzcd}
+  \caption{Preservation of composition in the image of $\hom{C}{-}{A}$. Note that the composition $h\compose g$ has been reversed by the definition of composition in the opposite category.}\label{fig:contra-functor}
+\end{marginfigure}
+
+\begin{prop}
+  $\hom{C}{-}{A}$ is a functor.
+
+  It suffices to prove that:
+  \begin{enumerate}[(i)]
+    \item $\hom{C}{-}{A}$ preserves identity morphisms. That is to say, for any $B\in\cat{C}$ it follows that $\hom{C}{\id_B}{A} = \id_{\hom{C}{B}{A}}$
+    \item $\hom{C}{-}{A}$ preserves composition. That is to say, for any $B,C,D\in\cat{C}$ with morphisms $g : C \to D$
+      and $h : B \to C$, Figure~\ref{fig:contra-functor} commutes.
+  \end{enumerate}
+  \begin{proof}[Proof (i)]
+    Let $B\in\cat{C}$, $g : B \to A$
+    \begin{align*}
+      \hom{C}{\id_B}{A}(g) & = g\compose\id_B
+      \mathnote{\Def-\ref{def:contra-hom}}\\
+      & = g
+      \mathnote{\Def-$\id$}\\
+      & = \id_{\hom{C}{B}{A}}(g)
+      \mathnote{\Def-$\id$}\\
+      \iff \hom{C}{\id_B}{A} & = \id_{\hom{C}{B}{A}}
+      \tag*{\qedhere}
+    \end{align*}
+  \end{proof}
+
+  \begin{proof}[Proof (ii)]
+    Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$ and ${i : B\to A}$.
+    \begin{align*}
+      (\hom{C}{g}{A}\compose\hom{C}{h}{A})(i)
+      & = \hom{C}{g}{A}(\hom{C}{h}{A}(i))
+      \mathnote{\Def-$\compose$}
+      \\ & = \hom{C}{g}{A}(i\compose h)
+      \mathnote{\Def-\ref{def:contra-hom}}
+      \\ & = (i\compose h)\compose g
+      \mathnote{\Def-\ref{def:contra-hom}}
+      \\ & = i\compose (h\compose g)
+      \mathnote{\Assoc-$\compose$}
+      \\ & = \hom{C}{h\compose g}{A}(i)
+      \mathnote{\Def-\ref{def:contra-hom}}
+      \\ \iff \hom{C}{g}{A}\compose\hom{C}{h}{A}
+      & = \hom{C}{h\compose g}{A}
+      \tag*{\qedhere}
+    \end{align*}
+  \end{proof}
+\end{prop}
 
 \subsection{Part (a.ii)}\label{sec:q-1-a-ii}
 \subsection{Part (a.iii)}\label{sec:q-1-a-iii}
