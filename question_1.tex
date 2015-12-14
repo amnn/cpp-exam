@@ -285,6 +285,77 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
 \end{prop}
 
 \subsection{Part (a.iii)}\label{sec:q-1-a-iii}
+By dualising the result in part (a.iii), we get a characterisation of monics as follows: $f : B\to C$ in $\cat{C}$ is monic if and only if $\hom{C}{A}{f}$ is injective for any $A\in\cat{C}$. The difference being that now the characterisation uses the \textit{covariant} Hom-functor where earlier, when describing epics, it was in terms of the \textit{contravariant} Hom-functor.
+
+\begin{prop}
+  $f$ monic $\iff$ $\hom{C}{A}{f}$ injective for any $A\in\cat{C}$
+  \marginnote{Let $f : B \to C$ be a morphism in category $\cat{C}$.}
+
+  \begin{proof}[Proof $\Rightarrow$]
+    Let $A\in\cat{C}$.
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs] \Let~$g, h : A\to B$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+            \item[\phs] \Ass~$\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h)$
+              \marginnote{\Hyp}
+
+            \item[\iffs] $f\compose g = f\compose h$
+              \marginnote{\Def-\ref{def:co-hom}}
+
+            \item[\imps] $g = h$
+              \marginnote{\Hyp-($f$~\Monic)}
+            \end{itemize}
+
+          \item[\imps] $\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h) \implies g = h$
+            \marginnote{\imps-\Intro-$\dagger$}
+        \end{itemize}
+      \item[\imps] $\forall g, h : A \to B\ldotp~\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h) \implies g = h$
+        \marginnote{$\forall$-\Intro-$\star$}
+
+      \item[\iffs] $\hom{C}{A}{f}$ injective
+        \marginnote{\Def-injective}
+        \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Proof $\Leftarrow$]
+    Let $A\in\cat{C}$.
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs] \Let~$g, h : A\to B$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+            \item[\phs] \Ass~$f\compose g = f\compose h$
+              \marginnote{\Hyp}
+
+            \item[\iffs] $\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h)$
+              \marginnote{\Def-\ref{def:co-hom}}
+
+            \item[\imps] $g = h$
+              \marginnote{\Hyp-($\hom{C}{A}{f}$~\textbf{injective})}
+            \end{itemize}
+
+          \item[\imps] $f\compose g = f\compose h \implies g = h$
+            \marginnote{\imps-\Intro-$\dagger$}
+        \end{itemize}
+      \item[\imps] $\forall g, h : A \to B\ldotp~f\compose g = f\compose h \implies g = h$
+        \marginnote{$\forall$-\Intro-$\star$}
+
+      \item[\iffs] $f$ monic
+        \marginnote{\Def-monic}
+        \qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (b.i)}\label{sec:q-1-b-i}
 \subsection{Part (b.ii)}\label{sec:q-1-b-ii}
 \subsection{Part (b.iii)}\label{sec:q-1-b-iii}
