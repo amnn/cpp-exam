@@ -285,7 +285,7 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
 \end{prop}
 
 \subsection{Part (a.iii)}\label{sec:q-1-a-iii}
-By dualising the result in part (a.iii), we get a characterisation of monics as follows: $f : B\to C$ in $\cat{C}$ is monic if and only if $\hom{C}{A}{f}$ is injective for any $A\in\cat{C}$. The difference being that now the characterisation uses the \textit{covariant} Hom-functor where earlier, when describing epics, it was in terms of the \textit{contravariant} Hom-functor.
+By dualising the result in part (a.ii), we get a characterisation of monics as follows: $f : B\to C$ in $\cat{C}$ is monic if and only if $\hom{C}{A}{f}$ is injective for any $A\in\cat{C}$. The difference being that now the characterisation uses the \textit{covariant} Hom-functor where earlier, when describing epics, it was in terms of the \textit{contravariant} Hom-functor.
 
 \begin{prop}
   $f$ monic $\iff$ $\hom{C}{A}{f}$ injective for any $A\in\cat{C}$
@@ -357,6 +357,129 @@ By dualising the result in part (a.iii), we get a characterisation of monics as 
 \end{prop}
 
 \subsection{Part (b.i)}\label{sec:q-1-b-i}
+
+In order to the prove the main result in this question, it is useful to construct a lemma:
+
+\begin{lemma}\label{lemma:epic-preserve-1}
+  For any epic $e : B \epic C$:
+  \marginnote{Let $\cat{C}$ be a category and $E\in\cat{C}$.}
+
+  $(\forall f : E\to C\ldotp\exists h : E\to B\ldotp~e\compose h = f)$
+  $\iff$ $\hom{C}{E}{e}$ is epic.
+
+  \begin{proof}
+    Let epic $e : B \epic C$ in $\cat{C}$.
+    \begin{itemize}
+      \item[\phs] $\forall f : E\to C\ldotp\exists h : E\to B\ldotp~e\compose h = f$
+        \marginnote{\Hyp}
+      \item[\iffs]
+
+    $\forall f \in\hom{C}{E}{C}\ldotp\exists h\in\hom{C}{E}{B}\ldotp~\hom{C}{E}{e}(h) = f$
+        \marginnote{\Def~\ref{def:hom-set}}
+
+      \item[\iffs]
+        $\hom{C}{E}{e}$ surjective.
+        \marginnote{\Def-surjective}
+
+      \item[\iffs]
+        $\hom{C}{E}{e}$ epic
+        \qedhere
+        \marginnote{\textbf{sheet} 1, \textbf{q}1}
+
+    \end{itemize}
+  \end{proof}
+\end{lemma}
+
+Our intended result then follows from the previous lemma, and a general result from first-order logic:
+
+\begin{lemma}\label{lemma:epic-preserve-2}
+  If, given sets $X, P, Q$, for any $x\in X$ we have that ${P(x) \iff Q(x)}$ then $\forall x\in X\ldotp~P(x)$ iff $\forall x\in X\ldotp~Q(x)$.
+
+  \begin{proof}
+    Let $X, P, Q$ be sets
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]
+            \Ass~$\forall x\in X\ldotp~P(x)$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+              \item[\phs]
+                \Let~$x\in X$
+                \marginnote{\Hyp}
+
+              \item[\phs]
+                $P(x)$
+                \marginnote{$\forall$-\Elim-$\star$}
+
+              \item[\phs]
+                $P(x)\iff Q(x)$
+                \marginnote{$\forall$-\Elim-($\forall x\in X\ldotp~P(x)\iff Q(x)$)}
+
+              \item[\imps]
+                $Q(x)$
+                \marginnote{\iffs-\Elim}
+            \end{itemize}
+
+            \item[\imps]
+              $\forall x\in X\ldotp~Q(x)$
+              \marginnote{$\forall$-\Intro-$\dagger$}
+        \end{itemize}
+
+      \item[\imps]
+        $(\forall x\in X\ldotp~P(x))\implies(\forall x\in X\ldotp~Q(x))$
+        \marginnote{\imps-\Intro-$\star$}
+      \item[\phantom{\imps}]
+        $(\forall x\in X\ldotp~Q(x))\implies(\forall x\in X\ldotp~P(x))$
+        \marginnote{follows from a similar argument}
+      \item[\iffs]
+        $(\forall x\in X\ldotp~P(x))\iff(\forall x\in X\ldotp~Q(x))$
+        \qedhere
+        \marginnote{\iffs-\Intro}
+    \end{itemize}
+  \end{proof}
+\end{lemma}
+
+All that remains to be done, is to join the two lemmas together (the conclusion of Lemma~\ref{lemma:epic-preserve-1} satisfies the antecedent of Lemma~\ref{lemma:epic-preserve-2}, for a given $X$, $P$, and $Q$):
+
+\begin{marginfigure}
+  \begin{tikzcd}[sep=large]
+    & B \arrow[d, two heads, "e"]\\
+      E \arrow[ur, dashed, "h"]
+        \arrow[r, "f"']
+    & C
+  \end{tikzcd}
+  \caption{Epic preserving object, $E$.}\label{fig:epic-preserving}
+\end{marginfigure}
+
+\begin{prop}
+  $E$ preserves epics $\iff$ for every epic $e : B \epic C$, and every morphism $f : E \to C$, there exists $h : E \to B$ such that Figure~\ref{fig:epic-preserving} commutes.
+
+  \begin{proof}
+    Let $E\in\cat{C}$.
+    \begin{itemize}
+      \item[\phs]
+        $E$ preserves epics
+        \marginnote{\Hyp}
+
+      \item[\iffs]
+        $\hom{C}{E}{-}$ preserves epics
+        \marginnote{\Def-(preserves epics)}
+
+      \item[\iffs]
+        $\forall e : B \epic C\ldotp$ $\hom{C}{E}{e}$ is epic.
+        \marginnote{\Def-(preserves epics)}
+
+      \item[\iffs]
+        $\forall e : B\epic C\ldotp~\forall f : E \to C\ldotp\exists h : E \to B\ldotp e\compose h = f$
+        \qedhere
+        \marginnote{\Lemma-\ref{lemma:epic-preserve-2}-(\Lemma-\ref{lemma:epic-preserve-1})}
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (b.ii)}\label{sec:q-1-b-ii}
 \subsection{Part (b.iii)}\label{sec:q-1-b-iii}
 \subsection{Part (b.iv)}\label{sec:q-1-b-iv}
