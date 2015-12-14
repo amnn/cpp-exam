@@ -1,10 +1,15 @@
 \subsection{Part (a.i)}\label{sec:q-1-a-i}
+
+First, we must define a notation for the objects in $\mathbf{Set}$ that our functors will map objects to. The image of both functors is restricted to sets of this form.
+
 \begin{definition}[Hom-set]\label{def:hom-set}
-  The set of all morphisms from object $A$ to object $B$ in category $\cat{C}$, denoted $\hom{C}{A}{B}$.
+  $\hom{C}{A}{B}\in\mathbf{Set}$. The set of all morphisms from object $A$ to object $B$ in category $\cat{C}$.
 \end{definition}
 
+Then we define the action of the functor on objects and morphisms. The covariant Hom-functor maps objects to the set of morphisms \textit{to} that object from $A$, and maps morphisms to functions between Hom-sets (given in the definition).
+
 \begin{definition}[Covariant Hom-functor]\label{def:co-hom}
-  $\hom{C}{A}{-} : \cat{C} \to \textbf{Set}$
+  $\hom{C}{A}{-} : \cat{C} \to \mathbf{Set}$
   \marginnote{Let $\cat{C}$ be a category, $A\in\cat{C}$}
   \begin{align*}
     \hom{C}{A}{-} & : B \mapsto \hom{C}{A}{B}\\
@@ -66,8 +71,10 @@
   \end{proof}
 \end{prop}
 
+Similarly the contravariant Hom-functor maps objects to the set of morphisms \textit{from} that object to A, and maps morphisms to functions between Hom-sets in a corresponding (but not equivalent) way (see below).
+
 \begin{definition}[Contravariant Hom-functor]\label{def:contra-hom}
-  $\hom{C}{-}{A} : \opcat{C} \to \textbf{Set}$
+  $\hom{C}{-}{A} : \opcat{C} \to \mathbf{Set}$
   \marginnote{Let $\cat{C}$ be a category, $A\in\cat{C}$}
   \begin{align*}
     \hom{C}{-}{A} & : B \mapsto \hom{C}{B}{A}\\
