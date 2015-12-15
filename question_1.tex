@@ -541,7 +541,7 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
 
 \subsection{Part (b.iii)}\label{sec:q-1-b-iii}
 
-\begin{prop}
+\begin{prop}\label{prop:set-epic-preserving}
   For any $X\in\mathbf{Set}$, $X$ is epic-preserving.
 
   \begin{proof}
@@ -623,7 +623,7 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
 
 Our proof of this result hinges on two facts, which we will present as lemmas. Firstly, that any epic morphism in $\mathbf{Pos}$ is also epic (that is to say, surjective) in $\mathbf{Set}$. And secondly, if a poset is discrete, any map from it is necessarily monotone.
 
-\begin{lemma}
+\begin{lemma}\label{lemma:epic-poset-set}
   If $e : (P, \preceq_P) \epic (Q, \preceq_Q)$ in $\mathbf{Pos}$ then $e : P \epic Q$ in $\mathbf{Set}$.
 
   \begin{proof}[Proof by Contradiction]
@@ -638,7 +638,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
 
       \addtolength{\itemsep}{.5\baselineskip}
       \item[\phs]
-        Define $g, h : (Q, \preceq_Q) \to (\mathbb{B}, \preceq_{\mathbb{B}})$\\
+        Define $g,~h : (Q, \preceq_Q) \to (\mathbb{B}, \preceq_{\mathbb{B}})$\\
         where $\mathbb{B}\triangleq\{0 \preceq_{\mathbb{B}} 1\}$
 
         \begin{align*}
@@ -688,6 +688,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
       \item[\phs] $h$ monotone
         \marginnote{similar argument to $\star$.}
 
+      \addtolength{\itemsep}{.5\baselineskip}
       \item[\phs] Given that we now know $g$ and $h$ are morphisms in $\mathbf{Pos}$, we can use the \Epic-ness of $e$ to derive a contradiction of our original assumption:
 
       \item[$\dagger$]
@@ -709,6 +710,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
             $g = h$
             \marginnote{$e$ \Epic}
         \end{itemize}
+      \addtolength{\itemsep}{-.5\baselineskip}
 
       \item[$\ddagger$]
         \begin{itemize}
@@ -728,7 +730,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
   \end{proof}
 \end{lemma}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:discrete-poset-monotone}
   For any $(S, \preceq_S)\in\mathbf{Pos}$ and any discrete $(P, \preceq_P)\in\mathbf{Pos}$, every function $g : P \to S$ is trivially monotone.
 
   \begin{proof}
@@ -747,6 +749,65 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
   \end{proof}
 \end{lemma}
 
+\begin{prop}
+  Every discrete poset is epic-preserving in $\mathbf{Pos}$.
+
+  \begin{proof}
+    Let $(P, \preceq_P)$ be a \textit{discrete} poset.
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phantom{\imps}]\Let~$e : (Q, \preceq_Q)\epic(R,\preceq_R)$
+            \marginnote{\Hyp}
+
+          \item[\imps] $e$ epic in $\mathbf{Set}$
+            \marginnote{\Lemma-\ref{lemma:epic-poset-set}}
+
+          \item[\phantom{\imps}] $P$ epic-preserving in $\mathbf{Set}$
+            \marginnote{\Thm-\ref{prop:set-epic-preserving}}
+
+          \item[\imps]
+            $\forall f : P \to R\ldotp~\exists h : P \to Q\ldotp~e\compose h = f$
+            in $\mathbf{Set}^{\text~(1)}$
+            \marginnote{\Def-epic-preserving}
+
+          \item[$\dagger$]
+            \begin{itemize}
+              \item[\phantom{\imps}]\Let~$f : (P,\preceq_P)\to (R,\preceq_R)$
+                \marginnote{\Hyp}
+
+              \item[\imps]
+                $e\compose h = f$ in $\mathbf{Set}$
+                \marginnote{$\exists$-\Elim-($\forall$-\Elim-(1));~$h : P\to Q$}
+
+              \item[\phantom{\imps}]
+                $h$ monotone
+                \marginnote{\Lemma-\ref{lemma:discrete-poset-monotone}-($h : P\to Q$)}
+
+              \item[\imps]
+                $e\compose h = f$ in $\mathbf{Pos}$
+
+              \item[\imps]
+                $\exists h : (P,\preceq_P)\to(Q,\preceq_Q)\ldotp~e\compose h = f$
+                \marginnote{$\exists$-\Intro}
+            \end{itemize}
+        \end{itemize}
+        \item[\imps]
+          \marginnote[3em]{$\forall$-\Intro-($\star$,~$\forall$-\Intro-$\dagger$)}
+          \begin{flalign*}
+            & \forall e : (Q,\preceq_Q)\epic(R,\preceq_R)\ldotp &&\\
+            & \forall f : (P,\preceq_P)\to(R,\preceq_R)\ldotp &&\\
+            & \exists h : (P,\preceq_P)\to(Q,\preceq_Q)\ldotp~e\compose h = f &&
+          \end{flalign*}
+
+        \item[\iffs]
+          $(P,\preceq_P)$ epic-preserving.
+          \qedhere
+          \marginnote{\Def-epic-preserving}
+    \end{itemize}
+  \end{proof}
+
+\end{prop}
 \subsection{Part (b.v)}\label{sec:q-1-b-v}
 \subsection{Part (b.vi)}\label{sec:q-1-b-vi}
 \subsection{Part (b.vii)}\label{sec:q-1-b-vii}
