@@ -577,7 +577,7 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
 
             \addtolength{\itemsep}{+1\baselineskip}
             \item[\phs]
-              \Let~$h : X \to B;~h(x)\triangleq b_{f(x)}$
+              \Let~$h : X \to B;~h : x \mapsto b_{f(x)}$
             \addtolength{\itemsep}{-1\baselineskip}
 
             \item[$\dagger$]
@@ -620,6 +620,129 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
 \end{prop}
 
 \subsection{Part (b.iv)}\label{sec:q-1-b-iv}
+
+Our proof of this result hinges on two facts, which we will present as lemmas. Firstly, that any epic morphism in $\mathbf{Pos}$ is also epic (that is to say, surjective) in $\mathbf{Set}$. And secondly, if a poset is discrete, any map from it is necessarily monotone.
+
+\begin{lemma}
+  If $e : (P, \preceq_P) \epic (Q, \preceq_Q)$ in $\mathbf{Pos}$ then $e : P \epic Q$ in $\mathbf{Set}$.
+
+  \begin{proof}[Proof by Contradiction]
+    Suppose for a contradiction that $e$ is not epic in $\mathbf{Set}$.
+
+    \begin{itemize}
+      \item[\iffs] $e$ is not surjective
+        \marginnote{\textbf{sheet} 1 \textbf{q}1}
+
+      \item[\imps] There exists some $\hat{q}\in Q\setminus e(P)$.
+        \marginnote{\Def-$\neg$surjective}
+
+      \addtolength{\itemsep}{.5\baselineskip}
+      \item[\phs]
+        Define $g, h : (Q, \preceq_Q) \to (\mathbb{B}, \preceq_{\mathbb{B}})$\\
+        where $\mathbb{B}\triangleq\{0 \preceq_{\mathbb{B}} 1\}$
+
+        \begin{align*}
+          g & : q \mapsto
+          \begin{cases}
+            1 & \text{if }\hat{q}\preceq_Q q\\
+            0 & \text{otherwise}
+          \end{cases}\\
+          h & : q \mapsto
+          \begin{cases}
+            1 & \text{if }\hat{q}\preceq_Q q\wedge\hat{q}\neq q\\
+            0 & \text{otherwise}
+          \end{cases}
+        \end{align*}
+
+      \addtolength{\itemsep}{-.5\baselineskip}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]\Ass~$g$ not monotone
+            \marginnote{\Hyp}
+
+          \item[\imps]
+            $\exists a, b\in Q\ldotp~a\preceq_Qb\wedge g(a)\npreceq_{\mathbb{B}}g(b)$
+            \marginnote{\Def-$\neg$monotone}
+
+          \item[\imps]
+            $a\preceq_Qb\wedge g(a)\succeq_{\mathbb{B}}g(b)$
+            \marginnote{$\preceq_{\mathbb{B}}$~\textbf{total}}
+
+          \item[\imps]
+            $a\preceq_Qb\wedge g(a) = 1\wedge g(b) = 0$
+            \marginnote{\Def-$\mathbb{B}$}
+
+          \item[\imps]
+            $a\preceq_Qb\wedge \hat{q}\preceq_Qa\wedge \hat{q}\npreceq_Qb$
+            \marginnote{\Def-$g$}
+          \item[\imps]
+            $\hat{q}\preceq_Qb\wedge \hat{q}\npreceq_Qb$
+            \marginnote{\Trans-$\preceq_Q$}
+        \end{itemize}
+
+      \item[\contras]$g$ monotone
+        \marginnote{\Contra-$\star$}
+
+      \item[\phs] $h$ monotone
+        \marginnote{similar argument to $\star$.}
+
+      \item[$\dagger$]
+        \begin{itemize}
+          \item[\phantom{\imps}]
+            $\forall q\in Q\setminus\{\hat{q}\}\ldotp~g(q) = h(q)$
+            \marginnote{\Def-$g$;~\Def-$h$}
+
+          \item[\imps]
+            $\forall p\in P\ldotp~g(e(p)) = h(e(q))$
+            \marginnote{$e(P)\subseteq Q\setminus\{\hat{q}\}$}
+
+
+          \item[\iffs]
+            $g\compose e = h\compose e$
+            \marginnote{\Def-$=$}
+
+          \item[\imps]
+            $g = h$
+            \marginnote{$e$ \Epic}
+        \end{itemize}
+
+      \item[$\ddagger$]
+        \begin{itemize}
+          \item[\phs]
+            $g(\hat{q})\neq h(\hat{q})$
+            \marginnote{\Def-$g$;~\Def-$h$}
+
+          \item[\imps]
+            $g\neq h$
+            \marginnote{\Def-$\neq$}
+        \end{itemize}
+
+
+        \item[\contras] $e$ epic in $\mathbf{Set}$
+          \qedhere
+          \marginnote{\Contra-$\dagger$,~$\ddagger$}
+    \end{itemize}
+  \end{proof}
+\end{lemma}
+
+\begin{lemma}
+  For any $(S, \preceq_S)\in\mathbf{Pos}$ and any discrete $(P, \preceq_P)\in\mathbf{Pos}$, every function $g : P \to S$ is trivially monotone.
+
+  \begin{proof}
+    Let $x, y\in P$, such that $x\preceq_Py$
+    \begin{itemize}
+      \item[\imps] $x = y$
+        \marginnote {$P$ \textbf{discrete}}
+
+      \item[\imps] $g(x) = g(y)$
+
+      \item[\imps] $g(x) \preceq_S g(y)$
+        \qedhere
+        \marginnote{\Refl-$S$}
+    \end{itemize}
+
+  \end{proof}
+\end{lemma}
 \subsection{Part (b.v)}\label{sec:q-1-b-v}
 \subsection{Part (b.vi)}\label{sec:q-1-b-vi}
 \subsection{Part (b.vii)}\label{sec:q-1-b-vii}
