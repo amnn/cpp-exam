@@ -654,6 +654,8 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
           \end{cases}
         \end{align*}
 
+        We now show that both $g$ and $h$ are monotone, by a proof by contradiction:
+
       \addtolength{\itemsep}{-.5\baselineskip}
       \item[$\star$]
         \begin{itemize}
@@ -680,11 +682,13 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
             \marginnote{\Trans-$\preceq_Q$}
         \end{itemize}
 
-      \item[\contras]$g$ monotone
+      \item[\contras] $g$ monotone
         \marginnote{\Contra-$\star$}
 
       \item[\phs] $h$ monotone
         \marginnote{similar argument to $\star$.}
+
+      \item[\phs] Given that we now know $g$ and $h$ are morphisms in $\mathbf{Pos}$, we can use the \Epic-ness of $e$ to derive a contradiction of our original assumption:
 
       \item[$\dagger$]
         \begin{itemize}
