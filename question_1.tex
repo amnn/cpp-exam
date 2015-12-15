@@ -540,6 +540,85 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
 \end{prop}
 
 \subsection{Part (b.iii)}\label{sec:q-1-b-iii}
+
+\begin{prop}
+  For any $X\in\mathbf{Set}$, $X$ is epic-preserving.
+
+  \begin{proof}
+    Let $X\in\mathbf{Set}$.
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]\Let~$e : B\epic C$
+            \marginnote{\Hyp; $B, C\in\mathbf{Set}$}
+
+          \item[\phs]\Let~$f : X\to C$
+            \marginnote{\Hyp}
+
+            \item[\phantom{\iffs}] $e$ epic in $\mathbf{Set}$
+
+            \item[\iffs] $e$ surjective
+              \marginnote{\textbf{sheet} 1 \textbf{q}1}
+
+            \addtolength{\itemsep}{.5\baselineskip}
+            \item[\phantom{\iffs}]
+              Consider the set family $\{B_c\}_{c\in C}$\\
+              where $B_c \triangleq \{b\in B : e(b) = c\}$
+
+            \item[\phantom{\iffs}]
+              $\{B_c\}_{c\in C}$ is a family of non-empty sets
+              \marginnote {$e$ \textbf{surjective}}
+
+            \addtolength{\itemsep}{-.5\baselineskip}
+            \item[\imps]
+              We may construct a set $\{b_c\}_{c\in C}$ such that $\forall c\in C\ldotp~b_c\in B_c$.
+              \marginnote{Axiom of Choice}\\[1\baselineskip]
+              In general $\{B_c\}_{c\in C}$ may be an infinite family. In such cases, there is no terminating procedure by which we may create $\{b_c\}_{c\in C}$, and we have no choice function to witness this set either, so we cannot reliably assert its existence without the Axiom of Choice.
+
+            \addtolength{\itemsep}{+1\baselineskip}
+            \item[\phs]
+              \Let~$h : X \to B;~h(x)\triangleq b_{f(x)}$
+            \addtolength{\itemsep}{-1\baselineskip}
+
+            \item[$\dagger$]
+              \begin{itemize}
+                \item[\phs]\Let~$x\in X$
+                  \marginnote{\Hyp}
+
+                \item[\phs] $(e\compose h)(x)$
+
+                \item[\eqs] $e(b_{f(x)})$
+                  \marginnote{\Def-$h$}
+
+                \item[\eqs] $f(x)$
+                  \marginnote{$b_{f(x)}\in B_{f(x)}$}
+              \end{itemize}
+
+              \item[\imps]
+                $\forall x\in X\ldotp~(e\compose h)(x) = f(x)$
+                \marginnote{$\forall$-\Intro-$\dagger$}
+
+              \item[\iffs]
+                $e\compose h = f$
+                \marginnote{\Def-$=$}
+
+              \item[\imps]
+                $\exists h : X \to B\ldotp~e\compose h = f$
+                \marginnote{$\exists$-\Intro}
+        \end{itemize}
+
+        \item[\imps]
+          $\forall e : B\epic C\ldotp~\forall f : X \to C\ldotp~\exists h : X \to B\ldotp~e\compose h = f$
+          \marginnote{$\forall$-\Intro-$\star$}
+
+        \item[\iffs]
+          $X$ preserves epics
+          \qedhere
+          \marginnote{\Thm-\ref{prop:epic-preserving}}
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (b.iv)}\label{sec:q-1-b-iv}
 \subsection{Part (b.v)}\label{sec:q-1-b-v}
 \subsection{Part (b.vi)}\label{sec:q-1-b-vi}
