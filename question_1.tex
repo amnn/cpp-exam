@@ -894,4 +894,60 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
 \end{prop}
 
 \subsection{Part (b.vi)}\label{sec:q-1-b-vi}
+
+\begin{prop}
+  Every epic-preserving poset is discrete.
+
+  \begin{proof}
+    Let $(P,\preceq_P)\in\mathbf{Pos}$ be epic-preserving.
+    \begin{itemize}
+      \item[\phantom{\imps}]
+        Define $(P, \preceq_{\hat{P}})$ to be a discrete poset.
+
+      \item[\imps]
+        The inclusion map
+        \begin{tikzcd}
+          (P,\preceq_{\hat{P}}) \arrow[r, hook, "i"] & (P, \preceq_P)
+        \end{tikzcd}
+        is epic in $\mathbf{Pos}$
+        \marginnote{$i$ is bijective}
+
+      \item[\imps] The following diagram commutes
+        \marginnote[1em]{$(P,\preceq_P)$-\textbf{epic-preserving}}
+        \begin{center}
+          \begin{tikzcd}[sep=large]
+            &  (P, \preceq_{\hat{P}}) \arrow[d, "i", hook, two heads]
+            \\ (P, \preceq_P) \arrow[ur, "h", dashed]
+                              \arrow[r, "\id_{(P,\preceq_P)}"] & (P, \preceq_P)
+          \end{tikzcd}
+        \end{center}
+
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phantom{\imps}]\Let~$x,y\in P\ldotp~x\preceq_P y\wedge x\neq y$
+            \marginnote{\Hyp}
+
+          \item[\imps] $h(x) \preceq_{\hat{P}} h(y)$
+            \marginnote{\textbf{monotone}-$h$}
+
+          \item[\imps]
+            $h(x) = h(y)$
+            \marginnote{\textbf{discrete}-$(P,\preceq_{\hat{P}})$}
+
+          \item[\imps]
+            $(i\compose h)(x) = (i\compose h)(y)$
+
+          \item[\imps]
+            $x = y$
+            \marginnote{$i\compose h = \id_{(P,\preceq_P)}$}
+        \end{itemize}
+        \item[\contras] Such an $x,y\in P$ cannot exist
+          \marginnote{\Contra-$\star$-(\Ass~$x\neq y$)}
+
+        \item[\imps] $(P, \preceq_P)$ discrete\qedhere
+    \end{itemize}
+  \end{proof}
+
+\end{prop}
+
 \subsection{Part (b.vii)}\label{sec:q-1-b-vii}
