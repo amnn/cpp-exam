@@ -806,8 +806,92 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
           \marginnote{\Def-epic-preserving}
     \end{itemize}
   \end{proof}
-
 \end{prop}
+
 \subsection{Part (b.v)}\label{sec:q-1-b-v}
+
+In order to construct an example of a non-epic-preserving poset it suffices to define:
+
+\begin{enumerate}[(i)]
+  \item $(Q,\preceq_Q)\in\mathbf{Pos}$
+  \item $(R,\preceq_R)\in\mathbf{Pos}$.
+  \item $e : (Q,\preceq_Q)\epic(R,\preceq_R)$, an epic morphism in $\mathbf{Pos}$.
+  \item $(P,\preceq_P)\in\mathbf{Pos}$.
+  \item $f : (P,\preceq_P)\to(R,\preceq_R)$ in $\mathbf{Pos}$.
+\end{enumerate}
+
+Such that there is no way to factor $f$ through $e$.\\
+Consider the following definitions:
+
+\marginnote{
+  In terms of formulae the diagram is given as:
+  \begin{align*}
+    (P,\preceq_P) & \triangleq\{p_2\succeq_P p_1\preceq_P p_3\}\\
+    (Q,\preceq_Q) & \triangleq\{q_2\preceq_Q q_3\succeq_Q q_1\}\\
+    (R,\preceq_R) & \triangleq\{r_1\preceq_R r_2\preceq_R r_3\}\\
+  \end{align*}
+  \begin{align*}
+    \forall 1\leq i\leq 3& \ldotp~e : q_i\mapsto ri\\
+    \forall 1\leq i\leq 3& \ldotp~f : p_i\mapsto ri
+  \end{align*}
+}
+\begin{center}
+  \begin{tikzcd}[column sep=tiny, row sep=large]
+    p_3 \arrow[rrrr, dashed, "f", very near end] & & &
+    & r_3 &
+    & & q_3 \arrow[lll, dashed, "e"', near end] &\\
+    & & p_2 \arrow[rr, dashed, "f"] &
+    & r_2 \arrow[u, "\preceq_R" description, sloped] &
+    & q_2 \arrow[ll, dashed, "e"'] \arrow[ur, "\preceq_Q" description, sloped] & &\\
+    & p_1 \arrow[uul, "\succeq_P" description, sloped] \arrow[ur, "\preceq_P" description, sloped, near start] \arrow[rrr, dashed, "f", near end] & &
+    & r_1 \arrow[u, "\preceq_R" description, sloped] &
+    & & & q_1 \arrow[llll, dashed, "e"', very near end] \arrow[uul, "\succeq_Q" description, sloped]
+  \end{tikzcd}
+\end{center}
+
+From the definitions, the following propositions hold:
+
+\begin{align*}
+  q_1 \preceq_Q q_3 & \implies r_1 \preceq_R r_3 \\
+  q_2 \preceq_Q q_3 & \implies r_2 \preceq_R r_3 \\
+  p_1 \preceq_P p_2 & \implies r_1 \preceq_R r_2 \\
+  p_1 \preceq_P p_3 & \implies r_1 \preceq_R r_3 \\
+\end{align*}
+
+Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again by the definition) that $e$ is bijective, and therefore surjective, which in turn implies that $e$ is epic. It suffices, then, to show that there is no way to factor $f$ through $e$.
+
+\begin{prop}
+  $\forall h : (P,\preceq_P)\to(Q,\preceq_Q)\ldotp~e\compose h \neq f$. We proceed with this proof by cases.
+
+  \begin{proof}[Case 1]
+    Suppose $h(p_1) = q_3$
+    \begin{itemize}
+      \item[\imps] $\forall 1\leq i\leq 3\ldotp~h(p_i) = q_3$
+        \marginnote{\textbf{montone}-$h$}
+      \item[\imps] $\forall 1\leq i\leq 3\ldotp~(e\compose h)(p_i) = r_3$
+        \marginnote{\Def-$e$}
+      \item[\imps] $e\compose h\neq f$
+        \marginnote{$f(p_1) = r_1$}
+        \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Case 2]
+    Suppose $h(p_1) = q_1$
+    \begin{itemize}
+      \item[\imps] $h(p_2) = q_3 = h(p_3)$
+        \marginnote{\textbf{montone}-$h$}
+      \item[\imps] $(e\compose h)(p2) = r_3 \neq r_2 = f(p2)$
+        \marginnote{\Def-$e$;~\Def-$f$}
+        \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Case 3]
+    Suppose $h(p_1) = q_2$\\
+    This case is symmetric to Case 2.\qedhere
+  \end{proof}
+\end{prop}
+
 \subsection{Part (b.vi)}\label{sec:q-1-b-vi}
 \subsection{Part (b.vii)}\label{sec:q-1-b-vii}
