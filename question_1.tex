@@ -881,7 +881,7 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
     \begin{itemize}
       \item[\imps] $h(p_2) = q_3 = h(p_3)$
         \marginnote{\textbf{montone}-$h$}
-      \item[\imps] $(e\compose h)(p2) = r_3 \neq r_2 = f(p2)$
+      \item[\imps] $(e\compose h)(p_2) = r_3 \neq r_2 = f(p_2)$
         \marginnote{\Def-$e$;~\Def-$f$}
         \qedhere
     \end{itemize}
@@ -918,13 +918,16 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
           \begin{tikzcd}[sep=large]
             &  (P, \preceq_{\hat{P}}) \arrow[d, "i", hook, two heads]
             \\ (P, \preceq_P) \arrow[ur, "h", dashed]
-                              \arrow[r, "\id_{(P,\preceq_P)}"] & (P, \preceq_P)
+                              \arrow[r, "\id_{(P,\preceq_P)}"'] & (P, \preceq_P)
           \end{tikzcd}
         \end{center}
 
       \item[$\star$]
         \begin{itemize}
-          \item[\phantom{\imps}]\Let~$x,y\in P\ldotp~x\preceq_P y\wedge x\neq y$
+          \item[\phantom{\imps}]\Let~$x,y\in P\ldotp~x\preceq_P y$
+            \marginnote{\Hyp}
+
+          \item[\phantom{\imps}]\Ass~$x\neq y^{\text~(1)}$
             \marginnote{\Hyp}
 
           \item[\imps] $h(x) \preceq_{\hat{P}} h(y)$
@@ -942,7 +945,7 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
             \marginnote{$i\compose h = \id_{(P,\preceq_P)}$}
         \end{itemize}
         \item[\contras] Such an $x,y\in P$ cannot exist
-          \marginnote{\Contra-$\star$-(\Ass~$x\neq y$)}
+          \marginnote{\Contra-$\star$-(1)}
 
         \item[\imps] $(P, \preceq_P)$ discrete\qedhere
     \end{itemize}
@@ -951,3 +954,205 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
 \end{prop}
 
 \subsection{Part (b.vii)}\label{sec:q-1-b-vii}
+
+Before embarking on this proof, it is useful to define some notation, for $V\in\mathbf{FDVect}_K$.
+
+\newcommand{\Dim}[1]{\mathcal{D}_{#1}}
+\begin{definition}[Dimension of $V$]
+  Denoted $\Dim{V}$. In the case of any such $V$ we also know that $\Dim{V}$ is finite.
+\end{definition}
+
+\newcommand{\Basis}[1]{\mathcal{B}_{#1}}
+\begin{definition}[Basis of $V$]
+  Denoted $\Basis{V} =\{v_1,\ldots,v_{\Dim{V}}\}$. A minimal orthonormal basis (ONB) of $V$.
+\end{definition}
+
+Additionally, observe that a linear map $f : V \to W$ is uniquely defined by its action on a minimal ONB. We will use this fact both when defining linear maps, and proving equivalence between maps.\\[1em]
+
+Now, similar to the proof of Proposition~\ref{prop:set-epic-preserving} (That every object in $\mathbf{Set}$ is epic-preserving), we proceed by proving a property similar to surjectivity in the context of linear maps.
+
+\begin{lemma}\label{lemma:linear-map-epic-span}
+  $e : V\epic W \text{ epic} \implies e(\Basis{V}) \text{ spans } W$\\[1em]
+  It suffices to prove that $\Basis{W} \subseteq \operatorname{span}(e(\Basis{V}))$.
+
+  \begin{proof}[Proof by Contradiction]
+    Let $e : V \epic W$ in $\mathbf{FDVect}_K$
+    \begin{itemize}
+      \item[\phantom{\imps}]
+        Suppose ${\exists w_i\in\Basis{W}\setminus\operatorname{span}(e(\Basis{V}))}$.
+        \marginnote{\Hyp}
+
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phantom{\imps}]
+            $\nexists \boldsymbol{\lambda}_{e(\Basis{V})}\ldotp~\sum_{y\in e(\Basis{V})} \lambda_y\cdot y = w_i$
+            \marginnote{\Def-span;~$\boldsymbol{\lambda}_X$ a sequence indexed by $X$.}
+
+          \item[\iffs]
+            $\nexists \boldsymbol{\lambda}_{e(\Basis{V})}\ldotp~\sum_{y\in e(\Basis{V})} \lambda_y\cdot\sum_{j=1}^{\Dim{W}}\mu_{yj}\cdot w_j = w_i$
+            \marginnote{$\Basis{W}$ spans $W$;~$\forall y, j\ldotp~\mu_{yj}\in K$}
+
+          \item[\iffs]
+            $\nexists \boldsymbol{\lambda}_{e(\Basis{V})}\ldotp~\sum_{y\in e(\Basis{V})} \lambda_y\cdot\mu_{yi}\cdot w_i = w_i$
+            \marginnote{$w_i\cdot w_j = \delta_{ij}$}
+
+          \item[\iffs]
+            $\nexists \boldsymbol{\lambda}_{e(\Basis{V})}\ldotp~\sum_{y\in e(\Basis{V})} \lambda_y\cdot\mu_{yi} = 1$
+
+          \item[\iffs]
+            $\forall y \in e(\Basis{V})\ldotp~\mu_{yi} = 0$
+        \end{itemize}
+
+
+      \item[\phantom{\imps}]
+        Define $g, h : W\to K$ by their action on basis vectors
+        \begin{align*}
+          g & : w_j \mapsto
+          \begin{cases}
+            1 & \text{if }w_j \neq w_i\\
+            0 & \text{otherwise}
+          \end{cases}\\
+          h & : w_j \mapsto 1
+        \end{align*}
+
+      \item[$\dagger$]
+        \begin{itemize}
+          \item[\phs] So that $g(w_i) = 0 \neq 1 = h(w_i)$
+          \item[\imps] $g \neq h$
+        \end{itemize}
+
+      \item[$\ddagger$]
+        \begin{itemize}
+          \item[\phs]
+            \Let~$v\in\Basis{V}$
+            \marginnote{\Hyp}
+
+          \item[\phs] $(g\compose e)(v)$
+
+          \item[\eqs] $g(e(v))$
+            \marginnote{\Def-$\compose$}
+
+          \item[\eqs]
+            $g(\sum_j\mu_jw_j)$
+            \marginnote{$\Basis{W}$ spans $W$}
+
+          \item[\eqs]
+            $\sum_j\mu_jg(w_j)$
+            \marginnote{\textbf{linear}-$g$}
+
+          \item[\eqs]
+            $\sum_{j\neq i}\mu_jg(w_j) + \mu_i\cdot g(w_i)$
+
+          \item[\eqs]
+            $\sum_{j\neq i}\mu_jg(w_j) + 0\cdot g(w_i)$
+            \marginnote{$\forall$-\Elim-$\star$}
+
+          \item[\eqs]
+            $\sum_{j\neq i}\mu_jh(w_j) + 0\cdot h(w_i)$
+            \marginnote{\Def-$g$;~\Def-$h$}
+
+          \item[\eqs]
+            $h(e(v))$
+        \end{itemize}
+
+        \item[\imps]
+          $\forall v\in\Basis{V}\ldotp~g(e(v))=h(e(v))$
+          \marginnote{$\forall$-\Intro-$\ddagger$}
+
+        \item[\imps]
+          $g\compose e = h\compose e$
+          \marginnote{\Def-$=$}
+
+        \item[\imps]
+          $g = h$
+          \marginnote{\Epic-$e$}
+
+        \item[\contras]
+          $w_i$ cannot exist
+          \marginnote{\Contra-$\dagger$}
+          \qedhere
+    \end{itemize}
+  \end{proof}
+\end{lemma}
+
+As a corollary to this lemma, we see that any basis vector $w_i\in\Basis{W}$ can be written as a linear combination of vectors in $e(\Basis{V})$, which is a property we will use in our proof of the result.
+
+\begin{prop}
+  All objects (finite-dimensional vector spaces over the field $K$) in $\mathbf{FDVect}_K$ are epic-preserving.
+
+  \begin{proof}
+    Let $U\in\mathbf{FDVect}_K$
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs] \Let~$e : V\epic W$
+            \marginnote{\Hyp}
+
+          \item[\phs] \Let~$f : U \to W$
+            \marginnote{\Hyp}
+
+          \item[(i)]
+            Observe that for any $w_i\in\Basis{W}$
+            \marginnote[1em]{\Lemma-\ref{lemma:linear-map-epic-span}}
+            \begin{align*}
+              w_i = \sum_{v\in\Basis{V}}\mu_{iv}\cdot e(v)
+              \mathnote{$\forall v\in\Basis{V}, 1\leq i\leq\Dim{W}\ldotp~\mu_{iv}\in K$}
+            \end{align*}
+
+          \item[(ii)]
+            And similarly, for any $u_i\in\Basis{U}$
+            \begin{align*}
+              f(u_i) = \sum_{k=1}^{\Dim{W}} \lambda_{ik}w_k
+              \mathnote{$\Basis{W}$ spans $W$}
+            \end{align*}
+
+          \item[(iii)]
+            Then consider $h : U \to V$ defined by its action on basis vectors
+            \begin{align*}
+              h : u_i \mapsto \sum_{k=1}^{\Dim{W}}\sum_{v\in\Basis{V}}\lambda_{ik}\mu_{kv}v
+            \end{align*}
+
+          \item[$\dagger$]
+            \begin{itemize}
+              \item[\phs]
+                \Let~$u_i\in\Basis{U}$
+                \marginnote{\Hyp}
+
+              \item[\phs] $f(u_i)$
+
+              \item[\eqs] $\displaystyle\sum\limits_{k=1}^{\Dim{W}}\lambda_{ik}w_k$
+                \marginnote{\textbf{follows}-(ii)}
+
+              \item[\eqs] $\displaystyle\sum\limits_{k=1}^{\Dim{W}}\lambda_{ik}\displaystyle\sum\limits_{v\in\Basis{V}}\mu_{kv}e(v).$
+                \marginnote{\textbf{follows}-(i)}
+
+              \item[\eqs] $e(\displaystyle\sum\limits_{k=1}^{\Dim{W}}\displaystyle\sum\limits_{v\in\Basis{V}}\lambda_{ik}\mu_{kv}v).$
+                \marginnote{\textbf{linear}-$e$}
+
+              \item[\eqs] $e(h(u_i))$
+                \marginnote{\Def-$h~\equiv~$(iii)}
+            \end{itemize}
+            \item[\imps]
+              $\forall u_i\in\Basis{U}\ldotp~f(u_i) = e(h(u_i))$
+              \marginnote{$\forall$-\Intro-$\dagger$}
+
+            \item[\iffs]
+              $f = e\compose h$
+              \marginnote{\Def-$=$}
+
+            \item[\imps]
+              $\exists h : U \to V\ldotp~f = e\compose h$
+              \marginnote{$\exists$-\Intro}
+        \end{itemize}
+
+        \item[\imps]
+          $\forall e : V\epic W, f : U \to W\ldotp~\exists h : U\to V\ldotp~e\compose h = f$
+          \marginnote{$\forall$-\Intro-$\star$}
+
+        \item[\imps]
+          $U$ preserves epics
+          \marginnote{\Def-epic-preserving}
+          \qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
