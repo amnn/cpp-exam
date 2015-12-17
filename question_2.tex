@@ -1,4 +1,104 @@
 \subsection{Part (a)}\label{sec:q-2-a}
+
+First we define some notation for describing $\lambda$-terms and their properties.
+
+\newcommand{\Vars}{\mathcal{V}}
+
+\begin{align*}
+  \Vars & \triangleq \{x_1, x_2,\ldots\}
+  \mathnote{An inexhaustible supply of variables}\\
+  \Lambda & \triangleq\text{ The set of all untyped }\lambda\text{-terms.}\\
+  \FV & : \Lambda \to 2^{\Vars}\\
+  \FV & : \rlap{$x$}\phantom{\lambda x\ldotp t} \mapsto \{x\}
+  \mathnote{$x\in\Vars$}\\
+  \FV & : \rlap{$ut$}\phantom{\lambda x\ldotp t} \mapsto FV(u)\cup FV(t)
+  \mathnote{$u,t\in\Lambda$}\\
+  \FV & : \lambda x\ldotp t\mapsto FV(t)\setminus\{x\}
+  \mathnote{$x\in\Vars,~t\in\Lambda$}
+\end{align*}
+
+Then we may define $(-)^*$ inductively over the structure of $\lambda$-terms by:
+
+\begin{align*}
+  x^* & \triangleq x\\
+  (uv)^* & \triangleq \mathbf{r}u^*v^*\\
+  (\lambda x\ldotp t)^* & \triangleq \mathbf{s}(\lambda x\ldotp t^*)
+\end{align*}
+
+\begin{prop}
+  For any $t\in\Lambda$, with $FV(t) = \{x_1,\ldots,x_n\}$, a type deduction of $x_1 : A,\ldots,x_n : A\vdash t^* : A$ exists.\\
+
+  Proof by Induction over structure of $t$
+  \begin{proof}[Case] $t\equiv x$ where $x\in\Vars$
+    \begin{prooftree}
+      \AXC{}
+      \RightLabel{\scriptsize(var)}
+      \UIC{$x : A\vdash t^*\equiv x : A$}
+    \end{prooftree}\qedhere
+  \end{proof}
+
+  \begin{proof}[Case]
+    $t\equiv uv$ where $u, v\in\Lambda,~\FV(t) =\FV(u)\cup\FV(v)$
+    \begin{flalign*}
+      \text{W.l.o.g. }\FV(u) & = \{x_1,\ldots,x_i\} &\\
+      \FV(v) & = \{x_{j+1},\ldots,x_n\} &
+      \mathnote{$0\leq j\leq i\leq n$}
+    \end{flalign*}
+
+    \begin{prooftree}
+      \AXC{}
+      \RightLabel{\scriptsize(\textbf{r}-intro)}
+      \UIC{$\vdash \mathbf{r} : A\to A$}
+      \AXC{$\vdots$}
+      \RightLabel{\scriptsize(I.H.)}
+      \UIC{$x_1 : A,\ldots,x_i : A\vdash u^* : A$}
+      \RightLabel{\scriptsize($\to$-elim)}
+      \BIC{$x_1 : A,\ldots,x_i : A\vdash\mathbf{r}u^* : A\to A$}
+      \AXC{$\vdots$}
+      \RightLabel{\scriptsize(I.H.)}
+      \UIC{$x_{j+1} : A,\ldots,x_n : A\vdash t^* : A$}
+      \RightLabel{\scriptsize($\to$-elim)}
+      \BIC{$x_1 : A,\ldots,x_n : A\vdash t^* \equiv \mathbf{r}u^*v^* : A$}
+    \end{prooftree}
+  \end{proof}
+
+  \begin{proof}[Case]
+    $t\equiv \lambda x\ldotp u$ where $x\notin \FV(u),~\FV(t)=\FV(u)=\{x_1,\ldots,x_n\}$
+    \begin{prooftree}
+      \AXC{}
+      \RightLabel{\scriptsize(\textbf{s}-intro)}
+      \UIC{$\vdash \mathbf{s} : (A\to A)\to A$}
+      \AXC{$\vdots$}
+      \RightLabel{\scriptsize(I.H.)}
+      \UIC{$x_1 : A,\ldots,x_n : A\vdash u^* : A$}
+      \RightLabel{\scriptsize($\to$-intro)}
+      \UIC{$x_1 : A,\ldots,x_n : A\vdash\lambda x\ldotp u^* : A\to A$}
+      \RightLabel{\scriptsize($\to$-elim)}
+      \BIC{$x_1 : A,\ldots,x_n : A\vdash t^* \equiv\mathbf{s}(\lambda x\ldotp u^*) : A$}
+    \end{prooftree}
+  \end{proof}
+
+  \begin{proof}[Case]
+    $t\equiv \lambda x\ldotp u$ where $x\in\FV(u),~\FV(t) = \FV(u)\setminus\{x\}$
+    \begin{flalign*}
+      \text{W.l.o.g. }x & \equiv x_{n+1} &\\
+      \FV(u) & = \{x_1,\ldots,x_n,x_{n+1}\} &
+    \end{flalign*}
+    \begin{prooftree}
+      \AXC{}
+      \RightLabel{\scriptsize(\textbf{s}-intro)}
+      \UIC{$\vdash \mathbf{s} : (A\to A)\to A$}
+      \AXC{$\vdots$}
+      \RightLabel{\scriptsize(I.H.)}
+      \UIC{$x_1 : A,\ldots,x_n : A\vdash u^* : A$}
+      \RightLabel{\scriptsize($\to$-intro)}
+      \UIC{$x_1 : A,\ldots,x_n : A,x_{n+1} : A\vdash\lambda x\ldotp u^* : A\to A$}
+      \RightLabel{\scriptsize($\to$-elim)}
+      \BIC{$x_1 : A,\ldots,x_n : A\vdash t^* \equiv\mathbf{s}(\lambda x\ldotp u^*) : A$}
+    \end{prooftree}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (b)}\label{sec:q-2-b}
 \subsection{Part (c)}\label{sec:q-2-c}
 \subsection{Part (d)}\label{sec:q-2-d}
