@@ -99,6 +99,145 @@ Then we may define $(-)^*$ inductively over the structure of $\lambda$-terms by:
   \end{proof}
 \end{prop}
 
+\begin{prop}
+  For any $t, u\in\Lambda$, $t[u/x]^* \equiv t^*[u^*/x]$\\
+  Proof by induction over structure of $t$
+  \begin{proof}[Case]
+    $t\equiv x$
+    \begin{itemize}
+      \item[\phantom{$\equiv$}] $x[u/x]^*$
+
+      \item[$\equiv$] $u^*$
+        \marginnote{\Def-substitution}
+
+        \item[$\equiv$] $x[u^*/x]$
+          \marginnote{\Def-substitution}
+
+        \item[$\equiv$] $x^*[u^*/x]$
+          \marginnote{\Def-$(-)^*$}
+          \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Case]
+    $t\equiv y$ where $y\in\Vars,~y\not\equiv x$
+    \begin{itemize}
+      \item[\phantom{$\equiv$}] $y[u/x]^*$
+      \item[$\equiv$] $y^*$
+          \marginnote{\Def-substitution}
+      \item[$\equiv$] $y^*[u^*/x]$
+          \marginnote{\Def-substitution}
+          \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Case]
+    $t\equiv pq$
+    \begin{itemize}
+      \item[\phantom{$\equiv$}] $(pq)[u/x]^*$
+
+      \item[$\equiv$] $(p[u/x]q[u/x])^*$
+          \marginnote{\Def-substitution}
+
+      \item[$\equiv$] $\mathbf{r}p[u/x]^*q[u/x]^*$
+          \marginnote{\Def-$(-)^*$}
+
+      \item[$\equiv$] $\mathbf{r}p^*[u^*/x]q^*[u^*/x]$
+          \marginnote{\textbf{induction hypothesis}}
+
+      \item[$\equiv$] $(\mathbf{r}p^*q^*)[u^*/x])$
+          \marginnote{\Def-substitution}
+
+      \item[$\equiv$] $(pq)^*[u^*/x]$
+          \marginnote{\Def-$(-)^*$}
+          \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Case]
+    $t\equiv\lambda x\ldotp p$
+    \begin{itemize}
+      \item[\phantom{$\equiv$}]
+        $(\lambda x\ldotp p)[u/x]^*$
+
+      \item[$\equiv$]
+        $(\lambda x\ldotp p)^*$
+        \marginnote{\Def-substitution}
+
+      \item[$\equiv$]
+        $\mathbf{s}(\lambda x\ldotp p^*)$
+        \marginnote{\Def-$(-)^*$}
+
+      \item[$\equiv$]
+        $\mathbf{s}(\lambda x\ldotp p^*)[u^*/x]$
+        \marginnote{\Def-substitution}
+
+      \item[$\equiv$]
+        $(\mathbf{s}(\lambda x\ldotp p^*))[u^*/x]$
+        \marginnote{\Def-substitution}
+
+      \item[$\equiv$]
+        $(\lambda x\ldotp p)^*[u^*/x]$
+        \marginnote{\Def-$(-)^*$}
+        \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Case]
+    $t\equiv\lambda y\ldotp p$ where $y\in\Vars,~y\not\equiv x$
+    \begin{itemize}
+      \item[\phantom{$\equiv$}]
+        $(\lambda y\ldotp p)[u/x]^*$
+
+      \item[$\equiv$]
+        $(\lambda y\ldotp p[u/x])^*$
+        \marginnote{\Def-substitution}
+
+      \item[$\equiv$]
+        $\mathbf{s}(\lambda y\ldotp p[u/x]^*)$
+        \marginnote{\Def-$(-)^*$}
+
+      \item[$\equiv$]
+        $\mathbf{s}(\lambda y\ldotp p^*[u^*/x])$
+        \marginnote{\textbf{induction hypothesis}}
+
+      \item[$\equiv$]
+        $(\mathbf{s}(\lambda y\ldotp p^*))[u^*/x]$
+        \marginnote{\Def-substitution}
+
+      \item[$\equiv$]
+        $(\lambda y\ldotp p)^*[u^*/x]$
+        \marginnote{\Def-$(-)^*$}
+        \qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
+\begin{prop}
+  $((\lambda x\ldotp t)u)^* =_{\text rs} t^*[u^*/x]$
+  \begin{proof}
+    \begin{itemize}
+      \item[\phantom{$\equiv$}]
+        $((\lambda x\ldotp t)u)^*$
+
+      \item[$\equiv$]
+        $\mathbf{r}(\lambda x\ldotp t)^*u^*$
+        \marginnote{\Def-$(-)^*$}
+
+      \item[$\equiv$]
+        $\mathbf{r}(\mathbf{s}(\lambda x\ldotp t^*))u^*$
+        \marginnote{\Def-$(-)^*$}
+
+      \item[$=_{\text rs}$]$(\lambda x\ldotp t^*)u^*$
+        \marginnote{\Def-$=_{\text rs}$}
+
+      \item[$=_\beta$] $t^*[u^*/x]$
+        \marginnote{\Def-$=_\beta$}
+        \qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (b)}\label{sec:q-2-b}
 \subsection{Part (c)}\label{sec:q-2-c}
 \subsection{Part (d)}\label{sec:q-2-d}
