@@ -272,10 +272,223 @@ A normalising $\lambda$-theory, $T$, is one in which every $\lambda$-term $T$-re
 
   \item[\imps] $\Omega^*$ has no rs-normal form.
 
-  \item[\imps] rs-calculus is not normalising
+  \item[\imps] rs-calculus is not normalising.
 \end{itemize}
 
 \subsection{Part (d)}\label{sec:q-2-d}
+
+\begin{flalign*}
+\text{Let } & \cat{C}\text{ be a CCC}\text{ with } A\in\cat{C} &\\
+\text{and } & s : (A\Exp A)\rightleftarrows A : r\text{ in }\cat{C}\text{ such that }r\compose s = id_{A\Exp A}\text{.} &\\
+\text{let } & t \text{ be a term in the rs-calculus} &\\
+\text{with } & \FV(t) = \{x_1,\ldots,x_n\}\text{.} &\\
+\text{let } & x_1 : T_1,\ldots,x_n : T_n \vdash t : T\text{ be a typing judgement in rs.}&
+\end{flalign*}
+
+Then we define our interpretation of $t$ in $\cat{C}$, $\sembrack{t}$ as a morphism in $\cat{C}$:
+\begin{center}
+  \begin{tikzcd}
+    \sembrack{T_1}\times\ldots\times\sembrack{T_n} \arrow[r, "\sembrack{t}"] & \sembrack{T}
+  \end{tikzcd}
+\end{center}
+With semantic brackets defined as follows, for types.
+
+\begin{align*}
+  \sembrack{A} & \triangleq A \in\cat{C}
+  \mathnote{Base types are assigned to objects in $\cat{C}$. In particular, $A$, the type is assigned to $A\in\cat{C}$. }\\
+  \sembrack{T} & \triangleq T \in\cat{C} \\
+  \sembrack{T\to U} & \triangleq \sembrack{T} \Exp \sembrack{U}
+  \mathnote{The exponential object in $\cat{C}$.}
+\end{align*}
+
+And for rs-terms, take
+\begin{align*}
+  \sembrack{\Gamma\vdash \mathbf{r} : A\to(A\to A)}
+  & \triangleq \sembrack{\Gamma}
+  \overset{!}{\longrightarrow} \top
+  \overset{\lambda r^\prime}{\longrightarrow} A\Exp(A\Exp A)
+  \mathnote{\textbf{terminal}-$\top$}\\
+  \text{where }r^\prime & \triangleq
+  \top\times A
+  \overset{\cong}{\longrightarrow} A
+  \overset{r}{\longrightarrow} A\Exp A
+  \mathnote{\textbf{iso}-$\cong$}\\
+  \sembrack{\Gamma\vdash \mathbf{s} : (A\to A)\to A}
+  & \triangleq \sembrack{\Gamma}
+  \overset{!}{\longrightarrow} \top
+  \overset{\lambda s^\prime}{\longrightarrow} (A\Exp A)\Exp A
+  \mathnote{\textbf{terminal}-$\top$}\\
+  \text{where }s^\prime & \triangleq
+  \top\times (A\Exp A)
+  \overset{\cong}{\longrightarrow} A\Exp A
+  \overset{s}{\longrightarrow} A
+  \mathnote{\textbf{iso}-$\cong$}\\
+  \sembrack{\Gamma,~x : T\vdash x : T}
+  & \triangleq \sembrack{\Gamma}\times\sembrack{T}
+  \overset{\pi_2}{\longrightarrow}\sembrack{T}
+  \mathnote{\textbf{projection}-$\pi_2$}\\
+\end{align*}
+
+\begin{prooftree}
+  \AXC{$\sembrack{\Gamma,x : T\vdash t : U} = \sembrack{\Gamma}\times\sembrack{T}\overset{f}{\longrightarrow}\sembrack{U}$}
+  \UIC{$\sembrack{\Gamma\vdash\lambda x\ldotp t : T\to U}\triangleq\sembrack{\Gamma}\overset{\lambda f}{\longrightarrow}\sembrack{T}\Exp\sembrack{U}$}
+\end{prooftree}
+
+\begin{prooftree}
+  \AXC{$\sembrack{\Gamma\vdash t : T\to U} = \sembrack{\Gamma}\overset{f}{\longrightarrow}\sembrack{T}\Exp\sembrack{U}$}
+  \AXC{$\sembrack{\Gamma\vdash u : T} = \sembrack{\Gamma}\overset{g}{\longrightarrow}\sembrack{T}$}
+  \BIC{$\sembrack{\Gamma\vdash tu : U}\triangleq\sembrack{\Gamma}\xrightarrow{\langle f,g\rangle}(\sembrack{T}\Exp\sembrack{U})\times\sembrack{T}\xrightarrow{\operatorname{ev}_{TU}}\sembrack{U}$}
+\end{prooftree}
+
+It remains to show that ${t =_{\text rs} u\implies \sembrack{t} = \sembrack{u}}$. Firstly, we observe that this definition builds on the the definition in the notes, for the use of a CCC as a model of a $\lambda\beta\eta$-theory, adding new rules only to deal with the distinguished type $A$, and the constants $\mathbf{r}$ and $\mathbf{s}$ that have been introduced. This implies that for terms $u,t\in\Lambda$ not mentioning $\mathbf{r}$, or $\mathbf{s}$ and type judgements not involving $A$, ${u =_\beta t \implies \sembrack{u} = \sembrack{t}}$.\\[1em]
+
+All the that remains to be shown is that for those terms and type judgements that do contain the aforementioned, the proposition holds. For this, it suffices to prove that $\sembrack{\mathbf{r}(\mathbf{s}t)} = \sembrack{t}$.\\[1em]
+
+Our definition and proof rely in part upon the isomorphism ${\cong~:\top\times A\rightleftarrows A :~\cong^{-1}}$, which is known to exist because $\cat{C}$ is a CCC. This fact is used in our construction of the interpretations of $\mathbf{r}$ and $\mathbf{s}$. Below we give explicit constructions for the isomorphism.
+
+\begin{lemma}\label{lemma:prod-term-iso}
+  For any $X\in\cat{C}$, the isomorphism ${\cong~:\top\times X\rightleftarrows X :~\cong^{-1}}$ is defined by
+  \begin{align*}
+    \cong^{\phantom{-1}} & \triangleq \pi_2 \\
+    \cong^{-1} & \triangleq \langle !,~\id_X \rangle
+  \end{align*}
+
+  \begin{proof}[Proof] $\cong\compose\cong^{-1}~= \id_X$
+    \begin{itemize}
+      \item[\phs] $\cong\compose\cong^{-1}$
+      \item[\eqs] $\pi_2\compose\langle !,~\id_X\rangle$
+        \marginnote{\Def-$\cong$;~\Def-$\cong^{-1}$}
+      \item[\eqs] $\id_X$
+        \qedhere
+        \marginnote{\Def-projection}
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Proof]$\cong^{-1}\compose\cong~= \id_{\top\times X}$
+    \begin{itemize}
+      \item[\phs] $\cong^{-1}\compose\cong$
+      \item[\eqs] $\langle !,~\id_X\rangle\compose\pi_2$
+        \marginnote{\Def-$\cong$;~\Def-$\cong^{-1}$}
+
+      \item[\eqs] $\langle !\compose\pi_2,~\id_X\compose\pi_2\rangle$
+        \marginnote{\textbf{universal}-product}
+      \item[\eqs] $\langle !\compose\pi_2,~\pi_2\rangle$
+
+        \marginnote{\Def-$\id$}
+
+      \item[\eqs] $\langle !\compose\pi_1,~\pi_2\rangle$
+        \marginnote{\textbf{universal}-terminal}
+
+      \item[\eqs] $\langle \id_\top\compose\pi_1,~\pi_2\rangle$
+        \marginnote{\textbf{universal}-terminal}
+
+      \item[\eqs] $\langle \pi_1,~\pi_2\rangle$
+        \marginnote{\Def-$\id$}
+
+      \item[\eqs] $\id_{\top\times X}$
+        \qedhere
+        \marginnote{\textbf{universal}-product}
+
+    \end{itemize}
+  \end{proof}
+\end{lemma}
+
+As a corollary to this result we have that for any $f : X\to Y$, $\langle !,~f\rangle = \langle !\compose f,~\id_Y\compose f\rangle = \langle !,~\id_Y\rangle\compose f =~\cong^{-1}\compose f$.\\[1em]
+
+We also require a result pertaining to the factoring of function composition through the universal product morphism.
+
+\begin{lemma}\label{lemma:prod-comp-factor}
+  $\langle f\compose g,~h\rangle = (f\times\id)\compose\langle g,~h\rangle$
+  \begin{proof}
+    \begin{itemize}
+      \item[\phs]
+        $(f\times\id)\compose\langle g,~h\rangle$
+
+      \item[\eqs]
+        $\langle f\compose\pi_1,~g\compose\pi_2\rangle\compose\langle g,~h\rangle$
+        \marginnote{\Def-$\times$}
+
+      \item[\eqs]
+        $\langle f\compose\pi_1\compose\langle g,~h\rangle,~\id\compose\pi_2\compose\langle g,~h\rangle\rangle$
+        \marginnote{\textbf{universal}-product}
+
+      \item[\eqs]
+        $\langle f\compose g,~\id\compose h\rangle$
+        \marginnote{\Def-projection}
+
+      \item[\eqs]
+        $\langle f\compose g,~h\rangle$
+        \qedhere
+        \marginnote{\Def-$\id$}
+    \end{itemize}
+  \end{proof}
+\end{lemma}
+
+Now on to the main result:
+
+\begin{prop}
+  $\sembrack{\Gamma\vdash\mathbf{r}(\mathbf{s}t) : A\to A} = \sembrack{\Gamma\vdash t : A\to A}$
+  \begin{proof}
+    Let $t\in\Lambda$ be a term for which ${\Gamma\vdash t : A\to A}$ is deducible in the rs-calculus.
+
+    \begin{itemize}
+      \item[\phs] $\sembrack{\Gamma\vdash\mathbf{r}(\mathbf{s}t) : A\to A}$
+
+      \item[\eqs]
+          $\sembrack{\Gamma} \xrightarrow{\langle f,~g\rangle} (A\Exp(A\Exp A))\times A \xrightarrow{\operatorname{ev}_{A,A\Exp A}}
+          A$
+        \begin{flalign*}
+          \text{where }
+          f & = \sembrack{\Gamma}\overset{!}{\longrightarrow}\top\overset{\lambda r^\prime}{\longrightarrow} A\Exp(A\Exp A)&\\
+          g & = \sembrack{\Gamma\vdash\mathbf{s}t : A} &\\
+          & = \sembrack{\Gamma}\xrightarrow{\langle h,~i\rangle}((A\Exp A)\Exp A)\times(A\Exp A)\xrightarrow{\operatorname{ev}_{A\Exp A,A}} A &\\
+          h & = \sembrack{\Gamma}\overset{!}{\longrightarrow}\top\overset{\lambda s^\prime}{\longrightarrow} (A\Exp A)\Exp A&\\
+          i & = \sembrack{\Gamma}\overset{\sembrack{t}}{\longrightarrow}A\Exp A &
+        \end{flalign*}
+
+        \item[\eqs]
+          $\operatorname{ev}_{A,A\Exp A}\compose\langle\lambda r^\prime\compose !,~\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle\rangle$
+
+        \item[\eqs]
+          $\operatorname{ev}_{A,A\Exp A}\compose(\lambda r^\prime\times\id)\compose\langle !,~\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle\rangle$
+          \marginnote{\Lemma-\ref{lemma:prod-comp-factor}}
+
+        \item[\eqs]
+          $r\compose\cong\compose\langle !,~\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle\rangle$
+          \marginnote{\Def-exponential}
+
+        \item[\eqs]
+          $r\compose\cong\compose\cong^{-1}\compose\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle$
+          \marginnote{\Lemma-\ref{lemma:prod-term-iso}}
+
+        \item[\eqs]
+          $r\compose\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle$
+          \marginnote{\textbf{iso}-$\cong$}
+
+        \item[\eqs]
+          $r\compose\operatorname{ev}_{A\Exp A,A}\compose(\lambda s^\prime\times\id)\compose\langle !,~\sembrack{t}\rangle$
+          \marginnote{\Lemma-\ref{lemma:prod-comp-factor}}
+
+        \item[\eqs]
+          $r\compose s\compose\cong\compose\langle !,~\sembrack{t}\rangle$
+          \marginnote{\Def-exponential}
+
+        \item[\eqs]
+          $r\compose s\compose\cong\compose\cong^{-1}\compose\sembrack{t}$
+          \marginnote{\Lemma-\ref{lemma:prod-term-iso}}
+        \item[\eqs]
+          $r\compose s\compose\sembrack{t}$
+          \marginnote{\textbf{iso}-$\cong$}
+
+        \item[\eqs]
+          $\sembrack{t}$
+          \qedhere
+          \marginnote{$r\compose s = \id_{A\Exp A}$}
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
+
 \subsection{Part (e)}\label{sec:q-2-e}
 \subsection{Part (f)}\label{sec:q-2-f}
 \subsection{Part (g)}\label{sec:q-2-g}
