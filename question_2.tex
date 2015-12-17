@@ -239,7 +239,42 @@ Then we may define $(-)^*$ inductively over the structure of $\lambda$-terms by:
 \end{prop}
 
 \subsection{Part (b)}\label{sec:q-2-b}
+
+\begin{align*}
+  \omega^* & \equiv (\lambda x\ldotp xx)^*\\
+  & \equiv \mathbf{s}\lambda x\ldotp (xx)^*\\
+  & \equiv \mathbf{s}\lambda x\ldotp \mathbf{r}xx
+\end{align*}
+
 \subsection{Part (c)}\label{sec:q-2-c}
+
+A normalising $\lambda$-theory, $T$, is one in which every $\lambda$-term $T$-reduces to a normal form. To show that the rs-calculus is not such a theory, it suffices to construct a $\lambda$-term from which there exists no finite rs-reduction sequence. Consider $\Omega\equiv\omega\omega$, then:
+
+\begin{itemize}
+
+  \item[\phantom{$\equiv$}] $\Omega^*$
+
+  \item[$\equiv$] $((\lambda x\ldotp xx)(\lambda x\ldotp xx))^*$
+
+  \item[$\equiv$] $\mathbf{r}(\lambda x\ldotp xx)^*(\lambda x\ldotp xx)^*$
+
+  \item[$\equiv$] $\mathbf{r}(\mathbf{s}\lambda x\ldotp (xx)^*)(\mathbf{s}\lambda x\ldotp (xx)^*)$
+
+  \item[$\equiv$] $\mathbf{r}(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)$
+
+  \item[$\to_{\text rs}$] $(\lambda x\ldotp \mathbf{r}xx)(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)$
+
+  \item[$\to_{\text rs}$] $\mathbf{r}(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)$
+
+  \item[$\to_{\text rs}$] $\ldots$
+
+  \item[\imps] All reduction sequences from $\Omega^*$ are non-terminating.
+
+  \item[\imps] $\Omega^*$ has no rs-normal form.
+
+  \item[\imps] rs-calculus is not normalising
+\end{itemize}
+
 \subsection{Part (d)}\label{sec:q-2-d}
 \subsection{Part (e)}\label{sec:q-2-e}
 \subsection{Part (f)}\label{sec:q-2-f}
