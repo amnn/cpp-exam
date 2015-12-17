@@ -548,6 +548,115 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
 \end{prop}
 
 \subsection{Part (f)}\label{sec:q-2-f}
+
+\newcommand{\Pfin}[1]{\mathbf{P}_{\operatorname{fin}}(#1)}
+\begin{prop}
+  For any $X, Y\in\mathbf{Set}$ there is an isomorphism
+  \begin{align*}
+    \Pfin{X + Y} \cong \Pfin{X}\times\Pfin{Y}
+  \end{align*}
+  Supposing we define
+  \begin{align*}
+    f & : \Pfin{X + Y}\to\Pfin{X}\times\Pfin{Y}\\
+    f & : A\mapsto (\{x : (1,x)\in A\},\{y : (2,y)\in A\})\\[1em]
+    g & : \Pfin{X}\times\Pfin{Y}\to\Pfin{X + Y}\\
+    g & : (A, B)\mapsto \{(1,a) : a\in A\}\cup\{(2, b) : b\in B\}
+  \end{align*}
+  Then it suffices to prove that
+  \begin{enumerate}[(i)]
+    \item $f\compose g = \id_{\Pfin{X}\times\Pfin{Y}}$
+    \item $g\compose f = \id_{\Pfin{X + Y}}$
+  \end{enumerate}
+
+  \begin{proof} (i)
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]
+            \Let~$(A,B)\in\Pfin{X}\times\Pfin{Y}$
+            \marginnote{\Hyp}
+
+          \item[\phs]
+            $f(g(A,B))$
+
+          \item[\eqs]
+            $f(\{(1,a):a\in A\}\cup\{(2,b):b\in B\})$
+            \marginnote{\Def-$g$}
+
+          \item[\eqs]
+            \marginnote[2em]{\Def-$f$}
+            \begin{flalign*}
+            ( &~\{x : (1,x)\in\{(1,a):a\in A\}\cup\{(2,b):b\in B\}\} &\\
+            , &~\{y : (2,y)\in\{(1,a):a\in A\}\cup\{(2,b):b\in B\}\} &\\
+            ) &&
+            \end{flalign*}
+
+          \item[\eqs]
+            \begin{flalign*}
+              ( &~\{x:(1,x)\in\{(1,a):a\in A\}\}\\
+              , &~\{y:(2,y)\in\{(2,b):b\in B\}\}\\
+              ) &&
+            \end{flalign*}
+
+          \item[\eqs]
+            $(\{x : x\in A\},~\{y : y\in B\})$
+
+          \item[\eqs]
+            $(A,~B)$
+
+          \item[\eqs]
+            $\id_{\Pfin{X}\times\Pfin{Y}}(A,~B)$
+        \end{itemize}
+        \item[\imps]
+          $\forall (A, B)\in\Pfin{X}\times\Pfin{Y}\ldotp~f(g(A,~B)) = \id_{\Pfin{X}\times\Pfin{Y}}(A,~B)$
+          \marginnote{$\forall$-intro-$\star$}
+
+        \item[\imps]
+          $f\compose g = \id_{\Pfin{X}\times\Pfin{Y}}$
+          \qedhere
+          \marginnote{\Def-$=$}
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof} (ii)
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]\Let~$A\in\Pfin{X+Y}$
+
+          \item[\phs] $g(f(A))$
+
+          \item[\eqs]
+            $g(\{x:(1,x)\in A\},~\{y:(2,y)\in A\})$
+
+          \item[\eqs]
+            $\{(1,a) : a\in\{x : (1,x)\in A\}\}$
+
+          \item[$\cup$]
+            $\{(2,b) : b\in\{y : (2,b)\in A\}\}$
+
+          \item[\eqs]
+            $\{(1,a) : (1,a)\in A\}\cup\{(2,b):(2,b)\in A\}$
+
+          \item[\eqs]
+            $A$
+
+          \item[\eqs]
+            $\id_{\Pfin{X + Y}}(A)$
+        \end{itemize}
+
+      \item[\imps]
+        $\forall A\in\Pfin{X+Y}\ldotp~g(f(A)) = \id_{\Pfin{X+Y}}(A)$
+        \marginnote{$\forall$-intro-$\star$}
+
+      \item[\imps]
+        $g\compose f = \id_{\Pfin{X+Y}}$
+        \qedhere
+        \marginnote{\Def-$=$}
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (g)}\label{sec:q-2-g}
 \subsection{Part (h)}\label{sec:q-2-h}
 \subsection{Part (i)}\label{sec:q-2-i}
