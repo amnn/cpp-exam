@@ -658,6 +658,85 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
 \end{prop}
 
 \subsection{Part (g)}\label{sec:q-2-g}
+
+\begin{prop}
+  $(s,t)\in\widehat{R}\land t^\prime\subseteq t\implies (s,t^\prime)\in\widehat{R}$
+  \begin{proof}~\\
+    \begin{itemize}
+      \item[\phantom{\imps}]
+        $(s,t)\in\widehat{R}$
+        \marginnote{\Hyp}
+
+      \item[\iffs]
+        $\forall y\in t\ldotp~(s,y)\in R$
+        \marginnote{\Def-$\widehat{R}$}
+
+      \item[\imps]
+        $\forall y\in t^\prime\ldotp~(s,y)\in R$
+        \marginnote{$t^\prime\subseteq t$}
+
+      \item[\iffs]
+        $(s, t^\prime)\in\widehat{R}$
+        \qedhere
+        \marginnote{\Def-$\widehat{R}$}
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
+\begin{prop}
+  $R = \{(s,y) : (s,\{y\})\in\widehat{R}\}$
+  \begin{proof}~\\
+    \begin{itemize}
+      \item[\phs] $\{(s,y):(s,\{y\})\in\widehat{R}\}$
+
+      \item[\eqs] $\{(s,y):\forall y\in\{y\}\ldotp~(s,y)\in R\}$
+
+      \item[\eqs] $\{(s,y):(s,y)\in R\}$
+
+      \item[\eqs] $R$\qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
+\begin{prop}
+  $X\overset{R}{\longrightarrow}Y\overset{S}{\longrightarrow}Z\text{ in }\mathbf{CRel}\implies\widehat{S\compose R} = \widehat{S}\compose\widehat{R}$
+  \begin{proof}~\\
+    \begin{itemize}
+      \item[\phantom{\imps}]
+        $(s,u)\in\widehat{S\compose R}$
+        \marginnote{\Hyp}
+
+      \item[\iffs]
+        $\forall z\in u\ldotp~(s,z)\in S\compose R$
+        \marginnote{\Def-$\widehat{R}$}
+
+      \item[\iffs]
+        $\forall z\in u\ldotp~\exists t_z\in\Pfin{Y}\ldotp~(t_z,z)\in S\land\forall y\in t_z\ldotp~(s,y)\in R$
+        \marginnote{\Def-$\compose$-\textbf{CRel}}
+
+        \addtolength{\itemsep}{\baselineskip}
+        \item[\phantom{\imps}]
+          This step forms the crux of the proof. It follows in the left to right diretion by setting $t \triangleq \bigcup\limits_{z\in u} t_z$. Then $t_z\subseteq t$ for every $z\in u$ so by the c-relation condition $\forall z\in u\ldotp~(t,z)\in S$.\\[1em]
+
+          The right to left direction, follows by setting $t_z \triangleq t$, for every ${z\in u}$ (a special case of the theorem ${\exists x\ldotp~\forall y\ldotp~P(x, y)\vdash\forall y\ldotp\exists x\ldotp~P(x,y)}$).
+
+      \item[\iffs]
+        $\exists t\in\Pfin{Y}\ldotp~\forall z\in u\ldotp~(t,z)\in S\land\forall y\in t\ldotp~(s,y)\in R$
+
+        \addtolength{\itemsep}{-1\baselineskip}
+      \item[\iffs]
+        $\exists t\in\Pfin{Y}\ldotp~(t,u)\in\widehat{S}\land (s,t)\in\widehat{R}$
+        \marginnote{\Def-$\widehat{R}$}
+
+      \item[\iffs]
+        $(s, u)\in\widehat{S}\compose\widehat{R}$
+        \qedhere
+        \marginnote{\Def-$\compose$-\textbf{Rel}}
+
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (h)}\label{sec:q-2-h}
 \subsection{Part (i)}\label{sec:q-2-i}
 \subsection{Part (j)}\label{sec:q-2-j}
