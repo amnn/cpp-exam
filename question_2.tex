@@ -683,7 +683,7 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
   \end{proof}
 \end{prop}
 
-\begin{prop}
+\begin{prop}\label{prop:rel-rel-hat}
   $R = \{(s,y) : (s,\{y\})\in\widehat{R}\}$
   \begin{proof}~\\
     \begin{itemize}
@@ -698,7 +698,7 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
   \end{proof}
 \end{prop}
 
-\begin{prop}
+\begin{prop}\label{prop:rel-hat-comp}
   $X\overset{R}{\longrightarrow}Y\overset{S}{\longrightarrow}Z\text{ in }\mathbf{CRel}\implies\widehat{S\compose R} = \widehat{S}\compose\widehat{R}$
   \begin{proof}~\\
     \begin{itemize}
@@ -716,8 +716,9 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
 
         \addtolength{\itemsep}{\baselineskip}
         \item[\phantom{\imps}]
-          This step forms the crux of the proof. It follows in the left to right diretion by setting $t \triangleq \bigcup\limits_{z\in u} t_z$. Then $t_z\subseteq t$ for every $z\in u$ so by the c-relation condition $\forall z\in u\ldotp~(t,z)\in S$.\\[1em]
+          This step forms the crux of the proof. It follows in the left to right direction by setting $t \triangleq \bigcup\limits_{z\in u} t_z$. Then $t_z\subseteq t$ for every $z\in u$ so by the c-relation condition $\forall z\in u\ldotp~(t,z)\in S$.
 
+        \item[\phantom{\imps}]
           The right to left direction, follows by setting $t_z \triangleq t$, for every ${z\in u}$ (a special case of the theorem ${\exists x\ldotp~\forall y\ldotp~P(x, y)\vdash\forall y\ldotp\exists x\ldotp~P(x,y)}$).
 
       \item[\iffs]
@@ -738,6 +739,113 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
 \end{prop}
 
 \subsection{Part (h)}\label{sec:q-2-h}
+
+\begin{prop}
+  $\mathbf{CRel}$ is a category
+
+  It suffices to prove that
+  \begin{enumerate}[(i)]
+    \item c-relations compose (given in the definition).
+
+    \item for every object, an identity morphism exists.
+
+    \item composition of morphisms associate.
+  \end{enumerate}
+  \begin{proof}[Proof (ii)]
+    Let $A\in\mathbf{CRel}$\\[1em]
+    \noindent define $\id_A : A\to A;~(s, a)\in \id_A \iff a\in S\subseteq A$\\[1em]
+    \noindent then for $S : B\to A$ in $\mathbf{CRel}$
+
+    \begin{itemize}
+      \item[\phantom{\imps}]
+        $(\overline{b}, a)\in \id_A\compose S$
+
+      \item[\iffs]
+        $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~(\overline{a}^\prime,a)\in\id_A\land \forall a^\prime\in\overline{a}^\prime\ldotp~(\overline{b},a^\prime)\in S$
+        \marginnote{\Def-$\compose$-$\mathbf{CRel}$}
+
+      \item[\iffs]
+        $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~a\in\overline{a}^\prime\land \forall a^\prime\in\overline{a}^\prime\ldotp~(\overline{b},a^\prime)\in S$
+        \marginnote{\Def-$\id_A$}
+
+      \item[\phantom{\imps}]
+        Left to right follows because for any $\overline{a}^\prime$ satisfying the above, $\{a\}$ is a subset, and so will also satisfy it.
+
+      \item[\phantom{\imps}]
+        Right to left follows by $\exists$-\Intro.
+
+      \item[\iffs]
+        $a\in\{a\}\land\forall a^\prime\in\{a\}\ldotp~(\overline{b},a^\prime)\in S$
+
+      \item[\iffs]
+        $(\overline{b},a)\in S$
+    \end{itemize}
+
+    And similarly for $R : A\to B$ in $\mathbf{CRel}$
+
+    \begin{itemize}
+      \item[\phantom{\imps}]
+        $(\overline{a}, b)\in R\compose \id_A$
+
+      \item[\iffs]
+        $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~(\overline{a}^\prime,b)\in R\land\forall a^\prime\in\overline{a}^\prime\ldotp~(\overline{a}, a^\prime)\in\id_A$
+
+      \item[\iffs]
+        $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~(\overline{a}^\prime,b)\in R\land\forall a^\prime\in\overline{a}^\prime\ldotp~a^\prime\in\overline{a}$
+
+      \item[\iffs]
+        $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~(\overline{a}^\prime,b)\in R\land\overline{a}^\prime\subseteq\overline{a}$
+
+      \item[\phantom{\imps}]
+        Left to right follows by the c-relation condition.
+
+      \item[\phantom{\imps}]
+        Right to left follows by setting $\overline{a}^\prime\triangleq\overline{a}$.
+
+      \item[\iffs]
+        $(\overline{a}, b)\in R$\qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Proof (iii)]
+    let $X\overset{R}\longrightarrow Y\overset{S}\longrightarrow Z\overset{T}\longrightarrow W$ in $\mathbf{CRel}$
+
+    \begin{itemize}
+      \item[\phs]
+        $R\compose(S\compose T)$
+
+      \item[\eqs]
+        $\{(a,w):(a,\{w\})\in\widehat{R\compose(S\compose T)}\}$
+        \marginnote{\Thm-\ref{prop:rel-rel-hat}}
+
+      \item[\eqs]
+        $\{(a,w):(a,\{w\})\in\widehat{R}\compose(\widehat{S\compose T})\}$
+        \marginnote{\Thm-\ref{prop:rel-hat-comp}}
+
+      \item[\eqs]
+        $\{(a,w):(a,\{w\})\in\widehat{R}\compose(\widehat{S}\compose\widehat{T})\}$
+        \marginnote{\Thm-\ref{prop:rel-hat-comp}}
+
+      \item[\eqs]
+        $\{(a,w):(a,\{w\})\in(\widehat{R}\compose\widehat{S})\compose\widehat{T}\}$
+        \marginnote{\Assoc-$\compose$-$\mathbf{Rel}$}
+
+      \item[\eqs]
+        $\{(a,w):(a,\{w\})\in(\widehat{R\compose S})\compose\widehat{T}\}$
+        \marginnote{\Thm-\ref{prop:rel-hat-comp}}
+
+      \item[\eqs]
+        $\{(a,w):(a,\{w\})\in\widehat{(R\compose S)\compose T}\}$
+        \marginnote{\Thm-\ref{prop:rel-hat-comp}}
+
+      \item[\eqs]
+        $(R\compose S)\compose T$
+        \qedhere
+        \marginnote{\Thm-\ref{prop:rel-rel-hat}}
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (i)}\label{sec:q-2-i}
 \subsection{Part (j)}\label{sec:q-2-j}
 \subsection{Part (k)}\label{sec:q-2-k}
