@@ -1158,5 +1158,85 @@ Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
   \end{proof}
 \end{prop}
 
+\begin{prop}
+  $\lambda f\compose g = \lambda(f\compose (g\times\id))$
+  \begin{proof}
+    Let $g : A\to B,~f :B\times X\to Y$
+    \begin{itemize}
+    \item[\phs]
+      $\lambda(f\compose(g\times\id))$
+    \item[\eqs]
+      $\lambda(f\compose\langle g\compose\pi_1,\pi_2\rangle)$
+      \marginnote{\Def-$\times$}
+
+    \addtolength{\itemsep}{.5\baselineskip}
+    \item[\phantom{\imps}]
+      $(\overline{a},(\overline{x},y))\in \lambda(f\compose\langle g\compose\pi_1,\pi_2\rangle)$
+
+    \addtolength{\itemsep}{-.5\baselineskip}
+    \item[\iffs]
+      $((\overline{a},\overline{x}),y)\in f\compose\langle g\compose\pi_1,\pi_2\rangle$
+      \marginnote{\Def-$\lambda\cdot$}
+
+    \item[\iffs]
+      $\exists(\overline{b},\overline{x}^\prime)\ldotp~((\overline{b},\overline{x}^\prime),y)\in f$
+      \marginnote{\Def-\ref{def:crel-comp}}
+
+    \addtolength{\itemsep}{-.3\baselineskip}
+    \item[\phantom{\imps}]
+      \quad$\land~((\overline{a},\overline{x}),(\overline{b},\overline{x}^\prime))\in\widehat{\langle g\compose\pi_1,\pi_2\rangle}$
+    \addtolength{\itemsep}{.3\baselineskip}
+
+    \item[\iffs]
+      $\exists(\overline{b},\overline{x}^\prime)\ldotp~((\overline{b},\overline{x}^\prime),y)\in f$
+
+    \addtolength{\itemsep}{-.3\baselineskip}
+    \item[\phantom{\imps}]
+      \quad$\land~(\forall b\in\overline{b}\ldotp~((\overline{a},\overline{x}),b)\in g\compose\pi_1)$
+      \marginnote{\Def-$\widehat{\langle f,g\rangle}$}
+
+    \item[\phantom{\imps}]
+      \quad$\land~(\forall x\in\overline{x}^\prime\ldotp~((\overline{a},\overline{x}),x^\prime)\in \pi_2)$
+    \addtolength{\itemsep}{.3\baselineskip}
+
+    \item[\iffs]
+      $\exists(\overline{b},\overline{x}^\prime)\ldotp~((\overline{b},\overline{x}^\prime),y)\in f$
+
+    \addtolength{\itemsep}{-.3\baselineskip}
+    \item[\phantom{\imps}]
+      \quad$\land~(\forall b\in\overline{b}\ldotp~\exists\overline{a}^\prime\ldotp~\overline{a}^\prime\subseteq\overline{a}\land(\overline{a}^\prime,b)\in g)$
+      \marginnote{\Def-\ref{def:crel-comp};~\Def-$\widehat{\pi}_1$}
+
+    \item[\phantom{\imps}]
+      \quad$\land~\overline{x}^\prime\subseteq\overline{x}$
+      \marginnote{\Def-$\widehat{\pi}_2$}
+    \addtolength{\itemsep}{.3\baselineskip}
+
+    \item[\phantom{\imps}]
+      Left to right follows by two applications of the c-relation condition.
+
+    \item[\phantom{\imps}]
+      Right to left follows by two applications of $\exists$-\Intro, setting $\overline{x}^\prime\triangleq\overline{x}$ and $\overline{a}^\prime\triangleq\overline{a}$.
+
+    \item[\iffs]
+      $\exists\overline{b}\ldotp~((\overline{b},\overline{x}),y)\in f$
+
+    \addtolength{\itemsep}{-.3\baselineskip}
+    \item[\phantom{\imps}]
+      \quad$\land~(\forall b\in\overline{b}\ldotp~(\overline{a},b)\in g)$
+    \addtolength{\itemsep}{.3\baselineskip}
+
+    \item[\iffs]
+      $\exists\overline{b}\ldotp~(\overline{b},(\overline{x},y))\in \lambda f\land\forall b\in\overline{b}\ldotp~(\overline{a},b)\in g$
+     \marginnote{\Def-$\lambda\cdot$}
+
+    \item[\iffs]
+      $(\overline{a},(\overline{x},y))\in\lambda f\compose g$
+      \marginnote{\Def-$\compose$-$\mathbf{CRel}$}
+      \qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (k)}\label{sec:q-2-k}
 \subsection{Part (l)}\label{sec:q-2-l}
