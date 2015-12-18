@@ -1238,6 +1238,8 @@ Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
   \end{proof}
 \end{prop}
 
+Occasions where the c-relation condition was required are labeled in the above proofs.
+
 \subsection{Part (k)}\label{sec:q-2-k}
 
 \newcommand{\Nat}{\mathbb{N}}
@@ -1433,6 +1435,13 @@ In order to define a model where $\Nat = A$, we must find ${r : \Nat\rightleftar
       (\overline{f},n)\in s & \iff\exists f\in\overline{f}\ldotp~n = b^{-1}(f)\\
     \end{align*}
 
+    \item[\phantom{\imps}]
+      Then it suffices to show that it satisfies the retraction condition:
+\end{itemize}
+\begin{prop}
+  $r\compose s = \id_{\Nat\Exp\Nat}$
+  \begin{proof}~\\
+  \begin{itemize}
   \item[\phantom{\imps}] $(\overline{f},f)\in r\compose s$
 
   \item[\iffs]
@@ -1459,4 +1468,6 @@ In order to define a model where $\Nat = A$, we must find ${r : \Nat\rightleftar
     $(\overline{f}, f)\in\id_{\Nat\Exp\Nat}$
     \marginnote{\Def-$\id$}
     \hfill\qed
-\end{itemize}
+  \end{itemize}
+  \end{proof}
+\end{prop}
