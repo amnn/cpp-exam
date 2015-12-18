@@ -659,7 +659,7 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
 
 \subsection{Part (g)}\label{sec:q-2-g}
 
-\begin{prop}
+\begin{prop}\label{prop:rel-hat-subset}
   $(s,t)\in\widehat{R}\land t^\prime\subseteq t\implies (s,t^\prime)\in\widehat{R}$
   \begin{proof}~\\
     \begin{itemize}
@@ -956,29 +956,43 @@ This follows from the definitions of $~\widehat{\cdot}~$.
 
       \item[\iffs]
         $(\forall a\in\overline{a}\ldotp~(\overline{c},a)\in\pi_1\compose h)\land(\forall b\in\overline{b}\ldotp~(\overline{c},b)\in\pi_2\compose h)$
+        \marginnote{\Def-$~\widehat{\langle f,g\rangle}$}
 
       \item[\iffs]
         $(\overline{c},\overline{a})\in\widehat{\pi_1\compose h}\land(\overline{c},\overline{b})\in\widehat{\pi_2\compose h}$
+        \marginnote{\Def-$~\widehat{\cdot}$}
 
       \item[\iffs]
         $(\overline{c},\overline{a})\in\widehat{\pi}_1\compose\widehat{h}\land(\overline{c},\overline{b})\in\widehat{\pi}_2\compose\widehat{h}$
+        \marginnote{\Def-\ref{prop:rel-hat-comp}}
 
       \item[\iffs]
         $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land((\overline{a}^\prime,\overline{b}^\prime),\overline{a})\in\widehat{\pi}_1)$
+        \marginnote{\Def-$\compose$-$\mathbf{Rel}$}
 
-      \addtolength{\itemsep}{-.5\baselineskip}
+      \addtolength{\itemsep}{-.4\baselineskip}
       \item[\phantom{\iffs}\llap{$\land$}] $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land((\overline{a}^\prime,\overline{b}^\prime),\overline{b})\in\widehat{\pi}_2)$
-      \addtolength{\itemsep}{.5\baselineskip}
+      \addtolength{\itemsep}{.4\baselineskip}
 
       \item[\iffs]
-        $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land\overline{a}\subseteq\overline{a}^\prime$
+        $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land\overline{a}\subseteq\overline{a}^\prime)$
+        \marginnote{\Def-$\widehat{\pi}_1$}
 
-      \addtolength{\itemsep}{-.5\baselineskip}
-      \item[\phantom{\iffs}\llap{$\land$}] $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land\overline{b}\subseteq\overline{b}^\prime$
+      \addtolength{\itemsep}{-.4\baselineskip}
+      \item[\phantom{\iffs}\llap{$\land$}] $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land\overline{b}\subseteq\overline{b}^\prime)$
+        \marginnote{\Def-$\widehat{\pi}_2$}
+      \addtolength{\itemsep}{.4\baselineskip}
+
       \addtolength{\itemsep}{.5\baselineskip}
+      \item[\phantom{\imps}]
+        By $\exists$-\Elim, let $(\overline{a}^\prime_1,\overline{b}^\prime_1)$ and $(\overline{a}^\prime_2,\overline{b}^\prime_2)$ be sets satisfying the first and second quantification respectively. Then (Through the image of the isomorphism) ${(\overline{c},(\overline{a}^\prime_1\cup\overline{a}^\prime_2,~\overline{b}^\prime_1\cup\overline{b}^\prime_2))\in\widehat{h}}$ and ${(\overline{a},\overline{b})\subseteq(\overline{a}^\prime_1\cup\overline{a}^\prime_2,~\overline{b}^\prime_1\cup\overline{b}^\prime_2)}$. So from Proposition~\ref{prop:rel-hat-subset} left to right follows.
+
+      \item[\phantom{\imps}]
+        Right to left follows by setting $\overline{a}^\prime\triangleq\overline{a},~\overline{b}^\prime\triangleq\overline{b}$ in both quantifications.
 
       \item[\iffs]
         $(\overline{c},(\overline{a},\overline{b}))\in\widehat{h}$
+      \addtolength{\itemsep}{-.5\baselineskip}
 
       \item[\iffs]
         $\langle\pi_1\compose h,\pi_2\compose h\rangle = h$
