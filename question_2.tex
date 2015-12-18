@@ -1453,7 +1453,7 @@ In order to define a model where $\Nat = A$, we must find ${r : \Nat\rightleftar
     $\exists\overline{n}\in\Pfin{\Nat}\ldotp~(\exists n\in\overline{n}\ldotp~b(n) = f)\land\forall n\in\overline{n}\ldotp~\exists f^\prime_n\in\overline{f}\ldotp~b^{-1}(f^\prime_n) = n$
 
   \item[\phantom{\imps}]
-    Left to right follows by $\exists$-\Elim~on the left conjunct followed by ${\forall\text{-\Elim}}$~on the right conjunct. This leads to the proposition: ${\exists f^\prime\in\overline{f}\ldotp~b^{-1}(f^\prime) = n}$. Then, by applying $b$ to both sides we get ${\exists f^\prime\in\overline{f}\ldotp~b(b^{-1}(f^\prime)) = b(n)}$, from which conclusion follows by simplifying the left and right hand sides.
+    Left to right follows by $\exists$-\Elim~and then $\exists$-\Elim~on the left conjunct followed by ${\forall\text{-\Elim}}$~on the right conjunct. This leads to the proposition: ${\exists f^\prime\in\overline{f}\ldotp~b^{-1}(f^\prime) = n}$. Then, by applying $b$ to both sides we get ${\exists f^\prime\in\overline{f}\ldotp~b(b^{-1}(f^\prime)) = b(n)}$, from which conclusion follows by simplifying the left and right hand sides.
 
   \item[\phantom{\imps}]
     Right to left by $\exists$-\Intro, setting $\overline{n}\triangleq\{b^{-1}(f)\}$.
@@ -1467,7 +1467,230 @@ In order to define a model where $\Nat = A$, we must find ${r : \Nat\rightleftar
   \item[\iffs]
     $(\overline{f}, f)\in\id_{\Nat\Exp\Nat}$
     \marginnote{\Def-$\id$}
-    \hfill\qed
+    \qedhere
   \end{itemize}
   \end{proof}
 \end{prop}
+
+Consider the following terms in the rs-calculus:
+\begin{align*}
+  \mathbf{t}
+  & \equiv {(\lambda x\ldotp\lambda y\ldotp x)}^*
+  \equiv\mathbf{s}\lambda x\ldotp\mathbf{s}\lambda y\ldotp x\\
+  \mathbf{f}
+  & \equiv{(\lambda x\ldotp\lambda y\ldotp y)}^*
+  \equiv\mathbf{s}\lambda x\ldotp\mathbf{s}\lambda y\ldotp y
+\end{align*}
+With interpretations in $\mathbf{CRel}$ given by:
+\begin{itemize}
+  \item[\phs]
+    $\sembrack{\vdash\mathbf{s}\lambda xy\ldotp x}$
+
+  \item[\eqs]
+    $\top\xrightarrow{\langle\lambda s^\prime,t\rangle}((A\Exp A)\Exp A)\times(A\Exp A)\overset{\App}\longrightarrow A$
+    \begin{flalign*}
+      \text{where }
+      f & = \sembrack{\vdash\lambda x\ldotp\mathbf{s}\lambda y\ldotp x} &\\
+        & = \top\overset{\lambda g}\longrightarrow A\Exp A &\\
+      g & = \sembrack{x : A\vdash\mathbf{s}\lambda y\ldotp x} &\\
+        & = A\xrightarrow{\langle\lambda s^\prime,h\rangle}((A\Exp A)\Exp A)\times(A\Exp A)\overset{\App}\longrightarrow A &\\
+      h & = \sembrack{x : A\vdash\lambda y\ldotp x} &\\
+        & = A\overset{\lambda i}\longrightarrow A\Exp A &\\
+      i & = \sembrack{x : A,y : A\vdash x : A} &\\
+        & = A\times A\overset{\pi_1}\longrightarrow A
+    \end{flalign*}
+
+  \item[\eqs]
+    $\App\compose\langle\lambda s^\prime,\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle)\rangle$
+\end{itemize}
+
+And similarly:
+\begin{itemize}
+  \item[\phs]
+    $\sembrack{\vdash\mathbf{s}\lambda xy\ldotp y}$
+
+  \item[\eqs]
+    $\App\compose\langle\lambda s^\prime,\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_2\rangle)\rangle$
+\end{itemize}
+
+For the specific case of our model with $A = \Nat$, we may simplify the definitions of the ensuing relations:
+\begin{itemize}
+  \item[\phantom{\imps}]
+    $(\varnothing,a)\in\App\compose\langle\lambda s^\prime,\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle)\rangle$
+
+  \item[\iffs]
+    $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~(\varnothing,(\overline{f},\overline{x}))\in\widehat{\langle\lambda s^\prime,\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle)\rangle}$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~(\forall f\in\overline{f}\ldotp~(\varnothing,f)\in\lambda s^\prime)$
+  \item[\phantom{\imps}]
+    \quad $\land~\phantom{(}\forall x\in\overline{x}\ldotp~(\varnothing,x)\in\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle)$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~(\overline{g},a^\prime)\in s)$
+
+  \item[\phantom{\imps}]
+    \quad $\land~\phantom{(}\forall (\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~(\overline{h},a^{\prime\prime})\in\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
+  \item[\phantom{\imps}]
+    \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad\phantom{$\land$}$~((\overline{i},\overline{y}),a^{\prime\prime})\in\App$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~(\overline{h},(\overline{i},\overline{y}))\in\widehat{\langle\lambda s,\lambda\pi_1\rangle}$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
+  \item[\phantom{\imps}]
+    \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad\phantom{$\land$}$~((\overline{i},\overline{y}),a^{\prime\prime})\in\App$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~(\forall i\in\overline{i}\ldotp~(\overline{h},i)\in\lambda s)$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~\phantom{(}\forall y\in\overline{y}\ldotp~(\overline{h},y)\in\lambda\pi_1$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
+  \item[\phantom{\imps}]
+    \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad\phantom{$\land$}$~((\overline{i},\overline{y}),a^{\prime\prime})\in\App$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~(\forall (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~(\overline{j},a^{\prime\prime\prime})\in s)$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~((\overline{h}, \overline{k}),a^{\text (iv)})\in\pi_1$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists (\overline{f},\overline{x})\ldotp~(\exists(\overline{g},a^\prime)\in\overline{f}\ldotp~a=a^\prime\land\overline{g}\subseteq\overline{x})$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
+  \item[\phantom{\imps}]
+    \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad\phantom{$\land$}$~(\exists (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~a^{\prime\prime\prime} = a^{\prime\prime}\land\overline{j}\subseteq\overline{y})$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~(\forall (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~\exists j\in\overline{j}\ldotp~a^{\prime\prime\prime}=b^{-1}(j))$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~a^{\text (iv)}\in\overline{h}$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists \overline{x}\ldotp~(\exists g\in\overline{x}\ldotp~a = b^{-1}(g))$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad\phantom{$\land$}$~(\exists (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~a^{\prime\prime\prime} = a^{\prime\prime}\land\overline{j}\subseteq\overline{y})$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~(\forall (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~\exists j\in\overline{j}\ldotp~a^{\prime\prime\prime}=b^{-1}(j))$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~a^{\text (iv)}\in\overline{h}$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists \overline{x}\ldotp~(\exists g\in\overline{x}\ldotp~a = b^{-1}(g))$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists\overline{y}\ldotp$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad\phantom{$\land$}$~(\exists j\in\overline{y}\ldotp~a^{\prime\prime}=b^{-1}(j))$
+
+  \item[\phantom{\imps}]
+    \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~a^{\text (iv)}\in\overline{h}$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists \overline{x}\ldotp~(\exists g\in\overline{x}\ldotp~a = b^{-1}(g))$
+
+  \addtolength{\itemsep}{-.5\baselineskip}
+  \item[\phantom{\imps}]
+    \quad $\land~\phantom{(}\forall(\overline{h},b^{-1}(\overline{h},b^{-1}(\overline{k}, a^{\text (iv)})))\in\overline{x}\ldotp~a^{\text (iv)}\in\overline{h}$
+  \addtolength{\itemsep}{.5\baselineskip}
+
+  \item[\iffs]
+    $\exists\overline{h},\overline{k},a^\prime\ldotp~a = b^{-1}(\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{h}$
+\end{itemize}
+
+And similarly:
+
+\begin{itemize}
+  \item[\phantom{\imps}]
+    $(\varnothing,a)\in\sembrack{f}$
+
+  \item[\iffs]
+    $\exists\overline{h},\overline{k},a^\prime\ldotp~a = b^{-1}(\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{k}$
+
+\end{itemize}
+
+Then it can be seen that $(\varnothing,b^{-1}(\varnothing,b^{-1}(\{0\},0))\in\sembrack{f}$, but:
+\begin{itemize}
+  \item[\phantom{\imps}]
+    $(\varnothing,b^{-1}(\varnothing,b^{-1}(\{0\},0))\in\sembrack{t}$
+
+  \item[\iffs]
+    $\exists\overline{h},\overline{k},a^\prime\ldotp~b^{-1}(\varnothing,b^{-1}(\{0\},0)) = b^{-1}(\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{h}$
+
+  \item[\iffs]
+    $\exists\overline{h},\overline{k},a^\prime\ldotp~(\varnothing,b^{-1}(\{0\},0)) = (\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{h}$
+
+  \item[\iffs]
+    $\exists\overline{k},a^\prime\ldotp~b^{-1}(\{0\},0) = b^{-1}(\overline{k},a^\prime)\land a^\prime\in\varnothing$
+
+  \item[\imps]
+    $b^{-1}(\varnothing,b^{-1}(\{0\},0))\notin\sembrack{t}$
+
+  \item[\imps]
+    $\sembrack{f}\neq\sembrack{t}$
+\end{itemize}
