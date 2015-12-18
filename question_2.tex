@@ -1239,4 +1239,185 @@ Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
 \end{prop}
 
 \subsection{Part (k)}\label{sec:q-2-k}
+
+\newcommand{\Nat}{\mathbb{N}}
+\begin{prop}
+  $\Nat\times\Nat\cong\Nat$
+
+  Define $i_1 : \Nat\times\Nat\rightleftarrows\Nat : j_1$ by:
+  \begin{align*}
+    i_1(m, n) & \triangleq 2^m\cdot3^n\\
+    j_1(n) & \triangleq (0, n)
+  \end{align*}
+
+  from Schr\"oder-Bernstein, it suffices to prove that:
+  \begin{enumerate}[(i)]
+    \item $i_1$ injective
+    \item $j_1$ injective
+  \end{enumerate}
+
+  \begin{proof}[Proof (i)]~\\
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]\Let~$m,n,o,p\in\Nat$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+              \item[\phantom{\imps}]\Ass~$i_1(m,n) = i_1(o,p)$
+                \marginnote{\Hyp}
+
+              \item[\iffs]
+                $2^m\cdot3^n = 2^o\cdot3^p$
+                \marginnote{\Def-$i_1$}
+
+              \item[\iffs] $m = o$ and $n = p$
+                \marginnote{\textbf{fundamental theorem of arithmetic}}
+
+              \item[\iffs] $(m, n) = (o, p)$
+            \end{itemize}
+            \item[\imps]
+              $i_1(m,n) = i_1(o,p) \implies (m,n) = (o,p)$
+              \marginnote{\imps-\Intro-$\dagger$}
+        \end{itemize}
+
+        \item[\imps]
+          $\forall m,n,o,p\in\Nat\ldotp~i_1(m,n) = i_1(o,p) \implies (m,n) = (o,p)$
+          \marginnote{$\forall$-\Intro-$\star$}
+
+        \item[\iffs]
+          $i_1$ injective
+          \marginnote{\Def-injective}
+          \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Proof (ii)]~\\
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]\Let~$m,n\in\Nat$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+              \item[\phantom{\imps}]\Ass~$j_1(m) = j_1(n)$
+                \marginnote{\Hyp}
+
+              \item[\iffs]
+                $(0,m) = (0,n)$
+                \marginnote{\Def-$j_1$}
+
+              \item[\iffs] $m = n$
+            \end{itemize}
+            \item[\imps]
+              $j_1(m) = j_1(n) \implies m = n$
+              \marginnote{\imps-\Intro-$\dagger$}
+        \end{itemize}
+
+        \item[\imps]
+          $\forall m,n\in\Nat\ldotp~j_1(m) = j_1(n) \implies m = n$
+          \marginnote{$\forall$-\Intro-$\star$}
+
+        \item[\iffs]
+          $j_1$ injective
+          \marginnote{\Def-injective}
+          \qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
+\begin{prop}
+  $\Pfin{\Nat}\cong\Nat$
+
+  Define $i_2: \Pfin{\Nat}\rightleftarrows\Nat : j_2$ by:
+  \begin{align*}
+    p_k &\triangleq\text{the $k^{\text th}$ prime number}
+      \mathnote{Guaranteed to exist for any k by Euler's theorem}\\
+    i_2(\{n_0 < \ldots < n_k\}) & \triangleq p_0^{n_0}p_1^{n_1}\ldots p_k^{n_k}\\
+    j_2(n) & \triangleq\{n\}
+  \end{align*}
+
+  from Schr\"oder-Bernstein, it suffices to prove that:
+  \begin{enumerate}[(i)]
+    \item $i_2$ injective
+    \item $j_2$ injective
+  \end{enumerate}
+
+  \begin{proof}[Proof (i)]~\\
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]\Let~$M=\{m_0 < \ldots < m_l\},~N=\{n_0<\ldots<n_k\}\in\Pfin{\Nat}$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+              \item[\phantom{\imps}]\Ass~$i_2(M) = i_2(N)$
+                \marginnote{\Hyp}
+
+              \item[\iffs]
+                $p_0^{m_0}\ldots p_l^{m_l} = p_0^{n_0}\ldots p_k^{n_k}$
+                \marginnote{\Def-$i_2$}
+
+              \item[\iffs] $k = l$ and $m_i = n_i$ for all $0\leq i \leq k$
+                \marginnote{\textbf{fundamental theorem of arithmetic}}
+
+              \item[\iffs] $\displaystyle\mathop{\mathlarger{\forall}}_{0\leq i\leq k} m_i = n_i$
+
+              \item[\iffs] $M = N$
+
+            \end{itemize}
+            \item[\imps]
+              $i_2(M) = i_2(N) \implies M = N$
+              \marginnote{\imps-\Intro-$\dagger$}
+        \end{itemize}
+
+        \item[\imps]
+          $\forall M, N\in\Pfin{\Nat}\ldotp~i_2(M) = i_2(N) \implies M = N$
+          \marginnote{$\forall$-\Intro-$\star$}
+
+        \item[\iffs]
+          $i_2$ injective
+          \marginnote{\Def-injective}
+          \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Proof (ii)]~\\
+    \begin{itemize}
+      \item[$\star$]
+        \begin{itemize}
+          \item[\phs]\Let~$m,n\in\Nat$
+            \marginnote{\Hyp}
+
+          \item[$\dagger$]
+            \begin{itemize}
+              \item[\phantom{\imps}]\Ass~$j_2(m) = j_2(n)$
+                \marginnote{\Hyp}
+
+              \item[\iffs]
+                $\{m\} = \{n\}$
+                \marginnote{\Def-$j_2$}
+
+              \item[\iffs] $m = n$
+            \end{itemize}
+            \item[\imps]
+              $j_2(m) = j_2(n) \implies m = n$
+              \marginnote{\imps-\Intro-$\dagger$}
+        \end{itemize}
+
+        \item[\imps]
+          $\forall m,n\in\Nat\ldotp~j_2(m) = j_2(n) \implies m = n$
+          \marginnote{$\forall$-\Intro-$\star$}
+
+        \item[\iffs]
+          $j_2$ injective
+          \marginnote{\Def-injective}
+          \qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (l)}\label{sec:q-2-l}
