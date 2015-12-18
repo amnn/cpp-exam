@@ -1520,6 +1520,7 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
 
   \item[\iffs]
     $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
+    \marginnote{\Def-$\compose$-$\mathbf{CRel}$}
 
   \addtolength{\itemsep}{-.5\baselineskip}
   \item[\phantom{\imps}]
@@ -1532,6 +1533,8 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
   \addtolength{\itemsep}{-.5\baselineskip}
   \item[\phantom{\imps}]
     \quad $\land~(\forall f\in\overline{f}\ldotp~(\varnothing,f)\in\lambda s^\prime)$
+    \marginnote{\Def-$\widehat{\langle f,g\rangle}$}
+
   \item[\phantom{\imps}]
     \quad $\land~\phantom{(}\forall x\in\overline{x}\ldotp~(\varnothing,x)\in\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle)$
   \addtolength{\itemsep}{.5\baselineskip}
@@ -1542,9 +1545,11 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
   \addtolength{\itemsep}{-.5\baselineskip}
   \item[\phantom{\imps}]
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~(\overline{g},a^\prime)\in s)$
+    \marginnote{\Def-$\lambda\cdot$}
 
   \item[\phantom{\imps}]
     \quad $\land~\phantom{(}\forall (\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~(\overline{h},a^{\prime\prime})\in\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle$
+    \marginnote{\Def-$\lambda\cdot$}
   \addtolength{\itemsep}{.5\baselineskip}
 
   \item[\iffs]
@@ -1553,8 +1558,11 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
   \addtolength{\itemsep}{-.5\baselineskip}
   \item[\phantom{\imps}]
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
+    \marginnote{\Def-$s$}
+
   \item[\phantom{\imps}]
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
+    \marginnote{\Def-\ref{def:crel-comp}}
 
   \item[\phantom{\imps}]
     \quad\quad\quad\phantom{$\land$}$~((\overline{i},\overline{y}),a^{\prime\prime})\in\App$
@@ -1569,6 +1577,7 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
   \addtolength{\itemsep}{-.5\baselineskip}
   \item[\phantom{\imps}]
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
+
   \item[\phantom{\imps}]
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
 
@@ -1577,6 +1586,7 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
 
   \item[\phantom{\imps}]
     \quad\quad\quad$\land~(\forall i\in\overline{i}\ldotp~(\overline{h},i)\in\lambda s)$
+    \marginnote{\Def-$\widehat{\langle f,g\rangle}$}
 
   \item[\phantom{\imps}]
     \quad\quad\quad$\land~\phantom{(}\forall y\in\overline{y}\ldotp~(\overline{h},y)\in\lambda\pi_1$
@@ -1588,6 +1598,7 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
   \addtolength{\itemsep}{-.5\baselineskip}
   \item[\phantom{\imps}]
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
+
   \item[\phantom{\imps}]
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
 
@@ -1596,28 +1607,35 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
 
   \item[\phantom{\imps}]
     \quad\quad\quad$\land~(\forall (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~(\overline{j},a^{\prime\prime\prime})\in s)$
+    \marginnote{\Def-$\lambda\cdot$}
 
   \item[\phantom{\imps}]
     \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~((\overline{h}, \overline{k}),a^{\text (iv)})\in\pi_1$
+    \marginnote{\Def-$\lambda\cdot$}
   \addtolength{\itemsep}{.5\baselineskip}
 
   \item[\iffs]
     $\exists (\overline{f},\overline{x})\ldotp~(\exists(\overline{g},a^\prime)\in\overline{f}\ldotp~a=a^\prime\land\overline{g}\subseteq\overline{x})$
+    \marginnote{\Def-$\App$}
 
   \addtolength{\itemsep}{-.5\baselineskip}
   \item[\phantom{\imps}]
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
+
   \item[\phantom{\imps}]
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
 
   \item[\phantom{\imps}]
     \quad\quad\quad\phantom{$\land$}$~(\exists (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~a^{\prime\prime\prime} = a^{\prime\prime}\land\overline{j}\subseteq\overline{y})$
+    \marginnote{\Def-$\App$}
 
   \item[\phantom{\imps}]
     \quad\quad\quad$\land~(\forall (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~\exists j\in\overline{j}\ldotp~a^{\prime\prime\prime}=b^{-1}(j))$
+    \marginnote{\Def-$s$}
 
   \item[\phantom{\imps}]
     \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~a^{\text (iv)}\in\overline{h}$
+    \marginnote{\Def-$\pi_1$}
   \addtolength{\itemsep}{.5\baselineskip}
 
   \item[\iffs]
