@@ -1004,5 +1004,129 @@ This follows from the definitions of $~\widehat{\cdot}~$.
 Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
 
 \subsection{Part (j)}\label{sec:q-2-j}
+
+\begin{prop}
+  $\App\compose(\lambda f\times\id) = f$
+  \begin{proof}
+    Let $f : A\times X\to Y$
+    \begin{itemize}
+      \item[\phs]
+        $\App\compose(\lambda f\times\id)$
+
+      \item[\eqs]
+        $\App\compose\langle\lambda\compose\pi_1,\id\compose\pi_2\rangle$
+
+      \item[\eqs]
+        $\App\compose\langle\lambda\compose\pi_1,~\pi_2\rangle$
+
+      \item[\phantom{\imps}]
+        $((\overline{a},\overline{x}), y)\in\App\compose\langle\lambda f\compose\pi_1,\pi_2\rangle$
+
+      \item[\iffs]
+        $\exists(\overline{g},\overline{x}^\prime\in\Pfin{\Pfin{X}\times Y}\times\Pfin{X}$
+
+      \addtolength{\itemsep}{-.4\baselineskip}
+      \item[\phantom{\imps}]
+        \quad$((\overline{g},\overline{x}^\prime), y)\in\App\land((\overline{a},\overline{x}),(\overline{g},\overline{x}^\prime))\in\widehat{\langle\lambda f\compose\pi_1,\pi_2\rangle}$
+
+      \addtolength{\itemsep}{.4\baselineskip}
+
+      \item[\iffs]
+        $\exists(\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\},~\overline{x}^\prime)$
+
+      \addtolength{\itemsep}{-.4\baselineskip}
+      \item[\phantom{\imps}]
+        \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x}^\prime)$
+
+      \item[\phantom{\imps}]
+        \quad$\land~(\forall g\in\overline{g}\ldotp~((\overline{a},\overline{x}),g)\in\lambda g\compose\pi_1)$
+
+      \item[\phantom{\imps}]
+        \quad$\land~(\forall x^\prime\in\overline{x}^\prime\ldotp~((\overline{a},\overline{x}), x^\prime)\in\pi_2$
+      \addtolength{\itemsep}{.4\baselineskip}
+
+      \item[\iffs]
+        $\exists(\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\},~\overline{x}^\prime)$
+
+      \addtolength{\itemsep}{-.4\baselineskip}
+      \item[\phantom{\imps}]
+        \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x}^\prime)$
+
+      \item[\phantom{\imps}]
+        \quad$\land~((\overline{a},\overline{x}), \overline{g})\in\widehat{\lambda f\compose\pi_1}$
+
+      \item[\phantom{\imps}]
+        \quad$\land~(\forall x^\prime\in\overline{x}^\prime\ldotp~x^\prime\in\overline{x})$
+      \addtolength{\itemsep}{.4\baselineskip}
+
+      \item[\iffs]
+        $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
+
+      \addtolength{\itemsep}{-.4\baselineskip}
+      \item[\phantom{\imps}]
+        \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
+
+      \item[\phantom{\imps}]
+        \quad$\land~((\overline{a},\overline{x}), \overline{g})\in\widehat{\lambda f}\compose\widehat{\pi}_1$
+
+      \addtolength{\itemsep}{.4\baselineskip}
+
+      \item[\iffs]
+        $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
+
+      \addtolength{\itemsep}{-.4\baselineskip}
+      \item[\phantom{\imps}]
+        \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
+
+      \item[\phantom{\imps}]
+        \quad$\land~(\exists\overline{a}^\prime\ldotp~((\overline{a},\overline{x}),\overline{a}^\prime)\in\widehat{\pi}_1\land(\overline{a}^\prime,\overline{g}^\prime)\in\widehat{\lambda f}$
+
+      \addtolength{\itemsep}{.4\baselineskip}
+
+      \item[\iffs]
+        $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
+
+      \addtolength{\itemsep}{-.4\baselineskip}
+      \item[\phantom{\imps}]
+        \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
+
+      \item[\phantom{\imps}]
+        \quad$\land~\exists\overline{a}^\prime\ldotp~\overline{a}^\prime\subseteq\overline{a}\land\forall(\overline{s}_j,y_j)\in\overline{g}\ldotp~(\overline{a}^\prime,(\overline{s}_j, y_j))\in\lambda f$
+
+      \addtolength{\itemsep}{.4\baselineskip}
+
+      \item[\iffs]
+        $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
+
+      \addtolength{\itemsep}{-.4\baselineskip}
+      \item[\phantom{\imps}]
+        \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
+
+      \item[\phantom{\imps}]
+        \quad$\land~\forall(\overline{s}_j,y_j)\in\overline{g}\ldotp~(\overline{a},(\overline{s}_j, y_j))\in\lambda f$
+
+      \addtolength{\itemsep}{.4\baselineskip}
+
+      \item[\iffs]
+        $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
+
+      \addtolength{\itemsep}{-.4\baselineskip}
+      \item[\phantom{\imps}]
+        \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
+
+      \item[\phantom{\imps}]
+        \quad$\land~\forall(\overline{s}_j,y_j)\in\overline{g}\ldotp~((\overline{a},\overline{s}_j), y_j)\in f$
+
+      \addtolength{\itemsep}{.4\baselineskip}
+
+      \item[\iffs]
+        $\exists\overline{s}\ldotp~\overline{s}\subseteq\overline{x}\land((\overline{a},\overline{s}),y)\in f$
+
+      \item[\iffs]
+        $((\overline{a},\overline{x}),y)\in f$
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
 \subsection{Part (k)}\label{sec:q-2-k}
 \subsection{Part (l)}\label{sec:q-2-l}
