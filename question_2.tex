@@ -1421,3 +1421,42 @@ Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
 \end{prop}
 
 \subsection{Part (l)}\label{sec:q-2-l}
+
+In order to define a model where $\Nat = A$, we must find ${r : \Nat\rightleftarrows\Nat\Exp\Nat : s}$ whereby $r\compose s = \id_{A\Exp A}$.
+\begin{itemize}
+  \item[\iffs] $r : \Nat \rightleftarrows\Pfin{\Nat}\times\Nat : s$.
+  \item[\phantom{\imps}] By 2(k) we know that $\Pfin{\Nat}\times\Nat\cong\Nat\times\Nat\cong\Nat$.
+
+  \item[\phantom{\imps}] Let ${b : \Nat\to\Pfin{\Nat}\times\Nat}$ be the bijection, (with inverse $b^{-1}$) witnessing the above isomorphism, then we may define:
+    \begin{align*}
+      (\overline{n},f)\in r & \iff\exists n\in\overline{n}\ldotp~f = b(n)\\
+      (\overline{f},n)\in s & \iff\exists f\in\overline{f}\ldotp~n = b^{-1}(f)\\
+    \end{align*}
+
+  \item[\phantom{\imps}] $(\overline{f},f)\in r\compose s$
+
+  \item[\iffs]
+    $\exists\overline{n}\in\Pfin{\Nat}\ldotp~(\overline{n},f)\in r\land\forall n\in\overline{n}\ldotp~(\overline{f},n)\in s$
+    \marginnote{\Def-$\compose$-$\mathbf{CRel}$}
+
+  \item[\iffs]
+    \marginnote[.6em]{\Def-$r$;~\Def-$s$}
+    $\exists\overline{n}\in\Pfin{\Nat}\ldotp~(\exists n\in\overline{n}\ldotp~b(n) = f)\land\forall n\in\overline{n}\ldotp~\exists f^\prime_n\in\overline{f}\ldotp~b^{-1}(f^\prime_n) = n$
+
+  \item[\phantom{\imps}]
+    Left to right follows by $\exists$-\Elim~on the left conjunct followed by ${\forall\text{-\Elim}}$~on the right conjunct. This leads to the proposition: ${\exists f^\prime\in\overline{f}\ldotp~b^{-1}(f^\prime) = n}$. Then, by applying $b$ to both sides we get ${\exists f^\prime\in\overline{f}\ldotp~b(b^{-1}(f^\prime)) = b(n)}$, from which the right-hand side follows by simplifying the left and right hand sides.
+
+  \item[\phantom{\imps}]
+    Right to left by $\exists$-\Intro, setting $\overline{n}\triangleq\{b^{-1}(f)\}$.
+
+  \item[\iffs]
+    $\exists f^\prime\in\overline{f}\ldotp~f^\prime = f$
+
+  \item[\iffs]
+    $f\in\overline{f}$
+
+  \item[\iffs]
+    $(\overline{f}, f)\in\id_{\Nat\Exp\Nat}$
+    \marginnote{\Def-$\id$}
+    \hfill\qed
+\end{itemize}
