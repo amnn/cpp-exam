@@ -550,7 +550,7 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
 \subsection{Part (f)}\label{sec:q-2-f}
 
 \newcommand{\Pfin}[1]{\mathbf{P}_{\operatorname{fin}}(#1)}
-\begin{prop}
+\begin{prop}\label{prop:union-product-iso}
   For any $X, Y\in\mathbf{Set}$ there is an isomorphism
   \begin{align*}
     \Pfin{X + Y} \cong \Pfin{X}\times\Pfin{Y}
@@ -847,6 +847,148 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
 \end{prop}
 
 \subsection{Part (i)}\label{sec:q-2-i}
+
+We give multiple equivalent definitions for each construct below, as each is useful in some part of the ensuing proofs.
+
+\begin{definition}[Left projection]
+  \begin{align*}
+    \pi_1 & \subseteq \Pfin{A + B}\times A\\
+    (\overline{p}, a)\in\pi_1 & \iff(1,a)\in\overline{p}
+  \intertext{Equivalently, under the image of the isomorphism (Proposition~\ref{prop:union-product-iso}):}
+    \pi_1 & \subseteq(\Pfin{A}\times\Pfin{B})\times A\\
+    ((\overline{a},\overline{b}), a)\in\pi_1 & \iff a\in\overline{a}
+  \intertext{And, under the image of $~\widehat{\cdot}~$:}
+    \pi_1 & \subseteq(\Pfin{A}\times\Pfin{B})\times\Pfin{A}\\
+    ((\overline{a},\overline{b}),\overline{a}^\prime)\in\widehat{\pi}_1 & \iff\overline{a}^\prime\subseteq\overline{a}
+  \end{align*}
+\end{definition}
+
+\begin{definition}[Right projection]
+  \begin{align*}
+    \pi_2 & \subseteq \Pfin{A + B}\times B\\
+    (\overline{p}, b)\in\pi_2 & \iff(2,b)\in\overline{p}
+  \intertext{Equivalently, under the image of the isomorphism (Proposition~\ref{prop:union-product-iso}):}
+    \pi_2 & \subseteq(\Pfin{A}\times\Pfin{B})\times B\\
+    ((\overline{a},\overline{b}), b)\in\pi_2 & \iff b\in\overline{b}
+  \intertext{And, under the image of $~\widehat{\cdot}~$:}
+    \pi_2 & \subseteq(\Pfin{A}\times\Pfin{B})\times\Pfin{B}\\
+    ((\overline{a},\overline{b}),\overline{b}^\prime)\in\widehat{\pi}_1 & \iff\overline{b}^\prime\subseteq\overline{b}
+  \end{align*}
+\end{definition}
+
+\begin{definition}[Product morphism]
+  \begin{align*}
+    \langle f,g\rangle & \subseteq\Pfin{C}\times(A + B) \\
+    \langle f,g\rangle & =
+    \{(\overline{c},(1,a)) : (\overline{c},a)\in f\} \cup
+    \{(\overline{c},(2,b)) : (\overline{c},b)\in g\}
+  \intertext{Equivalently, under the image of $~\widehat{\cdot}~$ and the isomorphism (Proposition~\ref{prop:union-product-iso}):}
+    \widehat{\langle f,g\rangle} & \subseteq\Pfin{C}\times(\Pfin{A}\times\Pfin{B}) \\
+    (\overline{c},(\overline{a},\overline{b}))\in\widehat{\langle f,g\rangle} & \iff (\forall a\in\overline{a}\ldotp~(\overline{c},a)\in f)\land (\forall b\in\overline{b}\ldotp~(\overline{c},b)\in g)
+  \end{align*}
+\end{definition}
+
+Additionally it may be useful to restate composition in $\mathbf{CRel}$:
+
+\begin{definition}[Composition in $\mathbf{CRel}$]\label{def:crel-comp}
+For $X\overset{R}\longrightarrow Y\overset{S}\longrightarrow Z$
+\begin{align*}
+  (\overline{x},z)\in S\compose R\iff\exists\overline{y}\in\Pfin{Y}\ldotp~(\overline{y},z)\in S\land(\overline{x},\overline{y})\in\widehat{R}
+\end{align*}
+This follows from the definitions of $~\widehat{\cdot}~$.
+\end{definition}
+
+\begin{figure}
+  \caption{Commutative diagram describing binary products.}\label{fig:crel-products}
+  \begin{center}
+    \begin{tikzcd}[sep=large]
+      A & A + B \arrow[l, "\pi_1"'] \arrow[r, "\pi_2"] & B\\
+      & C \arrow[ul, "f"]\arrow[u, "{\langle f,g\rangle}"', dashed]\arrow[ur, "g"']&
+    \end{tikzcd}
+  \end{center}
+\end{figure}
+
+\begin{prop}
+  Disjoint union defines binary product in $\mathbf{CRel}$.
+
+  It suffices to prove that for any $A,B,C\in\mathbf{CRel}$ such that ${A\overset{f}\longleftarrow C\overset{g}\longrightarrow B}$, Figure \ref{fig:crel-products} commutes, or, in formulae:
+
+  \begin{enumerate}[(i)]
+    \item $\pi_1\compose\langle f, g\rangle = f$
+    \item $\pi_2\compose\langle f, g\rangle = g$
+    \item $\forall h : C\to A+B\ldotp~\langle\pi_1\compose h,\pi_2\compose h\rangle = h$
+  \end{enumerate}
+
+  \begin{proof}[Proof (i)]
+    \begin{itemize}
+      \item[\phantom{\imps}]
+        $(\overline{c},a)\in\pi_1\compose\langle f,g\rangle$
+
+      \item[\iffs]
+        $\exists(\overline{a},\overline{b})\in\Pfin{A}\times\Pfin{B}\ldotp~((\overline{a},\overline{b}),a)\in\pi_1\land(\overline{c},(\overline{a},\overline{b}))\in\widehat{\langle f,g\rangle}$
+        \marginnote{\Def-\ref{def:crel-comp}}
+
+      \item[\iffs]
+        $\exists(\overline{a},\overline{b})\ldotp~a\in\overline{a}\land(\forall a^\prime\in\overline{a}\ldotp~(\overline{c},a^\prime)\in f)\land(\forall b^\prime\in\overline{b}\ldotp~(\overline{c},b^\prime)\in g)$
+        \marginnote{\Def-$\pi_1$;~\Def-$\widehat{\langle f,g\rangle}$}
+
+      \item[\phantom{\imps}]
+        Left to right follows because for any set $(\overline{a},\overline{b})$ satisfying the proposition, we have that $a\in\overline{a}$, which in turn, by the middle conjunct implies that $(\overline{c},a)\in f$.
+
+      \item[\phantom{\imps}]
+        Right to left follows by setting $(\overline{a},\overline{b})\triangleq(\{a\},\varnothing)$
+
+      \item[\iffs]
+        $(\overline{c},a)\in f$
+        \qedhere
+    \end{itemize}
+  \end{proof}
+
+  \begin{proof}[Proof (ii)]
+    Similar to (i)\qedhere
+  \end{proof}
+
+  \begin{proof}[Proof (iii)]
+    Let $h : C\to A+B$
+    \begin{itemize}
+      \item[\phantom{\imps}]
+        $(\overline{c}, (\overline{a}, \overline{b}))\in\widehat{\langle\pi_1\compose h,\pi_2\compose h\rangle}$
+
+      \item[\iffs]
+        $(\forall a\in\overline{a}\ldotp~(\overline{c},a)\in\pi_1\compose h)\land(\forall b\in\overline{b}\ldotp~(\overline{c},b)\in\pi_2\compose h)$
+
+      \item[\iffs]
+        $(\overline{c},\overline{a})\in\widehat{\pi_1\compose h}\land(\overline{c},\overline{b})\in\widehat{\pi_2\compose h}$
+
+      \item[\iffs]
+        $(\overline{c},\overline{a})\in\widehat{\pi}_1\compose\widehat{h}\land(\overline{c},\overline{b})\in\widehat{\pi}_2\compose\widehat{h}$
+
+      \item[\iffs]
+        $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land((\overline{a}^\prime,\overline{b}^\prime),\overline{a})\in\widehat{\pi}_1)$
+
+      \addtolength{\itemsep}{-.5\baselineskip}
+      \item[\phantom{\iffs}\llap{$\land$}] $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land((\overline{a}^\prime,\overline{b}^\prime),\overline{b})\in\widehat{\pi}_2)$
+      \addtolength{\itemsep}{.5\baselineskip}
+
+      \item[\iffs]
+        $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land\overline{a}\subseteq\overline{a}^\prime$
+
+      \addtolength{\itemsep}{-.5\baselineskip}
+      \item[\phantom{\iffs}\llap{$\land$}] $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land\overline{b}\subseteq\overline{b}^\prime$
+      \addtolength{\itemsep}{.5\baselineskip}
+
+      \item[\iffs]
+        $(\overline{c},(\overline{a},\overline{b}))\in\widehat{h}$
+
+      \item[\iffs]
+        $\langle\pi_1\compose h,\pi_2\compose h\rangle = h$
+        \qedhere
+    \end{itemize}
+  \end{proof}
+\end{prop}
+
+Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
+
 \subsection{Part (j)}\label{sec:q-2-j}
 \subsection{Part (k)}\label{sec:q-2-k}
 \subsection{Part (l)}\label{sec:q-2-l}
