@@ -105,50 +105,52 @@ Then we may define $(-)^*$ inductively over the structure of $\lambda$-terms by:
   \begin{proof}[Case]
     $t\equiv x$
     \begin{itemize}
-      \item[\phantom{$\equiv$}] $x[u/x]^*$
+      \step $x[u/x]^*$
 
-      \item[$\equiv$] $u^*$
+      \step[\equiv] $u^*$
         \marginnote{\Def-substitution}
 
-        \item[$\equiv$] $x[u^*/x]$
-          \marginnote{\Def-substitution}
+      \step[\equiv] $x[u^*/x]$
+        \marginnote{\Def-substitution}
 
-        \item[$\equiv$] $x^*[u^*/x]$
-          \marginnote{\Def-$(-)^*$}
-          \qedhere
+      \step[\equiv] $x^*[u^*/x]$
+        \marginnote{\Def-$(-)^*$}
+        \qedhere
     \end{itemize}
   \end{proof}
 
   \begin{proof}[Case]
     $t\equiv y$ where $y\in\Vars,~y\not\equiv x$
     \begin{itemize}
-      \item[\phantom{$\equiv$}] $y[u/x]^*$
-      \item[$\equiv$] $y^*$
-          \marginnote{\Def-substitution}
-      \item[$\equiv$] $y^*[u^*/x]$
-          \marginnote{\Def-substitution}
-          \qedhere
+      \step $y[u/x]^*$
+
+      \step[\equiv] $y^*$
+        \marginnote{\Def-substitution}
+
+      \step[\equiv] $y^*[u^*/x]$
+        \marginnote{\Def-substitution}
+        \qedhere
     \end{itemize}
   \end{proof}
 
   \begin{proof}[Case]
     $t\equiv pq$
     \begin{itemize}
-      \item[\phantom{$\equiv$}] $(pq)[u/x]^*$
+      \step $(pq)[u/x]^*$
 
-      \item[$\equiv$] $(p[u/x]q[u/x])^*$
+      \step[\equiv] $(p[u/x]q[u/x])^*$
           \marginnote{\Def-substitution}
 
-      \item[$\equiv$] $\mathbf{r}p[u/x]^*q[u/x]^*$
+      \step[\equiv] $\mathbf{r}p[u/x]^*q[u/x]^*$
           \marginnote{\Def-$(-)^*$}
 
-      \item[$\equiv$] $\mathbf{r}p^*[u^*/x]q^*[u^*/x]$
+      \step[\equiv] $\mathbf{r}p^*[u^*/x]q^*[u^*/x]$
           \marginnote{\textbf{induction hypothesis}}
 
-      \item[$\equiv$] $(\mathbf{r}p^*q^*)[u^*/x])$
+      \step[\equiv] $(\mathbf{r}p^*q^*)[u^*/x])$
           \marginnote{\Def-substitution}
 
-      \item[$\equiv$] $(pq)^*[u^*/x]$
+      \step[\equiv] $(pq)^*[u^*/x]$
           \marginnote{\Def-$(-)^*$}
           \qedhere
     \end{itemize}
@@ -157,26 +159,26 @@ Then we may define $(-)^*$ inductively over the structure of $\lambda$-terms by:
   \begin{proof}[Case]
     $t\equiv\lambda x\ldotp p$
     \begin{itemize}
-      \item[\phantom{$\equiv$}]
+      \step
         $(\lambda x\ldotp p)[u/x]^*$
 
-      \item[$\equiv$]
+      \step[\equiv]
         $(\lambda x\ldotp p)^*$
         \marginnote{\Def-substitution}
 
-      \item[$\equiv$]
+      \step[\equiv]
         $\mathbf{s}(\lambda x\ldotp p^*)$
         \marginnote{\Def-$(-)^*$}
 
-      \item[$\equiv$]
+      \step[\equiv]
         $\mathbf{s}(\lambda x\ldotp p^*)[u^*/x]$
         \marginnote{\Def-substitution}
 
-      \item[$\equiv$]
+      \step[\equiv]
         $(\mathbf{s}(\lambda x\ldotp p^*))[u^*/x]$
         \marginnote{\Def-substitution}
 
-      \item[$\equiv$]
+      \step[\equiv]
         $(\lambda x\ldotp p)^*[u^*/x]$
         \marginnote{\Def-$(-)^*$}
         \qedhere
@@ -186,26 +188,26 @@ Then we may define $(-)^*$ inductively over the structure of $\lambda$-terms by:
   \begin{proof}[Case]
     $t\equiv\lambda y\ldotp p$ where $y\in\Vars,~y\not\equiv x$
     \begin{itemize}
-      \item[\phantom{$\equiv$}]
+      \step
         $(\lambda y\ldotp p)[u/x]^*$
 
-      \item[$\equiv$]
+      \step[\equiv]
         $(\lambda y\ldotp p[u/x])^*$
         \marginnote{\Def-substitution}
 
-      \item[$\equiv$]
+      \step[\equiv]
         $\mathbf{s}(\lambda y\ldotp p[u/x]^*)$
         \marginnote{\Def-$(-)^*$}
 
-      \item[$\equiv$]
+      \step[\equiv]
         $\mathbf{s}(\lambda y\ldotp p^*[u^*/x])$
         \marginnote{\textbf{induction hypothesis}}
 
-      \item[$\equiv$]
+      \step[\equiv]
         $(\mathbf{s}(\lambda y\ldotp p^*))[u^*/x]$
         \marginnote{\Def-substitution}
 
-      \item[$\equiv$]
+      \step[\equiv]
         $(\lambda y\ldotp p)^*[u^*/x]$
         \marginnote{\Def-$(-)^*$}
         \qedhere
@@ -217,21 +219,23 @@ Then we may define $(-)^*$ inductively over the structure of $\lambda$-terms by:
   $((\lambda x\ldotp t)u)^* =_{\text rs} t^*[u^*/x]$
   \begin{proof}
     \begin{itemize}
-      \item[\phantom{$\equiv$}]
+      \step
         $((\lambda x\ldotp t)u)^*$
 
-      \item[$\equiv$]
+      \step[\equiv]
         $\mathbf{r}(\lambda x\ldotp t)^*u^*$
         \marginnote{\Def-$(-)^*$}
 
-      \item[$\equiv$]
+      \step[\equiv]
         $\mathbf{r}(\mathbf{s}(\lambda x\ldotp t^*))u^*$
         \marginnote{\Def-$(-)^*$}
 
-      \item[$=_{\text rs}$]$(\lambda x\ldotp t^*)u^*$
+      \step[=_{\text rs}]
+        $(\lambda x\ldotp t^*)u^*$
         \marginnote{\Def-$=_{\text rs}$}
 
-      \item[$=_\beta$] $t^*[u^*/x]$
+      \step[=_\beta]
+        $t^*[u^*/x]$
         \marginnote{\Def-$=_\beta$}
         \qedhere
     \end{itemize}
@@ -252,27 +256,27 @@ A normalising $\lambda$-theory, $T$, is one in which every $\lambda$-term $T$-re
 
 \begin{itemize}
 
-  \item[\phantom{$\equiv$}] $\Omega^*$
+  \step $\Omega^*$
 
-  \item[$\equiv$] $((\lambda x\ldotp xx)(\lambda x\ldotp xx))^*$
+  \step[\equiv] $((\lambda x\ldotp xx)(\lambda x\ldotp xx))^*$
 
-  \item[$\equiv$] $\mathbf{r}(\lambda x\ldotp xx)^*(\lambda x\ldotp xx)^*$
+  \step[\equiv] $\mathbf{r}(\lambda x\ldotp xx)^*(\lambda x\ldotp xx)^*$
 
-  \item[$\equiv$] $\mathbf{r}(\mathbf{s}\lambda x\ldotp (xx)^*)(\mathbf{s}\lambda x\ldotp (xx)^*)$
+  \step[\equiv] $\mathbf{r}(\mathbf{s}\lambda x\ldotp (xx)^*)(\mathbf{s}\lambda x\ldotp (xx)^*)$
 
-  \item[$\equiv$] $\mathbf{r}(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)$
+  \step[\equiv] $\mathbf{r}(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)$
 
-  \item[$\to_{\text rs}$] $(\lambda x\ldotp \mathbf{r}xx)(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)$
+  \step[\to_{\text rs}] $(\lambda x\ldotp \mathbf{r}xx)(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)$
 
-  \item[$\to_{\text rs}$] $\mathbf{r}(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)$
+  \step[\to_{\text rs}] $\mathbf{r}(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)(\mathbf{s}\lambda x\ldotp \mathbf{r}xx)$
 
-  \item[$\to_{\text rs}$] $\ldots$
+  \step[\to_{\text rs}] $\ldots$
 
-  \item[\imps] All reduction sequences from $\Omega^*$ are non-terminating.
+  \step[\imps] All reduction sequences from $\Omega^*$ are non-terminating.
 
-  \item[\imps] $\Omega^*$ has no rs-normal form.
+  \step[\imps] $\Omega^*$ has no rs-normal form.
 
-  \item[\imps] rs-calculus is not normalising.
+  \step[\imps] rs-calculus is not normalising.
 \end{itemize}
 
 \subsection{Part (d)}\label{sec:q-2-d}
@@ -355,10 +359,10 @@ Our definition and proof rely in part upon the isomorphism ${\cong~:\top\times A
 
   \begin{proof}[Proof] $\cong\compose\cong^{-1}~= \id_X$
     \begin{itemize}
-      \item[\phs] $\cong\compose\cong^{-1}$
-      \item[\eqs] $\pi_2\compose\langle !,~\id_X\rangle$
+      \step $\cong\compose\cong^{-1}$
+      \step[=] $\pi_2\compose\langle !,~\id_X\rangle$
         \marginnote{\Def-$\cong$;~\Def-$\cong^{-1}$}
-      \item[\eqs] $\id_X$
+      \step[=] $\id_X$
         \qedhere
         \marginnote{\Def-projection}
     \end{itemize}
@@ -366,26 +370,26 @@ Our definition and proof rely in part upon the isomorphism ${\cong~:\top\times A
 
   \begin{proof}[Proof]$\cong^{-1}\compose\cong~= \id_{\top\times X}$
     \begin{itemize}
-      \item[\phs] $\cong^{-1}\compose\cong$
-      \item[\eqs] $\langle !,~\id_X\rangle\compose\pi_2$
+      \step $\cong^{-1}\compose\cong$
+      \step[=] $\langle !,~\id_X\rangle\compose\pi_2$
         \marginnote{\Def-$\cong$;~\Def-$\cong^{-1}$}
 
-      \item[\eqs] $\langle !\compose\pi_2,~\id_X\compose\pi_2\rangle$
+      \step[=] $\langle !\compose\pi_2,~\id_X\compose\pi_2\rangle$
         \marginnote{\textbf{universal}-product}
-      \item[\eqs] $\langle !\compose\pi_2,~\pi_2\rangle$
+      \step[=] $\langle !\compose\pi_2,~\pi_2\rangle$
 
         \marginnote{\Def-$\id$}
 
-      \item[\eqs] $\langle !\compose\pi_1,~\pi_2\rangle$
+      \step[=] $\langle !\compose\pi_1,~\pi_2\rangle$
         \marginnote{\textbf{universal}-terminal}
 
-      \item[\eqs] $\langle \id_\top\compose\pi_1,~\pi_2\rangle$
+      \step[=] $\langle \id_\top\compose\pi_1,~\pi_2\rangle$
         \marginnote{\textbf{universal}-terminal}
 
-      \item[\eqs] $\langle \pi_1,~\pi_2\rangle$
+      \step[=] $\langle \pi_1,~\pi_2\rangle$
         \marginnote{\Def-$\id$}
 
-      \item[\eqs] $\id_{\top\times X}$
+      \step[=] $\id_{\top\times X}$
         \qedhere
         \marginnote{\textbf{universal}-product}
 
@@ -401,22 +405,22 @@ We also require a result pertaining to the factoring of function composition thr
   $\langle f\compose g,~h\rangle = (f\times\id)\compose\langle g,~h\rangle$
   \begin{proof}
     \begin{itemize}
-      \item[\phs]
+      \step
         $(f\times\id)\compose\langle g,~h\rangle$
 
-      \item[\eqs]
+      \step[=]
         $\langle f\compose\pi_1,~g\compose\pi_2\rangle\compose\langle g,~h\rangle$
         \marginnote{\Def-$\times$}
 
-      \item[\eqs]
+      \step[=]
         $\langle f\compose\pi_1\compose\langle g,~h\rangle,~\id\compose\pi_2\compose\langle g,~h\rangle\rangle$
         \marginnote{\textbf{universal}-product}
 
-      \item[\eqs]
+      \step[=]
         $\langle f\compose g,~\id\compose h\rangle$
         \marginnote{\Def-projection}
 
-      \item[\eqs]
+      \step[=]
         $\langle f\compose g,~h\rangle$
         \qedhere
         \marginnote{\Def-$\id$}
@@ -432,9 +436,9 @@ Now on to the main result:
     Let $t\in\Lambda$ be a term for which ${\Gamma\vdash t : A\to A}$ is deducible in the rs-calculus.
 
     \begin{itemize}
-      \item[\phs] $\sembrack{\Gamma\vdash\mathbf{r}(\mathbf{s}t) : A\to A}$
+      \step $\sembrack{\Gamma\vdash\mathbf{r}(\mathbf{s}t) : A\to A}$
 
-      \item[\eqs]
+      \step[=]
           $\sembrack{\Gamma} \xrightarrow{\langle f,~g\rangle} (A\Exp(A\Exp A))\times A \xrightarrow{\operatorname{ev}_{A,A\Exp A}}
           A$
         \begin{flalign*}
@@ -446,41 +450,41 @@ Now on to the main result:
           i & = \sembrack{\Gamma}\overset{\sembrack{t}}{\longrightarrow}A\Exp A &
         \end{flalign*}
 
-        \item[\eqs]
+        \step[=]
           $\operatorname{ev}_{A,A\Exp A}\compose\langle\lambda r^\prime\compose !,~\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle\rangle$
 
-        \item[\eqs]
+        \step[=]
           $\operatorname{ev}_{A,A\Exp A}\compose(\lambda r^\prime\times\id)\compose\langle !,~\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle\rangle$
           \marginnote{\Lemma-\ref{lemma:prod-comp-factor}}
 
-        \item[\eqs]
+        \step[=]
           $r\compose\cong\compose\langle !,~\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle\rangle$
           \marginnote{\Def-exponential}
 
-        \item[\eqs]
+        \step[=]
           $r\compose\cong\compose\cong^{-1}\compose\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle$
           \marginnote{\Lemma-\ref{lemma:prod-term-iso}}
 
-        \item[\eqs]
+        \step[=]
           $r\compose\operatorname{ev}_{A\Exp A,A}\compose\langle\lambda s^\prime\compose !,~\sembrack{t}\rangle$
           \marginnote{\textbf{iso}-$\cong$}
 
-        \item[\eqs]
+        \step[=]
           $r\compose\operatorname{ev}_{A\Exp A,A}\compose(\lambda s^\prime\times\id)\compose\langle !,~\sembrack{t}\rangle$
           \marginnote{\Lemma-\ref{lemma:prod-comp-factor}}
 
-        \item[\eqs]
+        \step[=]
           $r\compose s\compose\cong\compose\langle !,~\sembrack{t}\rangle$
           \marginnote{\Def-exponential}
 
-        \item[\eqs]
+        \step[=]
           $r\compose s\compose\cong\compose\cong^{-1}\compose\sembrack{t}$
           \marginnote{\Lemma-\ref{lemma:prod-term-iso}}
-        \item[\eqs]
+        \step[=]
           $r\compose s\compose\sembrack{t}$
           \marginnote{\textbf{iso}-$\cong$}
 
-        \item[\eqs]
+        \step[=]
           $\sembrack{t}$
           \qedhere
           \marginnote{$r\compose s = \id_{A\Exp A}$}
@@ -498,15 +502,15 @@ A model in $\mathbf{Set}$ consists of an object $A\in\mathbf{Set}$ and morphisms
 
   \begin{proof}[Proof by Contradiction] Suppose $\abs{A^A} > \abs{A}$
     \begin{itemize}
-      \item[\iffs] $\abs{\operatorname{Dom}(s)} > \abs{\operatorname{CoDom}(s)}$
+      \step[\iffs] $\abs{\operatorname{Dom}(s)} > \abs{\operatorname{CoDom}(s)}$
 
-      \item[\imps] $\exists f, g\in A^A\ldotp~ f\neq g\land s(f) = s(g)$
+      \step[\imps] $\exists f, g\in A^A\ldotp~ f\neq g\land s(f) = s(g)$
         \marginnote{pigeonhole principle}
 
-      \item[\imps] $\exists f, g\in A^A\ldotp~ f\neq g\land r(s(f)) = r(s(g))$
+      \step[\imps] $\exists f, g\in A^A\ldotp~ f\neq g\land r(s(f)) = r(s(g))$
 
-      \item[\imps] $r\compose s\neq\id_{A^A}$
-      \item[\contras] $\abs{A^A}\leq\abs{A}$
+      \step[\imps] $r\compose s\neq\id_{A^A}$
+      \step[\contras] $\abs{A^A}\leq\abs{A}$
         \qedhere
         \marginnote{\Contra-($r\compose s = \id_{A^A}$)}
     \end{itemize}
@@ -570,20 +574,20 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
 
   \begin{proof} (i)
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$(A,B)\in\Pfin{X}\times\Pfin{Y}$
             \marginnote{\Hyp}
 
-          \item[\phs]
+          \step
             $f(g(A,B))$
 
-          \item[\eqs]
+          \step[=]
             $f(\{(1,a):a\in A\}\cup\{(2,b):b\in B\})$
             \marginnote{\Def-$g$}
 
-          \item[\eqs]
+          \step[=]
             \marginnote[2em]{\Def-$f$}
             \begin{flalign*}
             ( &~\{x : (1,x)\in\{(1,a):a\in A\}\cup\{(2,b):b\in B\}\} &\\
@@ -591,27 +595,27 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
             ) &&
             \end{flalign*}
 
-          \item[\eqs]
+          \step[=]
             \begin{flalign*}
               ( &~\{x:(1,x)\in\{(1,a):a\in A\}\}\\
               , &~\{y:(2,y)\in\{(2,b):b\in B\}\}\\
               ) &&
             \end{flalign*}
 
-          \item[\eqs]
+          \step[=]
             $(\{x : x\in A\},~\{y : y\in B\})$
 
-          \item[\eqs]
+          \step[=]
             $(A,~B)$
 
-          \item[\eqs]
+          \step[=]
             $\id_{\Pfin{X}\times\Pfin{Y}}(A,~B)$
         \end{itemize}
-        \item[\imps]
+        \step[\imps]
           $\forall (A, B)\in\Pfin{X}\times\Pfin{Y}\ldotp~f(g(A,~B)) = \id_{\Pfin{X}\times\Pfin{Y}}(A,~B)$
           \marginnote{$\forall$-intro-$\star$}
 
-        \item[\imps]
+        \step[\imps]
           $f\compose g = \id_{\Pfin{X}\times\Pfin{Y}}$
           \qedhere
           \marginnote{\Def-$=$}
@@ -620,37 +624,37 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
 
   \begin{proof} (ii)
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$A\in\Pfin{X+Y}$
 
-          \item[\phs] $g(f(A))$
+          \step $g(f(A))$
 
-          \item[\eqs]
+          \step[=]
             $g(\{x:(1,x)\in A\},~\{y:(2,y)\in A\})$
 
-          \item[\eqs]
+          \step[=]
             $\{(1,a) : a\in\{x : (1,x)\in A\}\}$
 
-          \item[$\cup$]
+          \step[\cup]
             $\{(2,b) : b\in\{y : (2,b)\in A\}\}$
 
-          \item[\eqs]
+          \step[=]
             $\{(1,a) : (1,a)\in A\}\cup\{(2,b):(2,b)\in A\}$
 
-          \item[\eqs]
+          \step[=]
             $A$
 
-          \item[\eqs]
+          \step[=]
             $\id_{\Pfin{X + Y}}(A)$
         \end{itemize}
 
-      \item[\imps]
+      \step[\imps]
         $\forall A\in\Pfin{X+Y}\ldotp~g(f(A)) = \id_{\Pfin{X+Y}}(A)$
         \marginnote{$\forall$-intro-$\star$}
 
-      \item[\imps]
+      \step[\imps]
         $g\compose f = \id_{\Pfin{X+Y}}$
         \qedhere
         \marginnote{\Def-$=$}
@@ -664,19 +668,19 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
   $(s,t)\in\widehat{R}\land t^\prime\subseteq t\implies (s,t^\prime)\in\widehat{R}$
   \begin{proof}~\\
     \begin{itemize}
-      \item[\phantom{\imps}]
+      \step
         $(s,t)\in\widehat{R}$
         \marginnote{\Hyp}
 
-      \item[\iffs]
+      \step[\iffs]
         $\forall y\in t\ldotp~(s,y)\in R$
         \marginnote{\Def-$\widehat{R}$}
 
-      \item[\imps]
+      \step[\imps]
         $\forall y\in t^\prime\ldotp~(s,y)\in R$
         \marginnote{$t^\prime\subseteq t$}
 
-      \item[\iffs]
+      \step[\iffs]
         $(s, t^\prime)\in\widehat{R}$
         \qedhere
         \marginnote{\Def-$\widehat{R}$}
@@ -688,13 +692,13 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
   $R = \{(s,y) : (s,\{y\})\in\widehat{R}\}$
   \begin{proof}~\\
     \begin{itemize}
-      \item[\phs] $\{(s,y):(s,\{y\})\in\widehat{R}\}$
+      \step $\{(s,y):(s,\{y\})\in\widehat{R}\}$
 
-      \item[\eqs] $\{(s,y):\forall y\in\{y\}\ldotp~(s,y)\in R\}$
+      \step[=] $\{(s,y):\forall y\in\{y\}\ldotp~(s,y)\in R\}$
 
-      \item[\eqs] $\{(s,y):(s,y)\in R\}$
+      \step[=] $\{(s,y):(s,y)\in R\}$
 
-      \item[\eqs] $R$\qedhere
+      \step[=] $R$\qedhere
     \end{itemize}
   \end{proof}
 \end{prop}
@@ -703,34 +707,34 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
   $X\overset{R}{\longrightarrow}Y\overset{S}{\longrightarrow}Z\text{ in }\mathbf{CRel}\implies\widehat{S\compose R} = \widehat{S}\compose\widehat{R}$
   \begin{proof}~\\
     \begin{itemize}
-      \item[\phantom{\imps}]
+      \step
         $(s,u)\in\widehat{S\compose R}$
         \marginnote{\Hyp}
 
-      \item[\iffs]
+      \step[\iffs]
         $\forall z\in u\ldotp~(s,z)\in S\compose R$
         \marginnote{\Def-$\widehat{R}$}
 
-      \item[\iffs]
+      \step[\iffs]
         $\forall z\in u\ldotp~\exists t_z\in\Pfin{Y}\ldotp~(t_z,z)\in S\land\forall y\in t_z\ldotp~(s,y)\in R$
         \marginnote{\Def-$\compose$-\textbf{CRel}}
 
         \addtolength{\itemsep}{\baselineskip}
-        \item[\phantom{\imps}]
+        \step
           This step forms the crux of the proof. It follows in the left to right direction by setting $t \triangleq \bigcup\limits_{z\in u} t_z$. Then $t_z\subseteq t$ for every $z\in u$ so by the c-relation condition $\forall z\in u\ldotp~(t,z)\in S$.
 
-        \item[\phantom{\imps}]
+        \step
           The right to left direction, follows by setting $t_z \triangleq t$, for every ${z\in u}$ (a special case of the theorem ${\exists x\ldotp~\forall y\ldotp~P(x, y)\vdash\forall y\ldotp\exists x\ldotp~P(x,y)}$).
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists t\in\Pfin{Y}\ldotp~\forall z\in u\ldotp~(t,z)\in S\land\forall y\in t\ldotp~(s,y)\in R$
 
         \addtolength{\itemsep}{-1\baselineskip}
-      \item[\iffs]
+      \step[\iffs]
         $\exists t\in\Pfin{Y}\ldotp~(t,u)\in\widehat{S}\land (s,t)\in\widehat{R}$
         \marginnote{\Def-$\widehat{R}$}
 
-      \item[\iffs]
+      \step[\iffs]
         $(s, u)\in\widehat{S}\compose\widehat{R}$
         \qedhere
         \marginnote{\Def-$\compose$-\textbf{Rel}}
@@ -758,52 +762,52 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
     \noindent then for $S : B\to A$ in $\mathbf{CRel}$
 
     \begin{itemize}
-      \item[\phantom{\imps}]
+      \step
         $(\overline{b}, a)\in \id_A\compose S$
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~(\overline{a}^\prime,a)\in\id_A\land \forall a^\prime\in\overline{a}^\prime\ldotp~(\overline{b},a^\prime)\in S$
         \marginnote{\Def-$\compose$-$\mathbf{CRel}$}
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~a\in\overline{a}^\prime\land \forall a^\prime\in\overline{a}^\prime\ldotp~(\overline{b},a^\prime)\in S$
         \marginnote{\Def-$\id_A$}
 
-      \item[\phantom{\imps}]
+      \step
         Left to right follows because for any $\overline{a}^\prime$ satisfying the above, $\{a\}$ is a subset, and so will also satisfy it.
 
-      \item[\phantom{\imps}]
+      \step
         Right to left follows by $\exists$-\Intro.
 
-      \item[\iffs]
+      \step[\iffs]
         $a\in\{a\}\land\forall a^\prime\in\{a\}\ldotp~(\overline{b},a^\prime)\in S$
 
-      \item[\iffs]
+      \step[\iffs]
         $(\overline{b},a)\in S$
     \end{itemize}
 
     And similarly for $R : A\to B$ in $\mathbf{CRel}$
 
     \begin{itemize}
-      \item[\phantom{\imps}]
+      \step
         $(\overline{a}, b)\in R\compose \id_A$
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~(\overline{a}^\prime,b)\in R\land\forall a^\prime\in\overline{a}^\prime\ldotp~(\overline{a}, a^\prime)\in\id_A$
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~(\overline{a}^\prime,b)\in R\land\forall a^\prime\in\overline{a}^\prime\ldotp~a^\prime\in\overline{a}$
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{a}^\prime\in\Pfin{A}\ldotp~(\overline{a}^\prime,b)\in R\land\overline{a}^\prime\subseteq\overline{a}$
 
-      \item[\phantom{\imps}]
+      \step
         Left to right follows by the c-relation condition.
 
-      \item[\phantom{\imps}]
+      \step
         Right to left follows by setting $\overline{a}^\prime\triangleq\overline{a}$.
 
-      \item[\iffs]
+      \step[\iffs]
         $(\overline{a}, b)\in R$\qedhere
     \end{itemize}
   \end{proof}
@@ -812,34 +816,34 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
     let $X\overset{R}\longrightarrow Y\overset{S}\longrightarrow Z\overset{T}\longrightarrow W$ in $\mathbf{CRel}$
 
     \begin{itemize}
-      \item[\phs]
+      \step
         $R\compose(S\compose T)$
 
-      \item[\eqs]
+      \step[=]
         $\{(a,w):(a,\{w\})\in\widehat{R\compose(S\compose T)}\}$
         \marginnote{\Thm-\ref{prop:rel-rel-hat}}
 
-      \item[\eqs]
+      \step[=]
         $\{(a,w):(a,\{w\})\in\widehat{R}\compose(\widehat{S\compose T})\}$
         \marginnote{\Thm-\ref{prop:rel-hat-comp}}
 
-      \item[\eqs]
+      \step[=]
         $\{(a,w):(a,\{w\})\in\widehat{R}\compose(\widehat{S}\compose\widehat{T})\}$
         \marginnote{\Thm-\ref{prop:rel-hat-comp}}
 
-      \item[\eqs]
+      \step[=]
         $\{(a,w):(a,\{w\})\in(\widehat{R}\compose\widehat{S})\compose\widehat{T}\}$
         \marginnote{\Assoc-$\compose$-$\mathbf{Rel}$}
 
-      \item[\eqs]
+      \step[=]
         $\{(a,w):(a,\{w\})\in(\widehat{R\compose S})\compose\widehat{T}\}$
         \marginnote{\Thm-\ref{prop:rel-hat-comp}}
 
-      \item[\eqs]
+      \step[=]
         $\{(a,w):(a,\{w\})\in\widehat{(R\compose S)\compose T}\}$
         \marginnote{\Thm-\ref{prop:rel-hat-comp}}
 
-      \item[\eqs]
+      \step[=]
         $(R\compose S)\compose T$
         \qedhere
         \marginnote{\Thm-\ref{prop:rel-rel-hat}}
@@ -922,24 +926,24 @@ This follows from the definitions of $~\widehat{\cdot}~$.
 
   \begin{proof}[Proof (i)]
     \begin{itemize}
-      \item[\phantom{\imps}]
+      \step
         $(\overline{c},a)\in\pi_1\compose\langle f,g\rangle$
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists(\overline{a},\overline{b})\in\Pfin{A}\times\Pfin{B}\ldotp~((\overline{a},\overline{b}),a)\in\pi_1\land(\overline{c},(\overline{a},\overline{b}))\in\widehat{\langle f,g\rangle}$
         \marginnote{\Def-\ref{def:crel-comp}}
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists(\overline{a},\overline{b})\ldotp~a\in\overline{a}\land(\forall a^\prime\in\overline{a}\ldotp~(\overline{c},a^\prime)\in f)\land(\forall b^\prime\in\overline{b}\ldotp~(\overline{c},b^\prime)\in g)$
         \marginnote{\Def-$\pi_1$;~\Def-$\widehat{\langle f,g\rangle}$}
 
-      \item[\phantom{\imps}]
+      \step
         Left to right follows because for any set $(\overline{a},\overline{b})$ satisfying the proposition, we have that $a\in\overline{a}$, which in turn, by the middle conjunct implies that $(\overline{c},a)\in f$.
 
-      \item[\phantom{\imps}]
+      \step
         Right to left follows by setting $(\overline{a},\overline{b})\triangleq(\{a\},\varnothing)$
 
-      \item[\iffs]
+      \step[\iffs]
         $(\overline{c},a)\in f$
         \qedhere
     \end{itemize}
@@ -952,50 +956,52 @@ This follows from the definitions of $~\widehat{\cdot}~$.
   \begin{proof}[Proof (iii)]
     Let $h : C\to A+B$
     \begin{itemize}
-      \item[\phantom{\imps}]
+      \step
         $(\overline{c}, (\overline{a}, \overline{b}))\in\widehat{\langle\pi_1\compose h,\pi_2\compose h\rangle}$
 
-      \item[\iffs]
+      \step[\iffs]
         $(\forall a\in\overline{a}\ldotp~(\overline{c},a)\in\pi_1\compose h)\land(\forall b\in\overline{b}\ldotp~(\overline{c},b)\in\pi_2\compose h)$
         \marginnote{\Def-$~\widehat{\langle f,g\rangle}$}
 
-      \item[\iffs]
+      \step[\iffs]
         $(\overline{c},\overline{a})\in\widehat{\pi_1\compose h}\land(\overline{c},\overline{b})\in\widehat{\pi_2\compose h}$
         \marginnote{\Def-$~\widehat{\cdot}$}
 
-      \item[\iffs]
+      \step[\iffs]
         $(\overline{c},\overline{a})\in\widehat{\pi}_1\compose\widehat{h}\land(\overline{c},\overline{b})\in\widehat{\pi}_2\compose\widehat{h}$
         \marginnote{\Def-\ref{prop:rel-hat-comp}}
 
-      \item[\iffs]
+      \step[\iffs]
         $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land((\overline{a}^\prime,\overline{b}^\prime),\overline{a})\in\widehat{\pi}_1)$
         \marginnote{\Def-$\compose$-$\mathbf{Rel}$}
 
       \addtolength{\itemsep}{-.4\baselineskip}
-      \item[\phantom{\iffs}\llap{$\land$}] $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land((\overline{a}^\prime,\overline{b}^\prime),\overline{b})\in\widehat{\pi}_2)$
+      \step[\land]
+        $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land((\overline{a}^\prime,\overline{b}^\prime),\overline{b})\in\widehat{\pi}_2)$
       \addtolength{\itemsep}{.4\baselineskip}
 
-      \item[\iffs]
+      \step[\iffs]
         $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land\overline{a}\subseteq\overline{a}^\prime)$
         \marginnote{\Def-$\widehat{\pi}_1$}
 
       \addtolength{\itemsep}{-.4\baselineskip}
-      \item[\phantom{\iffs}\llap{$\land$}] $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land\overline{b}\subseteq\overline{b}^\prime)$
+      \step[\land]
+        $(\exists(\overline{a}^\prime,\overline{b}^\prime)\ldotp~(\overline{c},(\overline{a}^\prime,\overline{b}^\prime))\in\widehat{h}\land\overline{b}\subseteq\overline{b}^\prime)$
         \marginnote{\Def-$\widehat{\pi}_2$}
       \addtolength{\itemsep}{.4\baselineskip}
 
       \addtolength{\itemsep}{.5\baselineskip}
-      \item[\phantom{\imps}]
+      \step
         By $\exists$-\Elim, let $(\overline{a}^\prime_1,\overline{b}^\prime_1)$ and $(\overline{a}^\prime_2,\overline{b}^\prime_2)$ be sets satisfying the first and second quantification respectively. Then (Through the image of the isomorphism) ${(\overline{c},(\overline{a}^\prime_1\cup\overline{a}^\prime_2,~\overline{b}^\prime_1\cup\overline{b}^\prime_2))\in\widehat{h}}$ and ${(\overline{a},\overline{b})\subseteq(\overline{a}^\prime_1\cup\overline{a}^\prime_2,~\overline{b}^\prime_1\cup\overline{b}^\prime_2)}$. So from Proposition~\ref{prop:rel-hat-subset} left to right follows.
 
-      \item[\phantom{\imps}]
+      \step
         Right to left follows by setting $\overline{a}^\prime\triangleq\overline{a},~\overline{b}^\prime\triangleq\overline{b}$ in both quantifications.
 
-      \item[\iffs]
+      \step[\iffs]
         $(\overline{c},(\overline{a},\overline{b}))\in\widehat{h}$
       \addtolength{\itemsep}{-.5\baselineskip}
 
-      \item[\iffs]
+      \step[\iffs]
         $\langle\pi_1\compose h,\pi_2\compose h\rangle = h$
         \qedhere
     \end{itemize}
@@ -1011,148 +1017,148 @@ Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
   \begin{proof}
     Let $f : A\times X\to Y$
     \begin{itemize}
-      \item[\phs]
+      \step
         $\App\compose(\lambda f\times\id)$
 
-      \item[\eqs]
+      \step[=]
         $\App\compose\langle\lambda\compose\pi_1,\id\compose\pi_2\rangle$
         \marginnote{\Def-$\times$}
 
-      \item[\eqs]
+      \step[=]
         $\App\compose\langle\lambda\compose\pi_1,~\pi_2\rangle$
         \marginnote{\Def-$\id$}
 
-      \item[\phantom{\imps}]
+      \step
         $((\overline{a},\overline{x}), y)\in\App\compose\langle\lambda f\compose\pi_1,\pi_2\rangle$
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists(\overline{g},\overline{x}^\prime\in\Pfin{\Pfin{X}\times Y}\times\Pfin{X}$
         \marginnote{\Def-\ref{def:crel-comp}}
 
       \addtolength{\itemsep}{-.3\baselineskip}
-      \item[\phantom{\imps}]
+      \step
         \quad$((\overline{g},\overline{x}^\prime), y)\in\App\land((\overline{a},\overline{x}),(\overline{g},\overline{x}^\prime))\in\widehat{\langle\lambda f\compose\pi_1,\pi_2\rangle}$
 
       \addtolength{\itemsep}{.3\baselineskip}
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists(\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\},~\overline{x}^\prime)$
 
       \addtolength{\itemsep}{-.3\baselineskip}
-      \item[\phantom{\imps}]
+      \step
         \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x}^\prime)$
         \marginnote{\Def-$\App$}
 
-      \item[\phantom{\imps}]
+      \step
         \quad$\land~(\forall g\in\overline{g}\ldotp~((\overline{a},\overline{x}),g)\in\lambda g\compose\pi_1)$
         \marginnote{\Def-$\widehat{\langle f,g\rangle}$}
 
-      \item[\phantom{\imps}]
+      \step
         \quad$\land~(\forall x^\prime\in\overline{x}^\prime\ldotp~((\overline{a},\overline{x}), x^\prime)\in\pi_2$
       \addtolength{\itemsep}{.3\baselineskip}
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists(\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\},~\overline{x}^\prime)$
 
       \addtolength{\itemsep}{-.3\baselineskip}
-      \item[\phantom{\imps}]
+      \step
         \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x}^\prime)$
 
-      \item[\phantom{\imps}]
+      \step
         \quad$\land~((\overline{a},\overline{x}), \overline{g})\in\widehat{\lambda f\compose\pi_1}$
         \marginnote{\Def-$~\widehat{\cdot}$}
 
-      \item[\phantom{\imps}]
+      \step
         \quad$\land~(\forall x^\prime\in\overline{x}^\prime\ldotp~x^\prime\in\overline{x})$
         \marginnote{\Def-$\pi_2$}
       \addtolength{\itemsep}{.3\baselineskip}
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
 
       \addtolength{\itemsep}{-.3\baselineskip}
-      \item[\phantom{\imps}]
+      \step
         \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
 
-      \item[\phantom{\imps}]
+      \step
         \quad$\land~((\overline{a},\overline{x}), \overline{g})\in\widehat{\lambda f}\compose\widehat{\pi}_1$
         \marginnote{\Thm-\ref{prop:rel-hat-comp}}
 
       \addtolength{\itemsep}{.3\baselineskip}
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
 
       \addtolength{\itemsep}{-.3\baselineskip}
-      \item[\phantom{\imps}]
+      \step
         \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
 
-      \item[\phantom{\imps}]
+      \step
         \quad$\land~(\exists\overline{a}^\prime\ldotp~((\overline{a},\overline{x}),\overline{a}^\prime)\in\widehat{\pi}_1\land(\overline{a}^\prime,\overline{g}^\prime)\in\widehat{\lambda f}$
         \marginnote{\Def-$\compose$-$\mathbf{Rel}$}
 
       \addtolength{\itemsep}{.3\baselineskip}
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
 
       \addtolength{\itemsep}{-.3\baselineskip}
-      \item[\phantom{\imps}]
+      \step
         \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
 
-      \item[\phantom{\imps}]
+      \step
         \quad$\land~\exists\overline{a}^\prime\ldotp~\overline{a}^\prime\subseteq\overline{a}\land\forall(\overline{s}_j,y_j)\in\overline{g}\ldotp~(\overline{a}^\prime,(\overline{s}_j, y_j))\in\lambda f$
         \marginnote{\Def-$\widehat{\pi}_1$;~\Def-$~\widehat{\cdot}$}
 
       \addtolength{\itemsep}{.3\baselineskip}
 
-      \item[\phantom{\imps}]
+      \step
         Left to right follows from the c-relation condition.
 
-      \item[\phantom{\imps}]
+      \step
         Right to left follows by $\exists$-\Intro, setting $\overline{a}^\prime\triangleq\overline{a}$.
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
 
       \addtolength{\itemsep}{-.3\baselineskip}
-      \item[\phantom{\imps}]
+      \step
         \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
 
-      \item[\phantom{\imps}]
+      \step
         \quad$\land~\forall(\overline{s}_j,y_j)\in\overline{g}\ldotp~(\overline{a},(\overline{s}_j, y_j))\in\lambda f$
 
       \addtolength{\itemsep}{.3\baselineskip}
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
 
       \addtolength{\itemsep}{-.3\baselineskip}
-      \item[\phantom{\imps}]
+      \step
         \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
 
-      \item[\phantom{\imps}]
+      \step
         \quad$\land~\forall(\overline{s}_j,y_j)\in\overline{g}\ldotp~((\overline{a},\overline{s}_j), y_j)\in f$
         \marginnote{\Def-$\lambda\cdot$}
 
       \addtolength{\itemsep}{.3\baselineskip}
 
-      \item[\phantom{\imps}]
+      \step
         Left to right follows by singling out the pair satisfying the first conjunct, and then performing an $\forall$-\Elim~on the second conjunct with it.
 
-      \item[\phantom{\imps}]
+      \step
         Right to left follows by $\exists$-\Intro, setting $\overline{g}\triangleq\{(\overline{s},y)\}$.
 
-      \item[\iffs]
+      \step[\iffs]
         $\exists\overline{s}\ldotp~\overline{s}\subseteq\overline{x}\land((\overline{a},\overline{s}),y)\in f$
 
-      \item[\phantom{\imps}]
+      \step
         Left to right follows by the c-relation condition.
 
-      \item[\phantom{\imps}]
+      \step
         Right to left follows by $\exists$-\Intro, setting $\overline{s}\triangleq\overline{x}$.
 
-      \item[\iffs]
+      \step[\iffs]
         $((\overline{a},\overline{x}),y)\in f$
         \qedhere
     \end{itemize}
@@ -1164,74 +1170,74 @@ Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
   \begin{proof}
     Let $g : A\to B,~f :B\times X\to Y$
     \begin{itemize}
-    \item[\phs]
+    \step
       $\lambda(f\compose(g\times\id))$
-    \item[\eqs]
+    \step[=]
       $\lambda(f\compose\langle g\compose\pi_1,\pi_2\rangle)$
       \marginnote{\Def-$\times$}
 
     \addtolength{\itemsep}{.5\baselineskip}
-    \item[\phantom{\imps}]
+    \step
       $(\overline{a},(\overline{x},y))\in \lambda(f\compose\langle g\compose\pi_1,\pi_2\rangle)$
 
     \addtolength{\itemsep}{-.5\baselineskip}
-    \item[\iffs]
+    \step[\iffs]
       $((\overline{a},\overline{x}),y)\in f\compose\langle g\compose\pi_1,\pi_2\rangle$
       \marginnote{\Def-$\lambda\cdot$}
 
-    \item[\iffs]
+    \step[\iffs]
       $\exists(\overline{b},\overline{x}^\prime)\ldotp~((\overline{b},\overline{x}^\prime),y)\in f$
       \marginnote{\Def-\ref{def:crel-comp}}
 
     \addtolength{\itemsep}{-.3\baselineskip}
-    \item[\phantom{\imps}]
+    \step
       \quad$\land~((\overline{a},\overline{x}),(\overline{b},\overline{x}^\prime))\in\widehat{\langle g\compose\pi_1,\pi_2\rangle}$
     \addtolength{\itemsep}{.3\baselineskip}
 
-    \item[\iffs]
+    \step[\iffs]
       $\exists(\overline{b},\overline{x}^\prime)\ldotp~((\overline{b},\overline{x}^\prime),y)\in f$
 
     \addtolength{\itemsep}{-.3\baselineskip}
-    \item[\phantom{\imps}]
+    \step
       \quad$\land~(\forall b\in\overline{b}\ldotp~((\overline{a},\overline{x}),b)\in g\compose\pi_1)$
       \marginnote{\Def-$\widehat{\langle f,g\rangle}$}
 
-    \item[\phantom{\imps}]
+    \step
       \quad$\land~(\forall x\in\overline{x}^\prime\ldotp~((\overline{a},\overline{x}),x^\prime)\in \pi_2)$
     \addtolength{\itemsep}{.3\baselineskip}
 
-    \item[\iffs]
+    \step[\iffs]
       $\exists(\overline{b},\overline{x}^\prime)\ldotp~((\overline{b},\overline{x}^\prime),y)\in f$
 
     \addtolength{\itemsep}{-.3\baselineskip}
-    \item[\phantom{\imps}]
+    \step
       \quad$\land~(\forall b\in\overline{b}\ldotp~\exists\overline{a}^\prime\ldotp~\overline{a}^\prime\subseteq\overline{a}\land(\overline{a}^\prime,b)\in g)$
       \marginnote{\Def-\ref{def:crel-comp};~\Def-$\widehat{\pi}_1$}
 
-    \item[\phantom{\imps}]
+    \step
       \quad$\land~\overline{x}^\prime\subseteq\overline{x}$
       \marginnote{\Def-$\widehat{\pi}_2$}
     \addtolength{\itemsep}{.3\baselineskip}
 
-    \item[\phantom{\imps}]
+    \step
       Left to right follows by two applications of the c-relation condition.
 
-    \item[\phantom{\imps}]
+    \step
       Right to left follows by two applications of $\exists$-\Intro, setting $\overline{x}^\prime\triangleq\overline{x}$ and $\overline{a}^\prime\triangleq\overline{a}$.
 
-    \item[\iffs]
+    \step[\iffs]
       $\exists\overline{b}\ldotp~((\overline{b},\overline{x}),y)\in f$
 
     \addtolength{\itemsep}{-.3\baselineskip}
-    \item[\phantom{\imps}]
+    \step
       \quad$\land~(\forall b\in\overline{b}\ldotp~(\overline{a},b)\in g)$
     \addtolength{\itemsep}{.3\baselineskip}
 
-    \item[\iffs]
+    \step[\iffs]
       $\exists\overline{b}\ldotp~(\overline{b},(\overline{x},y))\in \lambda f\land\forall b\in\overline{b}\ldotp~(\overline{a},b)\in g$
      \marginnote{\Def-$\lambda\cdot$}
 
-    \item[\iffs]
+    \step[\iffs]
       $(\overline{a},(\overline{x},y))\in\lambda f\compose g$
       \marginnote{\Def-$\compose$-$\mathbf{CRel}$}
       \qedhere
@@ -1261,37 +1267,37 @@ Occasions where the c-relation condition was required are labeled in the above p
 
   \begin{proof}[Proof (i)]~\\
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$m,n,o,p\in\Nat$
             \marginnote{\Hyp}
 
-          \item[\phantom{\imps}]
+          \step
             \begin{itemize}
-              \item[$\dagger$]
+              \subp{\dagger}
                 \Ass~$i_1(m,n) = i_1(o,p)$
                 \marginnote{\Hyp}
 
-              \item[\iffs]
+              \step[\iffs]
                 $2^m\cdot3^n = 2^o\cdot3^p$
                 \marginnote{\Def-$i_1$}
 
-              \item[\iffs] $m = o$ and $n = p$
+              \step[\iffs] $m = o$ and $n = p$
                 \marginnote{\textbf{fundamental theorem of arithmetic}}
 
-              \item[\iffs] $(m, n) = (o, p)$
+              \step[\iffs] $(m, n) = (o, p)$
             \end{itemize}
-            \item[\imps]
+            \step[\imps]
               $i_1(m,n) = i_1(o,p) \implies (m,n) = (o,p)$
-              \marginnote{\imps-\Intro-$\dagger$}
+              \marginnote{$\imps$-\Intro-$\dagger$}
         \end{itemize}
 
-        \item[\imps]
+        \step[\imps]
           $\forall m,n,o,p\in\Nat\ldotp~i_1(m,n) = i_1(o,p) \implies (m,n) = (o,p)$
           \marginnote{$\forall$-\Intro-$\star$}
 
-        \item[\iffs]
+        \step[\iffs]
           $i_1$ injective
           \marginnote{\Def-injective}
           \qedhere
@@ -1300,34 +1306,34 @@ Occasions where the c-relation condition was required are labeled in the above p
 
   \begin{proof}[Proof (ii)]~\\
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$m,n\in\Nat$
             \marginnote{\Hyp}
 
-          \item[\phantom{\imps}]
+          \step
             \begin{itemize}
-              \item[$\dagger$]
+              \subp{\dagger}
                 \Ass~$j_1(m) = j_1(n)$
                 \marginnote{\Hyp}
 
-              \item[\iffs]
+              \step[\iffs]
                 $(0,m) = (0,n)$
                 \marginnote{\Def-$j_1$}
 
-              \item[\iffs] $m = n$
+              \step[\iffs] $m = n$
             \end{itemize}
-            \item[\imps]
+            \step[\imps]
               $j_1(m) = j_1(n) \implies m = n$
-              \marginnote{\imps-\Intro-$\dagger$}
+              \marginnote{$\imps$-\Intro-$\dagger$}
         \end{itemize}
 
-        \item[\imps]
+        \step[\imps]
           $\forall m,n\in\Nat\ldotp~j_1(m) = j_1(n) \implies m = n$
           \marginnote{$\forall$-\Intro-$\star$}
 
-        \item[\iffs]
+        \step[\iffs]
           $j_1$ injective
           \marginnote{\Def-injective}
           \qedhere
@@ -1354,40 +1360,40 @@ Occasions where the c-relation condition was required are labeled in the above p
 
   \begin{proof}[Proof (i)]~\\
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$M=\{m_0 < \ldots < m_l\},~N=\{n_0<\ldots<n_k\}\in\Pfin{\Nat}$
             \marginnote{\Hyp}
 
-          \item[\phantom{\imps}]
+          \step
             \begin{itemize}
-              \item[$\dagger$]
+              \subp{\dagger}
                 \Ass~$i_2(M) = i_2(N)$
                 \marginnote{\Hyp}
 
-              \item[\iffs]
+              \step[\iffs]
                 $p_0^{m_0}\ldots p_l^{m_l} = p_0^{n_0}\ldots p_k^{n_k}$
                 \marginnote{\Def-$i_2$}
 
-              \item[\iffs] $k = l$ and $m_i = n_i$ for all $0\leq i \leq k$
+              \step[\iffs] $k = l$ and $m_i = n_i$ for all $0\leq i \leq k$
                 \marginnote{\textbf{fundamental theorem of arithmetic}}
 
-              \item[\iffs] $\displaystyle\mathop{\mathlarger{\forall}}_{0\leq i\leq k} m_i = n_i$
+              \step[\iffs] $\displaystyle\mathop{\mathlarger{\forall}}_{0\leq i\leq k} m_i = n_i$
 
-              \item[\iffs] $M = N$
+              \step[\iffs] $M = N$
 
             \end{itemize}
-            \item[\imps]
+            \step[\imps]
               $i_2(M) = i_2(N) \implies M = N$
-              \marginnote{\imps-\Intro-$\dagger$}
+              \marginnote{$\imps$-\Intro-$\dagger$}
         \end{itemize}
 
-        \item[\imps]
+        \step[\imps]
           $\forall M, N\in\Pfin{\Nat}\ldotp~i_2(M) = i_2(N) \implies M = N$
           \marginnote{$\forall$-\Intro-$\star$}
 
-        \item[\iffs]
+        \step[\iffs]
           $i_2$ injective
           \marginnote{\Def-injective}
           \qedhere
@@ -1396,34 +1402,34 @@ Occasions where the c-relation condition was required are labeled in the above p
 
   \begin{proof}[Proof (ii)]~\\
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$m,n\in\Nat$
             \marginnote{\Hyp}
 
-          \item[\phantom{\imps}]
+          \step
             \begin{itemize}
-              \item[$\dagger$]
+              \subp{\dagger}
                 \Ass~$j_2(m) = j_2(n)$
                 \marginnote{\Hyp}
 
-              \item[\iffs]
+              \step[\iffs]
                 $\{m\} = \{n\}$
                 \marginnote{\Def-$j_2$}
 
-              \item[\iffs] $m = n$
+              \step[\iffs] $m = n$
             \end{itemize}
-            \item[\imps]
+            \step[\imps]
               $j_2(m) = j_2(n) \implies m = n$
-              \marginnote{\imps-\Intro-$\dagger$}
+              \marginnote{$\imps$-\Intro-$\dagger$}
         \end{itemize}
 
-        \item[\imps]
+        \step[\imps]
           $\forall m,n\in\Nat\ldotp~j_2(m) = j_2(n) \implies m = n$
           \marginnote{$\forall$-\Intro-$\star$}
 
-        \item[\iffs]
+        \step[\iffs]
           $j_2$ injective
           \marginnote{\Def-injective}
           \qedhere
@@ -1435,45 +1441,45 @@ Occasions where the c-relation condition was required are labeled in the above p
 
 In order to define a model where $\Nat = A$, we must find ${r : \Nat\rightleftarrows\Nat\Exp\Nat : s}$ whereby $r\compose s = \id_{A\Exp A}$.
 \begin{itemize}
-  \item[\iffs] $r : \Nat \rightleftarrows\Pfin{\Nat}\times\Nat : s$.
-  \item[\phantom{\imps}] By 2(k) we know that $\Pfin{\Nat}\times\Nat\cong\Nat\times\Nat\cong\Nat$.
+  \step[\iffs] $r : \Nat \rightleftarrows\Pfin{\Nat}\times\Nat : s$.
+  \step By 2(k) we know that $\Pfin{\Nat}\times\Nat\cong\Nat\times\Nat\cong\Nat$.
 
-  \item[\phantom{\imps}] Let ${b : \Nat\to\Pfin{\Nat}\times\Nat}$ be the bijection, (with inverse $b^{-1}$) witnessing the above isomorphism, then we may define:
+  \step Let ${b : \Nat\to\Pfin{\Nat}\times\Nat}$ be the bijection, (with inverse $b^{-1}$) witnessing the above isomorphism, then we may define:
     \begin{align*}
       (\overline{n},f)\in r & \iff\exists n\in\overline{n}\ldotp~f = b(n)\\
       (\overline{f},n)\in s & \iff\exists f\in\overline{f}\ldotp~n = b^{-1}(f)\\
     \end{align*}
 
-    \item[\phantom{\imps}]
+    \step
       Then it suffices to show that it satisfies the retraction condition:
 \end{itemize}
 \begin{prop}
   $r\compose s = \id_{\Nat\Exp\Nat}$
   \begin{proof}~\\
   \begin{itemize}
-  \item[\phantom{\imps}] $(\overline{f},f)\in r\compose s$
+  \step $(\overline{f},f)\in r\compose s$
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists\overline{n}\in\Pfin{\Nat}\ldotp~(\overline{n},f)\in r\land\forall n\in\overline{n}\ldotp~(\overline{f},n)\in s$
     \marginnote{\Def-$\compose$-$\mathbf{CRel}$}
 
-  \item[\iffs]
+  \step[\iffs]
     \marginnote[.6em]{\Def-$r$;~\Def-$s$}
     $\exists\overline{n}\in\Pfin{\Nat}\ldotp~(\exists n\in\overline{n}\ldotp~b(n) = f)\land\forall n\in\overline{n}\ldotp~\exists f^\prime_n\in\overline{f}\ldotp~b^{-1}(f^\prime_n) = n$
 
-  \item[\phantom{\imps}]
+  \step
     Left to right follows by $\exists$-\Elim~and then $\exists$-\Elim~on the left conjunct followed by ${\forall\text{-\Elim}}$~on the right conjunct. This leads to the proposition: ${\exists f^\prime\in\overline{f}\ldotp~b^{-1}(f^\prime) = n}$. Then, by applying $b$ to both sides we get ${\exists f^\prime\in\overline{f}\ldotp~b(b^{-1}(f^\prime)) = b(n)}$, from which conclusion follows by simplifying the left and right hand sides.
 
-  \item[\phantom{\imps}]
+  \step
     Right to left by $\exists$-\Intro, setting $\overline{n}\triangleq\{b^{-1}(f)\}$.
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists f^\prime\in\overline{f}\ldotp~f^\prime = f$
 
-  \item[\iffs]
+  \step[\iffs]
     $f\in\overline{f}$
 
-  \item[\iffs]
+  \step[\iffs]
     $(\overline{f}, f)\in\id_{\Nat\Exp\Nat}$
     \marginnote{\Def-$\id$}
     \qedhere
@@ -1492,10 +1498,10 @@ Consider the following terms in the rs-calculus:
 \end{align*}
 With interpretations in $\mathbf{CRel}$ given by:
 \begin{itemize}
-  \item[\phs]
+  \step
     $\sembrack{\vdash\mathbf{s}\lambda xy\ldotp x}$
 
-  \item[\eqs]
+  \step[=]
     $\top\xrightarrow{\langle\lambda s^\prime,t\rangle}((A\Exp A)\Exp A)\times(A\Exp A)\overset{\App}\longrightarrow A$
     \begin{flalign*}
       \text{where }
@@ -1509,215 +1515,215 @@ With interpretations in $\mathbf{CRel}$ given by:
         & = A\times A\overset{\pi_1}\longrightarrow A
     \end{flalign*}
 
-  \item[\eqs]
+  \step[=]
     $\App\compose\langle\lambda s^\prime,\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle)\rangle$
 \end{itemize}
 
 And similarly:
 \begin{itemize}
-  \item[\phs]
+  \step
     $\sembrack{\vdash\mathbf{s}\lambda xy\ldotp y}$
 
-  \item[\eqs]
+  \step[=]
     $\App\compose\langle\lambda s^\prime,\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_2\rangle)\rangle$
 \end{itemize}
 
 For the specific case of our model with $A = \Nat$, we may simplify the definitions of the ensuing relations:
 \begin{itemize}
-  \item[\phantom{\imps}]
+  \step
     $(\varnothing,a)\in\App\compose\langle\lambda s^\prime,\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle)\rangle$
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
     \marginnote{\Def-$\compose$-$\mathbf{CRel}$}
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~(\varnothing,(\overline{f},\overline{x}))\in\widehat{\langle\lambda s^\prime,\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle)\rangle}$
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~(\forall f\in\overline{f}\ldotp~(\varnothing,f)\in\lambda s^\prime)$
     \marginnote{\Def-$\widehat{\langle f,g\rangle}$}
 
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~\phantom{(}\forall x\in\overline{x}\ldotp~(\varnothing,x)\in\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle)$
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~(\overline{g},a^\prime)\in s)$
     \marginnote{\Def-$\lambda\cdot$}
 
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~\phantom{(}\forall (\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~(\overline{h},a^{\prime\prime})\in\App\compose\langle\lambda s^\prime,\lambda\pi_1\rangle$
     \marginnote{\Def-$\lambda\cdot$}
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
     \marginnote{\Def-$s$}
 
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
     \marginnote{\Def-\ref{def:crel-comp}}
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad\phantom{$\land$}$~((\overline{i},\overline{y}),a^{\prime\prime})\in\App$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~(\overline{h},(\overline{i},\overline{y}))\in\widehat{\langle\lambda s,\lambda\pi_1\rangle}$
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
 
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad\phantom{$\land$}$~((\overline{i},\overline{y}),a^{\prime\prime})\in\App$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~(\forall i\in\overline{i}\ldotp~(\overline{h},i)\in\lambda s)$
     \marginnote{\Def-$\widehat{\langle f,g\rangle}$}
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~\phantom{(}\forall y\in\overline{y}\ldotp~(\overline{h},y)\in\lambda\pi_1$
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists (\overline{f},\overline{x})\ldotp~((\overline{f},\overline{x}),a)\in\App$
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
 
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad\phantom{$\land$}$~((\overline{i},\overline{y}),a^{\prime\prime})\in\App$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~(\forall (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~(\overline{j},a^{\prime\prime\prime})\in s)$
     \marginnote{\Def-$\lambda\cdot$}
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~((\overline{h}, \overline{k}),a^{\text (iv)})\in\pi_1$
     \marginnote{\Def-$\lambda\cdot$}
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists (\overline{f},\overline{x})\ldotp~(\exists(\overline{g},a^\prime)\in\overline{f}\ldotp~a=a^\prime\land\overline{g}\subseteq\overline{x})$
     \marginnote{\Def-$\App$}
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~(\forall (\overline{g},a^\prime)\in\overline{f}\ldotp~\exists g\in\overline{g}\ldotp~a^\prime = b^{-1}(g))$
 
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad\phantom{$\land$}$~(\exists (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~a^{\prime\prime\prime} = a^{\prime\prime}\land\overline{j}\subseteq\overline{y})$
     \marginnote{\Def-$\App$}
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~(\forall (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~\exists j\in\overline{j}\ldotp~a^{\prime\prime\prime}=b^{-1}(j))$
     \marginnote{\Def-$s$}
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~a^{\text (iv)}\in\overline{h}$
     \marginnote{\Def-$\pi_1$}
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists \overline{x}\ldotp~(\exists g\in\overline{x}\ldotp~a = b^{-1}(g))$
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists(\overline{i},\overline{y})\ldotp$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad\phantom{$\land$}$~(\exists (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~a^{\prime\prime\prime} = a^{\prime\prime}\land\overline{j}\subseteq\overline{y})$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~(\forall (\overline{j},a^{\prime\prime\prime})\in\overline{i}\ldotp~\exists j\in\overline{j}\ldotp~a^{\prime\prime\prime}=b^{-1}(j))$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~a^{\text (iv)}\in\overline{h}$
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists \overline{x}\ldotp~(\exists g\in\overline{x}\ldotp~a = b^{-1}(g))$
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~\phantom{(}\forall(\overline{h},a^{\prime\prime})\in\overline{x}\ldotp~\exists\overline{y}\ldotp$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad\phantom{$\land$}$~(\exists j\in\overline{y}\ldotp~a^{\prime\prime}=b^{-1}(j))$
 
-  \item[\phantom{\imps}]
+  \step
     \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~a^{\text (iv)}\in\overline{h}$
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists \overline{x}\ldotp~(\exists g\in\overline{x}\ldotp~a = b^{-1}(g))$
 
   \addtolength{\itemsep}{-.5\baselineskip}
-  \item[\phantom{\imps}]
+  \step
     \quad $\land~\phantom{(}\forall(\overline{h},b^{-1}(\overline{h},b^{-1}(\overline{k}, a^{\text (iv)})))\in\overline{x}\ldotp~a^{\text (iv)}\in\overline{h}$
   \addtolength{\itemsep}{.5\baselineskip}
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists\overline{h},\overline{k},a^\prime\ldotp~a = b^{-1}(\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{h}$
 \end{itemize}
 
 And similarly:
 
 \begin{itemize}
-  \item[\phantom{\imps}]
+  \step
     $(\varnothing,a)\in\sembrack{f}$
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists\overline{h},\overline{k},a^\prime\ldotp~a = b^{-1}(\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{k}$
 
 \end{itemize}
 
 Then it can be seen that $(\varnothing,b^{-1}(\varnothing,b^{-1}(\{0\},0))\in\sembrack{f}$, but:
 \begin{itemize}
-  \item[\phantom{\imps}]
+  \step
     $(\varnothing,b^{-1}(\varnothing,b^{-1}(\{0\},0))\in\sembrack{t}$
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists\overline{h},\overline{k},a^\prime\ldotp~b^{-1}(\varnothing,b^{-1}(\{0\},0)) = b^{-1}(\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{h}$
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists\overline{h},\overline{k},a^\prime\ldotp~(\varnothing,b^{-1}(\{0\},0)) = (\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{h}$
 
-  \item[\iffs]
+  \step[\iffs]
     $\exists\overline{k},a^\prime\ldotp~b^{-1}(\{0\},0) = b^{-1}(\overline{k},a^\prime)\land a^\prime\in\varnothing$
 
-  \item[\imps]
+  \step[\imps]
     $b^{-1}(\varnothing,b^{-1}(\{0\},0))\notin\sembrack{t}$
 
-  \item[\imps]
+  \step[\imps]
     $\sembrack{f}\neq\sembrack{t}$
 \end{itemize}

@@ -39,31 +39,32 @@ Then we define the action of the functor on objects and morphisms. The covariant
   \begin{proof}[Proof (i)]
     Let $B\in\cat{C}$
     \begin{itemize}
-    \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$] \Let~$g : A \to B$
-              \marginnote{\Hyp}
-            \item[\phs]
-              $\hom{C}{A}{\id_B}(g)$
+          \subp{\star}
+            \Let~$g : A \to B$
+            \marginnote{\Hyp}
+          \step
+            $\hom{C}{A}{\id_B}(g)$
 
-            \item[\eqs]
-              $\id_B\compose g$
-              \marginnote{\Def-\ref{def:co-hom}}
+          \step[=]
+            $\id_B\compose g$
+            \marginnote{\Def-\ref{def:co-hom}}
 
-            \item[\eqs]
-              $g$
-              \marginnote{\Def-$\id$}
+          \step[=]
+            $g$
+            \marginnote{\Def-$\id$}
 
-            \item[\eqs]
-              $\id_{\hom{C}{A}{B}}(g)$
-              \marginnote{\Def-$\id$}
+          \step[=]
+            $\id_{\hom{C}{A}{B}}(g)$
+            \marginnote{\Def-$\id$}
         \end{itemize}
 
-      \item[\imps]
+      \step[\imps]
         $\forall g : A \to B\ldotp~\hom{C}{A}{B}(g) = \id_{\hom{C}{A}{B}}(g)$
         \marginnote{$\forall$-\Intro-$\star$}
 
-      \item[\iffs]
+      \step[\iffs]
         $\hom{C}{A}{B} = \id_{\hom{C}{A}{B}}$
         \marginnote{\Def-=}
         \qedhere
@@ -73,35 +74,35 @@ Then we define the action of the functor on objects and morphisms. The covariant
   \begin{proof}[Proof (ii)]
     Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$.
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$] \Let~$i : A\to B$
+          \subp{\star} \Let~$i : A\to B$
             \marginnote{\Hyp}
 
-          \item[\phs]
+          \step
             $(\hom{C}{A}{g}\compose\hom{C}{A}{h})(i)$
 
-          \item[\eqs] $\hom{C}{A}{g}(\hom{C}{A}{h}(i))$
+          \step[=] $\hom{C}{A}{g}(\hom{C}{A}{h}(i))$
             \marginnote{\Def-$\compose$}
 
-          \item[\eqs] $\hom{C}{A}{g}(h\compose i)$
+          \step[=] $\hom{C}{A}{g}(h\compose i)$
             \marginnote{\Def-\ref{def:co-hom}}
 
-          \item[\eqs] $g\compose (h\compose i)$
+          \step[=] $g\compose (h\compose i)$
             \marginnote{\Def-\ref{def:co-hom}}
 
-          \item[\eqs] $(g\compose h)\compose i$
+          \step[=] $(g\compose h)\compose i$
             \marginnote{\Assoc-$\compose$}
 
-          \item[\eqs] $\hom{C}{A}{g\compose h}(i)$
+          \step[=] $\hom{C}{A}{g\compose h}(i)$
             \marginnote{\Def-\ref{def:co-hom}}
         \end{itemize}
 
-      \item[\imps]
+      \step[\imps]
         $\forall i : A\to B\ldotp~(\hom{C}{A}{g}\compose\hom{C}{A}{h})(i) = \hom{C}{A}{g\compose h}(i)$
         \marginnote{$\forall$-\Intro-$\star$}
 
-      \item[\iffs]
+      \step[\iffs]
         $\hom{C}{A}{g}\compose\hom{C}{A}{h} = \hom{C}{A}{g\compose h}$
         \marginnote{\Def-$=$}
         \qedhere
@@ -143,32 +144,32 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
   \begin{proof}[Proof (i)]
     Let $B\in\cat{C}$
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$g : B \to A$
             \marginnote{\Hyp}
-          \item[\phs]
+          \step
             $\hom{C}{\id_B}{A}(g)$
 
-          \item[\eqs]
+          \step[=]
             $g\compose\id_B$
             \marginnote{\Def-\ref{def:contra-hom}}
 
-          \item[\eqs]
+          \step[=]
             $g$
             \marginnote{\Def-$\id$}
 
-          \item[\eqs]
+          \step[=]
             $\id_{\hom{C}{B}{A}}(g)$
             \marginnote{\Def-$\id$}
         \end{itemize}
 
-      \item[\imps]
+      \step[\imps]
         $\forall g : B \to A\ldotp~\hom{C}{\id_B}{A}(g) = \id_{\hom{C}{B}{A}}(g)$
         \marginnote{$\forall$-\Intro-$\star$}
 
-      \item[\iffs]
+      \step[\iffs]
         $\hom{C}{B}{A} = \id_{\hom{C}{B}{A}}$
         \marginnote{\Def-=}
         \qedhere
@@ -178,35 +179,35 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
   \begin{proof}[Proof (ii)]
     Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$.
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$] \Let~$i : B\to A$
+          \subp{\star} \Let~$i : B\to A$
             \marginnote{\Hyp}
 
-          \item[\phs]
+          \step
             $(\hom{C}{g}{A}\compose\hom{C}{h}{A})(i)$
 
-          \item[\eqs] $\hom{C}{g}{A}(\hom{C}{h}{A}(i))$
+          \step[=] $\hom{C}{g}{A}(\hom{C}{h}{A}(i))$
             \marginnote{\Def-$\compose$}
 
-          \item[\eqs] $\hom{C}{g}{A}(i\compose h)$
+          \step[=] $\hom{C}{g}{A}(i\compose h)$
             \marginnote{\Def-\ref{def:contra-hom}}
 
-          \item[\eqs] $(i\compose h)\compose g$
+          \step[=] $(i\compose h)\compose g$
             \marginnote{\Def-\ref{def:contra-hom}}
 
-          \item[\eqs] $i\compose (h\compose g)$
+          \step[=] $i\compose (h\compose g)$
             \marginnote{\Assoc-$\compose$}
 
-          \item[\eqs] $\hom{C}{h\compose g}{A}(i)$
+          \step[=] $\hom{C}{h\compose g}{A}(i)$
             \marginnote{\Def-\ref{def:contra-hom}}
         \end{itemize}
 
-      \item[\imps]
+      \step[\imps]
         $\forall i : B\to A\ldotp~(\hom{C}{g}{A}\compose\hom{C}{h}{A})(i) = \hom{C}{h\compose g}{A}(i)$
         \marginnote{$\forall$-\Intro-$\star$}
 
-      \item[\iffs]
+      \step[\iffs]
         $\hom{C}{g}{A}\compose\hom{C}{h}{A} = \hom{C}{h\compose g}{A}$
         \marginnote{\Def-$=$}
         \qedhere
@@ -223,31 +224,31 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
   \begin{proof}[Proof $\Rightarrow$]
     Let $C\in\cat{C}$.
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$] \Let~$g, h : B\to C$
+          \subp{\star} \Let~$g, h : B\to C$
             \marginnote{\Hyp}
 
-          \item[\phs]
+          \step
             \begin{itemize}
-              \item[$\dagger$]
+              \subp{\dagger}
                 \Ass~$\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h)$
                 \marginnote{\Hyp}
 
-            \item[\iffs] $g\compose f = h\compose f$
+            \step[\iffs] $g\compose f = h\compose f$
               \marginnote{\Def-\ref{def:contra-hom}}
 
-            \item[\imps] $g = h$
+            \step[\imps] $g = h$
               \marginnote{\Hyp-($f$~\Epic)}
             \end{itemize}
 
-          \item[\imps] $\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h) \implies g = h$
-            \marginnote{\imps-\Intro-$\dagger$}
+          \step[\imps] $\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h) \implies g = h$
+            \marginnote{$\imps$-\Intro-$\dagger$}
         \end{itemize}
-      \item[\imps] $\forall g, h : B \to C\ldotp~\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h) \implies g = h$
+      \step[\imps] $\forall g, h : B \to C\ldotp~\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h) \implies g = h$
         \marginnote{$\forall$-\Intro-$\star$}
 
-      \item[\iffs] $\hom{C}{f}{C}$ injective
+      \step[\iffs] $\hom{C}{f}{C}$ injective
         \marginnote{\Def-injective}
         \qedhere
     \end{itemize}
@@ -256,32 +257,32 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
   \begin{proof}[Proof $\Leftarrow$]
     Let $C\in\cat{C}$.
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$g, h : B\to C$
             \marginnote{\Hyp}
 
-          \item[\phs]
+          \step
             \begin{itemize}
-            \item[$\dagger$]
+            \subp{\dagger}
               \Ass~$g\compose f = h\compose f$
               \marginnote{\Hyp}
 
-            \item[\iffs] $\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h)$
+            \step[\iffs] $\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h)$
               \marginnote{\Def-\ref{def:contra-hom}}
 
-            \item[\imps] $g = h$
+            \step[\imps] $g = h$
               \marginnote{\Hyp-($\hom{C}{f}{C}$~\textbf{injective})}
             \end{itemize}
 
-          \item[\imps] $g\compose f = h\compose f \implies g = h$
-            \marginnote{\imps-\Intro-$\dagger$}
+          \step[\imps] $g\compose f = h\compose f \implies g = h$
+            \marginnote{$\imps$-\Intro-$\dagger$}
         \end{itemize}
-      \item[\imps] $\forall g, h : B \to C\ldotp~g\compose f = h\compose f \implies g = h$
+      \step[\imps] $\forall g, h : B \to C\ldotp~g\compose f = h\compose f \implies g = h$
         \marginnote{$\forall$-\Intro-$\star$}
 
-      \item[\iffs] $f$ epic
+      \step[\iffs] $f$ epic
         \marginnote{\Def-epic}
         \qedhere
     \end{itemize}
@@ -298,31 +299,31 @@ By dualising the result in part (a.ii), we get a characterisation of monics as f
   \begin{proof}[Proof $\Rightarrow$]
     Let $A\in\cat{C}$.
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$] \Let~$g, h : A\to B$
+          \subp{\star} \Let~$g, h : A\to B$
             \marginnote{\Hyp}
 
-          \item[\phs]
+          \step
             \begin{itemize}
-            \item[$\dagger$]
+            \subp{\dagger}
               \Ass~$\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h)$
               \marginnote{\Hyp}
 
-            \item[\iffs] $f\compose g = f\compose h$
+            \step[\iffs] $f\compose g = f\compose h$
               \marginnote{\Def-\ref{def:co-hom}}
 
-            \item[\imps] $g = h$
+            \step[\imps] $g = h$
               \marginnote{\Hyp-($f$~\Monic)}
             \end{itemize}
 
-          \item[\imps] $\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h) \implies g = h$
-            \marginnote{\imps-\Intro-$\dagger$}
+          \step[\imps] $\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h) \implies g = h$
+            \marginnote{$\imps$-\Intro-$\dagger$}
         \end{itemize}
-      \item[\imps] $\forall g, h : A \to B\ldotp~\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h) \implies g = h$
+      \step[\imps] $\forall g, h : A \to B\ldotp~\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h) \implies g = h$
         \marginnote{$\forall$-\Intro-$\star$}
 
-      \item[\iffs] $\hom{C}{A}{f}$ injective
+      \step[\iffs] $\hom{C}{A}{f}$ injective
         \marginnote{\Def-injective}
         \qedhere
     \end{itemize}
@@ -331,31 +332,31 @@ By dualising the result in part (a.ii), we get a characterisation of monics as f
   \begin{proof}[Proof $\Leftarrow$]
     Let $A\in\cat{C}$.
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$] \Let~$g, h : A\to B$
+          \subp{\star} \Let~$g, h : A\to B$
             \marginnote{\Hyp}
 
-          \item[\phs]
+          \step
             \begin{itemize}
-            \item[$\dagger$]
+            \subp{\dagger}
               \Ass~$f\compose g = f\compose h$
               \marginnote{\Hyp}
 
-            \item[\iffs] $\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h)$
+            \step[\iffs] $\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h)$
               \marginnote{\Def-\ref{def:co-hom}}
 
-            \item[\imps] $g = h$
+            \step[\imps] $g = h$
               \marginnote{\Hyp-($\hom{C}{A}{f}$~\textbf{injective})}
             \end{itemize}
 
-          \item[\imps] $f\compose g = f\compose h \implies g = h$
-            \marginnote{\imps-\Intro-$\dagger$}
+          \step[\imps] $f\compose g = f\compose h \implies g = h$
+            \marginnote{$\imps$-\Intro-$\dagger$}
         \end{itemize}
-      \item[\imps] $\forall g, h : A \to B\ldotp~f\compose g = f\compose h \implies g = h$
+      \step[\imps] $\forall g, h : A \to B\ldotp~f\compose g = f\compose h \implies g = h$
         \marginnote{$\forall$-\Intro-$\star$}
 
-      \item[\iffs] $f$ monic
+      \step[\iffs] $f$ monic
         \marginnote{\Def-monic}
         \qedhere
     \end{itemize}
@@ -376,18 +377,18 @@ In order to prove the main result in this question, it is useful to construct a 
   \begin{proof}
     Let epic $e : B \epic C$ in $\cat{C}$.
     \begin{itemize}
-      \item[\phs] $\forall f : E\to C\ldotp\exists h : E\to B\ldotp~e\compose h = f$
+      \step $\forall f : E\to C\ldotp\exists h : E\to B\ldotp~e\compose h = f$
         \marginnote{\Hyp}
-      \item[\iffs]
+      \step[\iffs]
 
     $\forall f \in\hom{C}{E}{C}\ldotp\exists h\in\hom{C}{E}{B}\ldotp~\hom{C}{E}{e}(h) = f$
         \marginnote{\Def~\ref{def:hom-set}}
 
-      \item[\iffs]
+      \step[\iffs]
         $\hom{C}{E}{e}$ surjective.
         \marginnote{\Def-surjective}
 
-      \item[\iffs]
+      \step[\iffs]
         $\hom{C}{E}{e}$ epic
         \qedhere
         \marginnote{\textbf{sheet} 1, \textbf{q}1}
@@ -404,46 +405,46 @@ Our intended result then follows from the previous lemma, and a general result f
   \begin{proof}
     Let $X, P, Q$ be sets
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Ass~$\forall x\in X\ldotp~P(x)$
             \marginnote{\Hyp}
 
-          \item[\phs]
+          \step
             \begin{itemize}
-              \item[$\dagger$]
+              \subp{\dagger}
                 \Let~$x\in X$
                 \marginnote{\Hyp}
 
-              \item[\phs]
+              \step
                 $P(x)$
                 \marginnote{$\forall$-\Elim-$\star$}
 
-              \item[\phs]
+              \step
                 $P(x)\iff Q(x)$
                 \marginnote{$\forall$-\Elim-($\forall x\in X\ldotp~P(x)\iff Q(x)$)}
 
-              \item[\imps]
+              \step[\imps]
                 $Q(x)$
-                \marginnote{\iffs-\Elim}
+                \marginnote{$\iffs$-\Elim}
             \end{itemize}
 
-            \item[\imps]
+            \step[\imps]
               $\forall x\in X\ldotp~Q(x)$
               \marginnote{$\forall$-\Intro-$\dagger$}
         \end{itemize}
 
-      \item[\imps]
+      \step[\imps]
         $(\forall x\in X\ldotp~P(x))\implies(\forall x\in X\ldotp~Q(x))$
-        \marginnote{\imps-\Intro-$\star$}
-      \item[\phantom{\imps}]
+        \marginnote{$\imps$-\Intro-$\star$}
+      \step[\phantom{\imps}]
         $(\forall x\in X\ldotp~Q(x))\implies(\forall x\in X\ldotp~P(x))$
         \marginnote{follows from a symmetric argument}
-      \item[\iffs]
+      \step[\iffs]
         $(\forall x\in X\ldotp~P(x))\iff(\forall x\in X\ldotp~Q(x))$
         \qedhere
-        \marginnote{\iffs-\Intro}
+        \marginnote{$\iffs$-\Intro}
     \end{itemize}
   \end{proof}
 \end{lemma}
@@ -466,19 +467,19 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
   \begin{proof}
     Let $E\in\cat{C}$.
     \begin{itemize}
-      \item[\phs]
+      \step
         $E$ preserves epics
         \marginnote{\Hyp}
 
-      \item[\iffs]
+      \step[\iffs]
         $\hom{C}{E}{-}$ preserves epics
         \marginnote{\Def-(preserves epics)}
 
-      \item[\iffs]
+      \step[\iffs]
         $\forall e : B \epic C\ldotp$ $\hom{C}{E}{e}$ is epic.
         \marginnote{\Def-(preserves epics)}
 
-      \item[\iffs]
+      \step[\iffs]
         $\forall e : B\epic C\ldotp~\forall f : E \to C\ldotp\exists h : E \to B\ldotp e\compose h = f$
         \qedhere
         \marginnote{\Lemma-\ref{lemma:epic-preserve-2}-(\Lemma-\ref{lemma:epic-preserve-1})}
@@ -495,23 +496,23 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
     Suppose $E\in\cat{C}$ preserves epics$.^{\text~(1)}$
 
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$F \in \cat{C}$, $r : E \rightleftarrows F : s$ be a retract of $E^{\text~(2)}$
             \marginnote{\Hyp}
 
-          \item[\phs]
+          \step
             \begin{itemize}
-              \item[$\dagger$]
+              \subp{\dagger}
                 \Let~$e : B \epic C^{\text~(3)}$
                 \marginnote{\Hyp}
 
-              \item[\phs]
+              \step
                 \Let~$f : F \to C$
                 \marginnote{\Hyp}
 
-              \item[\imps]
+              \step[\imps]
                 The following diagram commutes
                 \marginnote[2em]{The top half of this diagram commutes because of assumptions (1) and (3) above, whilst the bottom half commutes because of assumption (2).}
                 \begin{center}
@@ -524,20 +525,20 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
                   \end{tikzcd}
                 \end{center}
 
-              \item[\imps] $f\compose\id_F = e\compose h\compose s$
+              \step[\imps] $f\compose\id_F = e\compose h\compose s$
                 \marginnote{\textbf diagram chase}
 
-              \item[\imps] $f = e\compose h\compose s$
+              \step[\imps] $f = e\compose h\compose s$
                 \marginnote{\Def-$\id$}
 
-              \item[\imps] $\exists h^\prime : F\to B\ldotp~f = e\compose h^\prime$
+              \step[\imps] $\exists h^\prime : F\to B\ldotp~f = e\compose h^\prime$
                 \marginnote{$\exists$-\Intro}
             \end{itemize}
-            \item[\imps]
+            \step[\imps]
               $\forall e : B \epic C\ldotp~\forall f : F \to C\ldotp~\exists h^\prime : F\to B\ldotp~f = e\compose h^\prime$
               \marginnote{$\forall$-\Intro-$\dagger$}
 
-            \item[\iffs] $F$ preserves epics
+            \step[\iffs] $F$ preserves epics
               \marginnote{\Thm-\ref{prop:epic-preserving}}
               \qedhere
         \end{itemize}
@@ -553,73 +554,73 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
   \begin{proof}
     Let $X\in\mathbf{Set}$.
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$e : B\epic C$
             \marginnote{\Hyp; $B, C\in\mathbf{Set}$}
 
-          \item[\phs]\Let~$f : X\to C$
+          \step\Let~$f : X\to C$
             \marginnote{\Hyp}
 
-            \item[\phantom{\iffs}] $e$ epic in $\mathbf{Set}$
+            \step $e$ epic in $\mathbf{Set}$
 
-            \item[\iffs] $e$ surjective
+            \step[\iffs] $e$ surjective
               \marginnote{\textbf{sheet} 1 \textbf{q}1}
 
             \addtolength{\itemsep}{.5\baselineskip}
-            \item[\phantom{\iffs}]
+            \step
               Consider the set family $\{B_c\}_{c\in C}$\\
               where $B_c \triangleq \{b\in B : e(b) = c\}$
 
-            \item[\phantom{\iffs}]
+            \step
               $\{B_c\}_{c\in C}$ is a family of non-empty sets
               \marginnote {$e$ \textbf{surjective}}
 
             \addtolength{\itemsep}{-.5\baselineskip}
-            \item[\imps]
+            \step[\imps]
               We may construct a set $\{b_c\}_{c\in C}$ such that $\forall c\in C\ldotp~b_c\in B_c$.
               \marginnote{Axiom of Choice}\\[1\baselineskip]
               In general $\{B_c\}_{c\in C}$ may be an infinite family. In such cases, there is no terminating procedure by which we may create $\{b_c\}_{c\in C}$, and we have no choice function to witness this set either, so we cannot reliably assert its existence without the Axiom of Choice.
 
             \addtolength{\itemsep}{+1\baselineskip}
-            \item[\phs]
+            \step
               \Let~$h : X \to B;~h : x \mapsto b_{f(x)}$
             \addtolength{\itemsep}{-1\baselineskip}
 
-          \item[\phs]
+          \step
               \begin{itemize}
-                \item[$\dagger$]
+                \subp{\dagger}
                   \Let~$x\in X$
                   \marginnote{\Hyp}
 
-                \item[\phs] $(e\compose h)(x)$
+                \step $(e\compose h)(x)$
 
-                \item[\eqs] $e(b_{f(x)})$
+                \step[=] $e(b_{f(x)})$
                   \marginnote{\Def-$h$}
 
-                \item[\eqs] $f(x)$
+                \step[=] $f(x)$
                   \marginnote{$b_{f(x)}\in B_{f(x)}$}
               \end{itemize}
 
-              \item[\imps]
+              \step[\imps]
                 $\forall x\in X\ldotp~(e\compose h)(x) = f(x)$
                 \marginnote{$\forall$-\Intro-$\dagger$}
 
-              \item[\iffs]
+              \step[\iffs]
                 $e\compose h = f$
                 \marginnote{\Def-$=$}
 
-              \item[\imps]
+              \step[\imps]
                 $\exists h : X \to B\ldotp~e\compose h = f$
                 \marginnote{$\exists$-\Intro}
         \end{itemize}
 
-        \item[\imps]
+        \step[\imps]
           $\forall e : B\epic C\ldotp~\forall f : X \to C\ldotp~\exists h : X \to B\ldotp~e\compose h = f$
           \marginnote{$\forall$-\Intro-$\star$}
 
-        \item[\iffs]
+        \step[\iffs]
           $X$ preserves epics
           \qedhere
           \marginnote{\Thm-\ref{prop:epic-preserving}}
@@ -638,14 +639,14 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
     Suppose for a contradiction that $e$ is not epic in $\mathbf{Set}$.
 
     \begin{itemize}
-      \item[\iffs] $e$ is not surjective
+      \step[\iffs] $e$ is not surjective
         \marginnote{\textbf{sheet} 1 \textbf{q}1}
 
-      \item[\imps] There exists some $\hat{q}\in Q\setminus e(P)$.
+      \step[\imps] There exists some $\hat{q}\in Q\setminus e(P)$.
         \marginnote{\Def-$\neg$surjective}
 
       \addtolength{\itemsep}{.5\baselineskip}
-      \item[\phs]
+      \step
         Define $g,~h : (Q, \preceq_Q) \to (\mathbb{B}, \preceq_{\mathbb{B}})$\\
         where $\mathbb{B}\triangleq\{0 \preceq_{\mathbb{B}} 1\}$
 
@@ -665,74 +666,75 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
         We now show that both $g$ and $h$ are monotone, by a proof by contradiction:
 
       \addtolength{\itemsep}{-.5\baselineskip}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Ass~$g$ not monotone
             \marginnote{\Hyp}
 
-          \item[\imps]
+          \step[\imps]
             $\exists a, b\in Q\ldotp~a\preceq_Qb\wedge g(a)\npreceq_{\mathbb{B}}g(b)$
             \marginnote{\Def-$\neg$monotone}
 
-          \item[\imps]
+          \step[\imps]
             $a\preceq_Qb\wedge g(a)\succeq_{\mathbb{B}}g(b)$
             \marginnote{$\preceq_{\mathbb{B}}$~\textbf{total}}
 
-          \item[\imps]
+          \step[\imps]
             $a\preceq_Qb\wedge g(a) = 1\wedge g(b) = 0$
             \marginnote{\Def-$\mathbb{B}$}
 
-          \item[\imps]
+          \step[\imps]
             $a\preceq_Qb\wedge \hat{q}\preceq_Qa\wedge \hat{q}\npreceq_Qb$
             \marginnote{\Def-$g$}
-          \item[\imps]
+
+          \step[\imps]
             $\hat{q}\preceq_Qb\wedge \hat{q}\npreceq_Qb$
             \marginnote{\Trans-$\preceq_Q$}
         \end{itemize}
 
-      \item[\contras] $g$ monotone
+      \step[\contras] $g$ monotone
         \marginnote{\Contra-$\star$}
 
-      \item[\phs] $h$ monotone
+      \step $h$ monotone
         \marginnote{similar argument to $\star$.}
 
       \addtolength{\itemsep}{.5\baselineskip}
-      \item[\phs] Given that we now know $g$ and $h$ are morphisms in $\mathbf{Pos}$, we can use the \Epic-ness of $e$ to derive a contradiction of our original assumption:
+      \step Given that we now know $g$ and $h$ are morphisms in $\mathbf{Pos}$, we can use the \Epic-ness of $e$ to derive a contradiction of our original assumption:
 
-      \item[\phantom{\imps}]
+      \step
         \begin{itemize}
-          \item[$\dagger$]
+          \subp{\dagger}
             $\forall q\in Q\setminus\{\hat{q}\}\ldotp~g(q) = h(q)$
             \marginnote{\Def-$g$;~\Def-$h$}
 
-          \item[\imps]
+          \step[\imps]
             $\forall p\in P\ldotp~g(e(p)) = h(e(q))$
             \marginnote{$e(P)\subseteq Q\setminus\{\hat{q}\}$}
 
 
-          \item[\iffs]
+          \step[\iffs]
             $g\compose e = h\compose e$
             \marginnote{\Def-$=$}
 
-          \item[\imps]
+          \step[\imps]
             $g = h$
             \marginnote{$e$ \Epic}
         \end{itemize}
       \addtolength{\itemsep}{-.5\baselineskip}
 
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\ddagger$]
+          \subp{\ddagger}
             $g(\hat{q})\neq h(\hat{q})$
             \marginnote{\Def-$g$;~\Def-$h$}
 
-          \item[\imps]
+          \step[\imps]
             $g\neq h$
             \marginnote{\Def-$\neq$}
         \end{itemize}
 
-        \item[\contras] $e$ epic in $\mathbf{Set}$
+        \step[\contras] $e$ epic in $\mathbf{Set}$
           \qedhere
           \marginnote{\Contra-$\dagger$,~$\ddagger$}
     \end{itemize}
@@ -745,12 +747,12 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
   \begin{proof}
     Let $x, y\in P$, such that $x\preceq_Py$
     \begin{itemize}
-      \item[\imps] $x = y$
+      \step[\imps] $x = y$
         \marginnote {$P$ \textbf{discrete}}
 
-      \item[\imps] $g(x) = g(y)$
+      \step[\imps] $g(x) = g(y)$
 
-      \item[\imps] $g(x) \preceq_S g(y)$
+      \step[\imps] $g(x) \preceq_S g(y)$
         \qedhere
         \marginnote{\Refl-$S$}
     \end{itemize}
@@ -764,46 +766,46 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
   \begin{proof}
     Let $(P, \preceq_P)$ be a \textit{discrete} poset.
     \begin{itemize}
-      \item[\phantom{\imps}]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$e : (Q, \preceq_Q)\epic(R,\preceq_R)$
             \marginnote{\Hyp}
 
-          \item[\imps] $e$ epic in $\mathbf{Set}$
+          \step[\imps] $e$ epic in $\mathbf{Set}$
             \marginnote{\Lemma-\ref{lemma:epic-poset-set}}
 
-          \item[\phantom{\imps}] $P$ epic-preserving in $\mathbf{Set}$
+          \step $P$ epic-preserving in $\mathbf{Set}$
             \marginnote{\Thm-\ref{prop:set-epic-preserving}}
 
-          \item[\imps]
+          \step[\imps]
             $\forall f : P \to R\ldotp~\exists h : P \to Q\ldotp~e\compose h = f$
             in $\mathbf{Set}^{\text~(1)}$
             \marginnote{\Def-epic-preserving}
 
-          \item[\phantom{\imps}]
+          \step
             \begin{itemize}
-              \item[$\dagger$]
+              \subp{\dagger}
                 \Let~$f : (P,\preceq_P)\to (R,\preceq_R)$
                 \marginnote{\Hyp}
 
-              \item[\imps]
+              \step[\imps]
                 $e\compose h = f$ in $\mathbf{Set}$
                 \marginnote{$\exists$-\Elim-($\forall$-\Elim-(1));~$h : P\to Q$}
 
-              \item[\phantom{\imps}]
+              \step
                 $h$ monotone
                 \marginnote{\Lemma-\ref{lemma:discrete-poset-monotone}-($h : P\to Q$)}
 
-              \item[\imps]
+              \step[\imps]
                 $e\compose h = f$ in $\mathbf{Pos}$
 
-              \item[\imps]
+              \step[\imps]
                 $\exists h : (P,\preceq_P)\to(Q,\preceq_Q)\ldotp~e\compose h = f$
                 \marginnote{$\exists$-\Intro}
             \end{itemize}
         \end{itemize}
-        \item[\imps]
+        \step[\imps]
           \marginnote[3em]{$\forall$-\Intro-($\star$,~$\forall$-\Intro-$\dagger$)}
           \begin{flalign*}
             & \forall e : (Q,\preceq_Q)\epic(R,\preceq_R)\ldotp &&\\
@@ -811,7 +813,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
             & \exists h : (P,\preceq_P)\to(Q,\preceq_Q)\ldotp~e\compose h = f &&
           \end{flalign*}
 
-        \item[\iffs]
+        \step[\iffs]
           $(P,\preceq_P)$ epic-preserving.
           \qedhere
           \marginnote{\Def-epic-preserving}
@@ -877,11 +879,11 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
   \begin{proof}[Case 1]
     Suppose $h(p_1) = q_3$
     \begin{itemize}
-      \item[\imps] $\forall 1\leq i\leq 3\ldotp~h(p_i) = q_3$
+      \step[\imps] $\forall 1\leq i\leq 3\ldotp~h(p_i) = q_3$
         \marginnote{\textbf{montone}-$h$}
-      \item[\imps] $\forall 1\leq i\leq 3\ldotp~(e\compose h)(p_i) = r_3$
+      \step[\imps] $\forall 1\leq i\leq 3\ldotp~(e\compose h)(p_i) = r_3$
         \marginnote{\Def-$e$}
-      \item[\imps] $e\compose h\neq f$
+      \step[\imps] $e\compose h\neq f$
         \marginnote{$f(p_1) = r_1$}
         \qedhere
     \end{itemize}
@@ -890,9 +892,9 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
   \begin{proof}[Case 2]
     Suppose $h(p_1) = q_1$
     \begin{itemize}
-      \item[\imps] $h(p_2) = q_3 = h(p_3)$
+      \step[\imps] $h(p_2) = q_3 = h(p_3)$
         \marginnote{\textbf{montone}-$h$}
-      \item[\imps] $(e\compose h)(p_2) = r_3 \neq r_2 = f(p_2)$
+      \step[\imps] $(e\compose h)(p_2) = r_3 \neq r_2 = f(p_2)$
         \marginnote{\Def-$e$;~\Def-$f$}
         \qedhere
     \end{itemize}
@@ -912,10 +914,10 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
   \begin{proof}
     Let $(P,\preceq_P)\in\mathbf{Pos}$ be epic-preserving.
     \begin{itemize}
-      \item[\phantom{\imps}]
+      \step
         Define $(P, \preceq_{\hat{P}})$ to be a discrete poset.
 
-      \item[\imps]
+      \step[\imps]
         The inclusion map
         \begin{tikzcd}
           (P,\preceq_{\hat{P}}) \arrow[r, hook, "i"] & (P, \preceq_P)
@@ -923,7 +925,7 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
         is epic in $\mathbf{Pos}$
         \marginnote{$i$ is bijective}
 
-      \item[\imps] The following diagram commutes
+      \step[\imps] The following diagram commutes
         \marginnote[1em]{$(P,\preceq_P)$-\textbf{epic-preserving}}
         \begin{center}
           \begin{tikzcd}[sep=large]
@@ -933,33 +935,34 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
           \end{tikzcd}
         \end{center}
 
-      \item[\phantom{\imps}]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$x,y\in P\ldotp~x\preceq_P y$
             \marginnote{\Hyp}
 
-          \item[\phantom{\imps}]\Ass~$x\neq y^{\text~(1)}$
+          \step
+            \Ass~$x\neq y^{\text~(1)}$
             \marginnote{\Hyp}
 
-          \item[\imps] $h(x) \preceq_{\hat{P}} h(y)$
+          \step[\imps] $h(x) \preceq_{\hat{P}} h(y)$
             \marginnote{\textbf{monotone}-$h$}
 
-          \item[\imps]
+          \step[\imps]
             $h(x) = h(y)$
             \marginnote{\textbf{discrete}-$(P,\preceq_{\hat{P}})$}
 
-          \item[\imps]
+          \step[\imps]
             $(i\compose h)(x) = (i\compose h)(y)$
 
-          \item[\imps]
+          \step[\imps]
             $x = y$
             \marginnote{$i\compose h = \id_{(P,\preceq_P)}$}
         \end{itemize}
-        \item[\contras] Such an $x,y\in P$ cannot exist
+        \step[\contras] Such an $x,y\in P$ cannot exist
           \marginnote{\Contra-$\star$-(1)}
 
-        \item[\imps] $(P, \preceq_P)$ discrete\qedhere
+        \step[\imps] $(P, \preceq_P)$ discrete\qedhere
     \end{itemize}
   \end{proof}
 
@@ -990,35 +993,36 @@ Now, similar to the proof of Proposition~\ref{prop:set-epic-preserving} (That ev
   \begin{proof}[Proof by Contradiction]
     Let $e : V \epic W$ in $\mathbf{FDVect}_K$
     \begin{itemize}
-      \item[\phantom{\imps}]
+      \step
         Suppose ${\exists w_i\in\Basis{W}\setminus\operatorname{span}(e(\Basis{V}))}$.
         \marginnote{\Hyp}
 
-      \item[\phantom{\imps}] Then we may show that such a basis vector $w_i$ must be orthogonal to all vectors in $e(\Basis{V})$:
+      \step
+        Then we may show that such a basis vector $w_i$ must be orthogonal to all vectors in $e(\Basis{V})$:
 
-      \item[\phantom{\imps}]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             $\nexists \boldsymbol{\lambda}_{e(\Basis{V})}\ldotp~\sum_{y\in e(\Basis{V})} \lambda_y\cdot y = w_i$
             \marginnote{\Def-span;~$\boldsymbol{\lambda}_X$ a sequence indexed by $X$.}
 
-          \item[\iffs]
+          \step[\iffs]
             $\nexists \boldsymbol{\lambda}_{e(\Basis{V})}\ldotp~\sum_{y\in e(\Basis{V})} \lambda_y\cdot\sum_{j=1}^{\Dim{W}}\mu_{yj}\cdot w_j = w_i$
             \marginnote{$\Basis{W}$ spans $W$;~$\forall y, j\ldotp~\mu_{yj}\in K$}
 
-          \item[\iffs]
+          \step[\iffs]
             $\nexists \boldsymbol{\lambda}_{e(\Basis{V})}\ldotp~\sum_{y\in e(\Basis{V})} \lambda_y\cdot\mu_{yi}\cdot w_i = w_i$
             \marginnote{$w_i\cdot w_j = \delta_{ij}$}
 
-          \item[\iffs]
+          \step[\iffs]
             $\nexists \boldsymbol{\lambda}_{e(\Basis{V})}\ldotp~\sum_{y\in e(\Basis{V})} \lambda_y\cdot\mu_{yi} = 1$
 
-          \item[\iffs]
+          \step[\iffs]
             $\forall y \in e(\Basis{V})\ldotp~\mu_{yi} = 0$
         \end{itemize}
 
 
-      \item[\phantom{\imps}]
+      \step
         Define $g, h : W\to K$ by their action on basis vectors
         \begin{align*}
           g & : w_j \mapsto
@@ -1029,60 +1033,60 @@ Now, similar to the proof of Proposition~\ref{prop:set-epic-preserving} (That ev
           h & : w_j \mapsto 1
         \end{align*}
 
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\dagger$]
+          \subp{\dagger}
             So that $g(w_i) = 0 \neq 1 = h(w_i)$
-          \item[\imps] $g \neq h$
+          \step[\imps] $g \neq h$
         \end{itemize}
 
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\ddagger$]
+          \subp{\ddagger}
             \Let~$v\in\Basis{V}$
             \marginnote{\Hyp}
 
-          \item[\phs] $(g\compose e)(v)$
+          \step $(g\compose e)(v)$
 
-          \item[\eqs] $g(e(v))$
+          \step[=] $g(e(v))$
             \marginnote{\Def-$\compose$}
 
-          \item[\eqs]
+          \step[=]
             $g(\sum_j\mu_jw_j)$
             \marginnote{$\Basis{W}$ spans $W$}
 
-          \item[\eqs]
+          \step[=]
             $\sum_j\mu_jg(w_j)$
             \marginnote{\textbf{linear}-$g$}
 
-          \item[\eqs]
+          \step[=]
             $\sum_{j\neq i}\mu_jg(w_j) + \mu_i\cdot g(w_i)$
 
-          \item[\eqs]
+          \step[=]
             $\sum_{j\neq i}\mu_jg(w_j) + 0\cdot g(w_i)$
             \marginnote{$\forall$-\Elim-$\star$}
 
-          \item[\eqs]
+          \step[=]
             $\sum_{j\neq i}\mu_jh(w_j) + 0\cdot h(w_i)$
             \marginnote{\Def-$g$;~\Def-$h$}
 
-          \item[\eqs]
+          \step[=]
             $h(e(v))$
         \end{itemize}
 
-        \item[\imps]
+        \step[\imps]
           $\forall v\in\Basis{V}\ldotp~g(e(v))=h(e(v))$
           \marginnote{$\forall$-\Intro-$\ddagger$}
 
-        \item[\imps]
+        \step[\imps]
           $g\compose e = h\compose e$
           \marginnote{\Def-$=$}
 
-        \item[\imps]
+        \step[\imps]
           $g = h$
           \marginnote{\Epic-$e$}
 
-        \item[\contras]
+        \step[\contras]
           $w_i$ cannot exist
           \marginnote{\Contra-$\dagger$}
           \qedhere
@@ -1098,13 +1102,13 @@ As a corollary to this lemma, we see that any basis vector $w_i\in\Basis{W}$ can
   \begin{proof}
     Let $U\in\mathbf{FDVect}_K$
     \begin{itemize}
-      \item[\phs]
+      \step
         \begin{itemize}
-          \item[$\star$]
+          \subp{\star}
             \Let~$e : V\epic W$
             \marginnote{\Hyp}
 
-          \item[\phs] \Let~$f : U \to W$
+          \step \Let~$f : U \to W$
             \marginnote{\Hyp}
 
           \item[(i)]
@@ -1128,44 +1132,44 @@ As a corollary to this lemma, we see that any basis vector $w_i\in\Basis{W}$ can
               h : u_i \mapsto \sum_{k=1}^{\Dim{W}}\sum_{v\in\Basis{V}}\lambda_{ik}\mu_{kv}v
             \end{align*}
 
-          \item[\phs]
+          \step
             \begin{itemize}
-              \item[$\dagger$]
+              \subp{\dagger}
                 \Let~$u_i\in\Basis{U}$
                 \marginnote{\Hyp}
 
-              \item[\phs] $f(u_i)$
+              \step $f(u_i)$
 
-              \item[\eqs] $\displaystyle\sum\limits_{k=1}^{\Dim{W}}\lambda_{ik}w_k$
+              \step[=] $\displaystyle\sum\limits_{k=1}^{\Dim{W}}\lambda_{ik}w_k$
                 \marginnote{\textbf{follows}-(ii)}
 
-              \item[\eqs] $\displaystyle\sum\limits_{k=1}^{\Dim{W}}\lambda_{ik}\displaystyle\sum\limits_{v\in\Basis{V}}\mu_{kv}e(v).$
+              \step[=] $\displaystyle\sum\limits_{k=1}^{\Dim{W}}\lambda_{ik}\displaystyle\sum\limits_{v\in\Basis{V}}\mu_{kv}e(v).$
                 \marginnote{\textbf{follows}-(i)}
 
-              \item[\eqs] $e(\displaystyle\sum\limits_{k=1}^{\Dim{W}}\displaystyle\sum\limits_{v\in\Basis{V}}\lambda_{ik}\mu_{kv}v).$
+              \step[=] $e(\displaystyle\sum\limits_{k=1}^{\Dim{W}}\displaystyle\sum\limits_{v\in\Basis{V}}\lambda_{ik}\mu_{kv}v).$
                 \marginnote{\textbf{linear}-$e$}
 
-              \item[\eqs] $e(h(u_i))$
+              \step[=] $e(h(u_i))$
                 \marginnote{\Def-$h~\equiv~$(iii)}
             \end{itemize}
-            \item[\imps]
+            \step[\imps]
               $\forall u_i\in\Basis{U}\ldotp~f(u_i) = e(h(u_i))$
               \marginnote{$\forall$-\Intro-$\dagger$}
 
-            \item[\iffs]
+            \step[\iffs]
               $f = e\compose h$
               \marginnote{\Def-$=$}
 
-            \item[\imps]
+            \step[\imps]
               $\exists h : U \to V\ldotp~f = e\compose h$
               \marginnote{$\exists$-\Intro}
         \end{itemize}
 
-        \item[\imps]
+        \step[\imps]
           $\forall e : V\epic W, f : U \to W\ldotp~\exists h : U\to V\ldotp~e\compose h = f$
           \marginnote{$\forall$-\Intro-$\star$}
 
-        \item[\imps]
+        \step[\imps]
           $U$ preserves epics
           \marginnote{\Def-epic-preserving}
           \qedhere

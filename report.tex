@@ -8,6 +8,7 @@
 \usepackage{amsthm}
 \usepackage{bm}
 \usepackage{bussproofs}
+\usepackage{calc}
 \usepackage{enumerate}
 \usepackage{mathtools}
 \usepackage{relsize}
@@ -46,11 +47,11 @@
 \newcommand{\Exp}{\Rightarrow}
 \newcommand{\sembrack}[1]{\llbracket #1 \rrbracket}
 
-\newcommand{\phs}{\phantom{$=$}}
-\newcommand{\iffs}{$\Leftrightarrow$}
-\newcommand{\imps}{$\Rightarrow$}
-\newcommand{\eqs}{$=$}
-\newcommand{\contras}{$\divideontimes$}
+\newcommand{\step}[1][\phantom{=}]{\item[{\makebox[{\widthof{$\Leftrightarrow$}}][l]{$#1$}}]}
+\newcommand{\subp}[1]{\item[$#1$]}
+\newcommand{\iffs}{\Leftrightarrow}
+\newcommand{\imps}{\Rightarrow}
+\newcommand{\contras}{\divideontimes}
 
 \def\mathnote#1{%
   \tag*{\rlap{\hspace\marginparsep\smash{\parbox[t]{\marginparwidth}{%
