@@ -39,9 +39,9 @@ Then we define the action of the functor on objects and morphisms. The covariant
   \begin{proof}[Proof (i)]
     Let $B\in\cat{C}$
     \begin{itemize}
-      \item[$\star$]
+    \item[\phs]
         \begin{itemize}
-            \item[\phs] \Let~$g : A \to B$
+          \item[$\star$] \Let~$g : A \to B$
               \marginnote{\Hyp}
             \item[\phs]
               $\hom{C}{A}{\id_B}(g)$
@@ -73,9 +73,9 @@ Then we define the action of the functor on objects and morphisms. The covariant
   \begin{proof}[Proof (ii)]
     Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$.
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs] \Let~$i : A\to B$
+          \item[$\star$] \Let~$i : A\to B$
             \marginnote{\Hyp}
 
           \item[\phs]
@@ -143,24 +143,25 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
   \begin{proof}[Proof (i)]
     Let $B\in\cat{C}$
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-            \item[\phs] \Let~$g : B \to A$
-              \marginnote{\Hyp}
-            \item[\phs]
-              $\hom{C}{\id_B}{A}(g)$
+          \item[$\star$]
+            \Let~$g : B \to A$
+            \marginnote{\Hyp}
+          \item[\phs]
+            $\hom{C}{\id_B}{A}(g)$
 
-            \item[\eqs]
-              $g\compose\id_B$
-              \marginnote{\Def-\ref{def:contra-hom}}
+          \item[\eqs]
+            $g\compose\id_B$
+            \marginnote{\Def-\ref{def:contra-hom}}
 
-            \item[\eqs]
-              $g$
-              \marginnote{\Def-$\id$}
+          \item[\eqs]
+            $g$
+            \marginnote{\Def-$\id$}
 
-            \item[\eqs]
-              $\id_{\hom{C}{B}{A}}(g)$
-              \marginnote{\Def-$\id$}
+          \item[\eqs]
+            $\id_{\hom{C}{B}{A}}(g)$
+            \marginnote{\Def-$\id$}
         \end{itemize}
 
       \item[\imps]
@@ -177,9 +178,9 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
   \begin{proof}[Proof (ii)]
     Let $B, C, D\in\cat{C}$ with ${g : C\to D}$, ${h : B\to C}$.
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs] \Let~$i : B\to A$
+          \item[$\star$] \Let~$i : B\to A$
             \marginnote{\Hyp}
 
           \item[\phs]
@@ -222,15 +223,16 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
   \begin{proof}[Proof $\Rightarrow$]
     Let $C\in\cat{C}$.
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs] \Let~$g, h : B\to C$
+          \item[$\star$] \Let~$g, h : B\to C$
             \marginnote{\Hyp}
 
-          \item[$\dagger$]
+          \item[\phs]
             \begin{itemize}
-            \item[\phs] \Ass~$\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h)$
-              \marginnote{\Hyp}
+              \item[$\dagger$]
+                \Ass~$\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h)$
+                \marginnote{\Hyp}
 
             \item[\iffs] $g\compose f = h\compose f$
               \marginnote{\Def-\ref{def:contra-hom}}
@@ -254,14 +256,16 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
   \begin{proof}[Proof $\Leftarrow$]
     Let $C\in\cat{C}$.
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs] \Let~$g, h : B\to C$
+          \item[$\star$]
+            \Let~$g, h : B\to C$
             \marginnote{\Hyp}
 
-          \item[$\dagger$]
+          \item[\phs]
             \begin{itemize}
-            \item[\phs] \Ass~$g\compose f = h\compose f$
+            \item[$\dagger$]
+              \Ass~$g\compose f = h\compose f$
               \marginnote{\Hyp}
 
             \item[\iffs] $\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h)$
@@ -294,14 +298,15 @@ By dualising the result in part (a.ii), we get a characterisation of monics as f
   \begin{proof}[Proof $\Rightarrow$]
     Let $A\in\cat{C}$.
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs] \Let~$g, h : A\to B$
+          \item[$\star$] \Let~$g, h : A\to B$
             \marginnote{\Hyp}
 
-          \item[$\dagger$]
+          \item[\phs]
             \begin{itemize}
-            \item[\phs] \Ass~$\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h)$
+            \item[$\dagger$]
+              \Ass~$\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h)$
               \marginnote{\Hyp}
 
             \item[\iffs] $f\compose g = f\compose h$
@@ -326,14 +331,15 @@ By dualising the result in part (a.ii), we get a characterisation of monics as f
   \begin{proof}[Proof $\Leftarrow$]
     Let $A\in\cat{C}$.
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs] \Let~$g, h : A\to B$
+          \item[$\star$] \Let~$g, h : A\to B$
             \marginnote{\Hyp}
 
-          \item[$\dagger$]
+          \item[\phs]
             \begin{itemize}
-            \item[\phs] \Ass~$f\compose g = f\compose h$
+            \item[$\dagger$]
+              \Ass~$f\compose g = f\compose h$
               \marginnote{\Hyp}
 
             \item[\iffs] $\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h)$
@@ -398,15 +404,15 @@ Our intended result then follows from the previous lemma, and a general result f
   \begin{proof}
     Let $X, P, Q$ be sets
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs]
+          \item[$\star$]
             \Ass~$\forall x\in X\ldotp~P(x)$
             \marginnote{\Hyp}
 
-          \item[$\dagger$]
+          \item[\phs]
             \begin{itemize}
-              \item[\phs]
+              \item[$\dagger$]
                 \Let~$x\in X$
                 \marginnote{\Hyp}
 
@@ -489,15 +495,15 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
     Suppose $E\in\cat{C}$ preserves epics$.^{\text~(1)}$
 
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs]
+          \item[$\star$]
             \Let~$F \in \cat{C}$, $r : E \rightleftarrows F : s$ be a retract of $E^{\text~(2)}$
             \marginnote{\Hyp}
 
-          \item[$\dagger$]
+          \item[\phs]
             \begin{itemize}
-              \item[\phs]
+              \item[$\dagger$]
                 \Let~$e : B \epic C^{\text~(3)}$
                 \marginnote{\Hyp}
 
@@ -547,9 +553,10 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
   \begin{proof}
     Let $X\in\mathbf{Set}$.
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs]\Let~$e : B\epic C$
+          \item[$\star$]
+            \Let~$e : B\epic C$
             \marginnote{\Hyp; $B, C\in\mathbf{Set}$}
 
           \item[\phs]\Let~$f : X\to C$
@@ -580,9 +587,10 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
               \Let~$h : X \to B;~h : x \mapsto b_{f(x)}$
             \addtolength{\itemsep}{-1\baselineskip}
 
-            \item[$\dagger$]
+          \item[\phs]
               \begin{itemize}
-                \item[\phs]\Let~$x\in X$
+                \item[$\dagger$]
+                  \Let~$x\in X$
                   \marginnote{\Hyp}
 
                 \item[\phs] $(e\compose h)(x)$
@@ -657,9 +665,10 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
         We now show that both $g$ and $h$ are monotone, by a proof by contradiction:
 
       \addtolength{\itemsep}{-.5\baselineskip}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs]\Ass~$g$ not monotone
+          \item[$\star$]
+            \Ass~$g$ not monotone
             \marginnote{\Hyp}
 
           \item[\imps]
@@ -691,9 +700,9 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
       \addtolength{\itemsep}{.5\baselineskip}
       \item[\phs] Given that we now know $g$ and $h$ are morphisms in $\mathbf{Pos}$, we can use the \Epic-ness of $e$ to derive a contradiction of our original assumption:
 
-      \item[$\dagger$]
+      \item[\phantom{\imps}]
         \begin{itemize}
-          \item[\phantom{\imps}]
+          \item[$\dagger$]
             $\forall q\in Q\setminus\{\hat{q}\}\ldotp~g(q) = h(q)$
             \marginnote{\Def-$g$;~\Def-$h$}
 
@@ -712,9 +721,9 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
         \end{itemize}
       \addtolength{\itemsep}{-.5\baselineskip}
 
-      \item[$\ddagger$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs]
+          \item[$\ddagger$]
             $g(\hat{q})\neq h(\hat{q})$
             \marginnote{\Def-$g$;~\Def-$h$}
 
@@ -755,9 +764,10 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
   \begin{proof}
     Let $(P, \preceq_P)$ be a \textit{discrete} poset.
     \begin{itemize}
-      \item[$\star$]
+      \item[\phantom{\imps}]
         \begin{itemize}
-          \item[\phantom{\imps}]\Let~$e : (Q, \preceq_Q)\epic(R,\preceq_R)$
+          \item[$\star$]
+            \Let~$e : (Q, \preceq_Q)\epic(R,\preceq_R)$
             \marginnote{\Hyp}
 
           \item[\imps] $e$ epic in $\mathbf{Set}$
@@ -771,9 +781,10 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
             in $\mathbf{Set}^{\text~(1)}$
             \marginnote{\Def-epic-preserving}
 
-          \item[$\dagger$]
+          \item[\phantom{\imps}]
             \begin{itemize}
-              \item[\phantom{\imps}]\Let~$f : (P,\preceq_P)\to (R,\preceq_R)$
+              \item[$\dagger$]
+                \Let~$f : (P,\preceq_P)\to (R,\preceq_R)$
                 \marginnote{\Hyp}
 
               \item[\imps]
@@ -922,9 +933,10 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
           \end{tikzcd}
         \end{center}
 
-      \item[$\star$]
+      \item[\phantom{\imps}]
         \begin{itemize}
-          \item[\phantom{\imps}]\Let~$x,y\in P\ldotp~x\preceq_P y$
+          \item[$\star$]
+            \Let~$x,y\in P\ldotp~x\preceq_P y$
             \marginnote{\Hyp}
 
           \item[\phantom{\imps}]\Ass~$x\neq y^{\text~(1)}$
@@ -984,9 +996,9 @@ Now, similar to the proof of Proposition~\ref{prop:set-epic-preserving} (That ev
 
       \item[\phantom{\imps}] Then we may show that such a basis vector $w_i$ must be orthogonal to all vectors in $e(\Basis{V})$:
 
-      \item[$\star$]
+      \item[\phantom{\imps}]
         \begin{itemize}
-          \item[\phantom{\imps}]
+          \item[$\star$]
             $\nexists \boldsymbol{\lambda}_{e(\Basis{V})}\ldotp~\sum_{y\in e(\Basis{V})} \lambda_y\cdot y = w_i$
             \marginnote{\Def-span;~$\boldsymbol{\lambda}_X$ a sequence indexed by $X$.}
 
@@ -1017,15 +1029,16 @@ Now, similar to the proof of Proposition~\ref{prop:set-epic-preserving} (That ev
           h & : w_j \mapsto 1
         \end{align*}
 
-      \item[$\dagger$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs] So that $g(w_i) = 0 \neq 1 = h(w_i)$
+          \item[$\dagger$]
+            So that $g(w_i) = 0 \neq 1 = h(w_i)$
           \item[\imps] $g \neq h$
         \end{itemize}
 
-      \item[$\ddagger$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs]
+          \item[$\ddagger$]
             \Let~$v\in\Basis{V}$
             \marginnote{\Hyp}
 
@@ -1085,9 +1098,10 @@ As a corollary to this lemma, we see that any basis vector $w_i\in\Basis{W}$ can
   \begin{proof}
     Let $U\in\mathbf{FDVect}_K$
     \begin{itemize}
-      \item[$\star$]
+      \item[\phs]
         \begin{itemize}
-          \item[\phs] \Let~$e : V\epic W$
+          \item[$\star$]
+            \Let~$e : V\epic W$
             \marginnote{\Hyp}
 
           \item[\phs] \Let~$f : U \to W$
@@ -1114,9 +1128,9 @@ As a corollary to this lemma, we see that any basis vector $w_i\in\Basis{W}$ can
               h : u_i \mapsto \sum_{k=1}^{\Dim{W}}\sum_{v\in\Basis{V}}\lambda_{ik}\mu_{kv}v
             \end{align*}
 
-          \item[$\dagger$]
+          \item[\phs]
             \begin{itemize}
-              \item[\phs]
+              \item[$\dagger$]
                 \Let~$u_i\in\Basis{U}$
                 \marginnote{\Hyp}
 
