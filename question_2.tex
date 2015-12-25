@@ -1050,11 +1050,11 @@ Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
         \marginnote{\Def-$\App$}
 
       \step
-        \quad$\land~(\forall g\in\overline{g}\ldotp~((\overline{a},\overline{x}),g)\in\lambda g\compose\pi_1)$
-        \marginnote{\Def-$\widehat{\langle f,g\rangle}$}
+        \quad$\land~((\overline{a},\overline{x}), \overline{g})\in\widehat{\lambda f\compose\pi_1}$
+        \marginnote{\Def-$\widehat{\langle f,g\rangle}$;~\Def-~$\widehat{\cdot}$}
 
       \step
-        \quad$\land~(\forall x^\prime\in\overline{x}^\prime\ldotp~((\overline{a},\overline{x}), x^\prime)\in\pi_2$
+        \quad$\land~((\overline{a},\overline{x}), \overline{x}^\prime)\in\widehat{\pi}_2)$
       \addtolength{\itemsep}{.2\baselineskip}
 
       \step[\iffs]
@@ -1065,26 +1065,19 @@ Finally, the terminal object in $\mathbf{CRel}$ is $\varnothing$, the empty set.
         \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x}^\prime)$
 
       \step
-        \quad$\land~((\overline{a},\overline{x}), \overline{g})\in\widehat{\lambda f\compose\pi_1}$
-        \marginnote{\Def-$~\widehat{\cdot}$}
-
-      \step
-        \quad$\land~(\forall x^\prime\in\overline{x}^\prime\ldotp~x^\prime\in\overline{x})$
-        \marginnote{\Def-$\pi_2$}
-      \addtolength{\itemsep}{.2\baselineskip}
-
-      \step[\iffs]
-        $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
-
-      \addtolength{\itemsep}{-.2\baselineskip}
-      \step
-        \quad$\phantom{\land}~(\exists i\ldotp y_i=y\land\overline{s}_i\subseteq\overline{x})$
-
-      \step
-        \quad$\land~((\overline{a},\overline{x}), \overline{g})\in\widehat{\lambda f}\compose\widehat{\pi}_1$
+        \quad$\land~((\overline{a},\overline{x}), \overline{g})\in\widehat{\lambda f}\compose\widehat{\pi_1}$
         \marginnote{\Thm-\ref{prop:rel-hat-comp}}
 
+      \step
+        \quad$\land~\overline{x}^\prime\subseteq\overline{x}$
+        \marginnote{\Def-$\widehat{\pi_2}$}
       \addtolength{\itemsep}{.2\baselineskip}
+
+      \step
+        Left to right follows by \Trans-$\subseteq$.
+
+      \step
+        Right to left follows by $\exists$-\Intro, setting $\overline{x}^\prime\triangleq\overline{x}$.
 
       \step[\iffs]
         $\exists\overline{g} = \{(\overline{s}_1,y_1),\ldots,(\overline{s}_n,y_n)\}$
@@ -1499,10 +1492,10 @@ Consider the following terms in the rs-calculus:
 With interpretations in $\mathbf{CRel}$ given by:
 \begin{itemize}
   \step
-    $\sembrack{\vdash\mathbf{s}\lambda xy\ldotp x}$
+    $\sembrack{\vdash\mathbf{s}\lambda x\ldotp\mathbf{s}\lambda y\ldotp x}$
 
   \step[=]
-    $\top\xrightarrow{\langle\lambda s^\prime,t\rangle}((A\Exp A)\Exp A)\times(A\Exp A)\overset{\App}\longrightarrow A$
+    $\top\xrightarrow{\langle\lambda s^\prime,f\rangle}((A\Exp A)\Exp A)\times(A\Exp A)\overset{\App}\longrightarrow A$
     \begin{flalign*}
       \text{where }
       f & = \sembrack{\vdash\lambda x\ldotp\mathbf{s}\lambda y\ldotp x} &\\
@@ -1522,7 +1515,7 @@ With interpretations in $\mathbf{CRel}$ given by:
 And similarly:
 \begin{itemize}
   \step
-    $\sembrack{\vdash\mathbf{s}\lambda xy\ldotp y}$
+    $\sembrack{\vdash\mathbf{s}\lambda x\ldotp\mathbf{s}\lambda y\ldotp y}$
 
   \step[=]
     $\App\compose\langle\lambda s^\prime,\lambda(\App\compose\langle\lambda s^\prime,\lambda\pi_2\rangle)\rangle$
@@ -1653,6 +1646,12 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
     \marginnote{\Def-$\pi_1$}
   \addtolength{\itemsep}{.2\baselineskip}
 
+  \step
+    Left to right follows by $\exists$-\Elim~to get a $\overline{f}$, followed by another $\exists$-\Elim~to get a $(\overline{g},a^\prime)$ such that $a = a^\prime\land\overline{g}\subseteq\overline{x}$. Furthermore, by $\forall$-\Elim, of the second conjunct we have that $\exists g\in\overline{g}\ldotp~a^\prime=b^{-1}(g)$. The $g$ satisfying the former proposition also exists in $\overline{x}$, being a superset of $\overline{g}$, and we may unify $a^\prime$ with $a$ to get the necessary conclusion.
+
+  \step
+    Right to left follows by $\exists$-\Intro, setting $\overline{f}\triangleq\{(\overline{x}, a)\}$.
+
   \step[\iffs]
     $\exists \overline{x}\ldotp~(\exists g\in\overline{x}\ldotp~a = b^{-1}(g))$
 
@@ -1670,6 +1669,9 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
     \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~a^{\text (iv)}\in\overline{h}$
   \addtolength{\itemsep}{.2\baselineskip}
 
+  \step
+    This step follows by a similar argument to the above.
+
   \step[\iffs]
     $\exists \overline{x}\ldotp~(\exists g\in\overline{x}\ldotp~a = b^{-1}(g))$
 
@@ -1684,13 +1686,22 @@ For the specific case of our model with $A = \Nat$, we may simplify the definiti
     \quad\quad\quad$\land~\phantom{(}\forall (\overline{k},a^{\text (iv)})\in\overline{y}\ldotp~a^{\text (iv)}\in\overline{h}$
   \addtolength{\itemsep}{.2\baselineskip}
 
+  \step
+    Left to right follows by $\exists$-\Elim~to get a $j = (\overline{k},a^{\text(iv)})$ such that ${a^{\prime\prime} = b^{-1}(\overline{k},a^{\text(iv)})}$ and then performing a $\forall$-\Elim, to get the proposition $a^{\text(iv)}\in\overline{h}$.
+
+  \step
+    Right to left follows by $\exists$-\Intro, setting $\overline{y}\triangleq\{(\overline{k},a^{\text (iv)})\}$
+
   \step[\iffs]
     $\exists \overline{x}\ldotp~(\exists g\in\overline{x}\ldotp~a = b^{-1}(g))$
 
   \addtolength{\itemsep}{-.2\baselineskip}
   \step
-    \quad $\land~\phantom{(}\forall(\overline{h},b^{-1}(\overline{h},b^{-1}(\overline{k}, a^{\text (iv)})))\in\overline{x}\ldotp~a^{\text (iv)}\in\overline{h}$
+    \quad $\land~\phantom{(}\forall(\overline{h},b^{-1}(\overline{k}, a^{\text (iv)}))\in\overline{x}\ldotp~a^{\text (iv)}\in\overline{h}$
   \addtolength{\itemsep}{.2\baselineskip}
+
+  \step
+    This step follows by a similar argument to the above.
 
   \step[\iffs]
     $\exists\overline{h},\overline{k},a^\prime\ldotp~a = b^{-1}(\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{h}$
@@ -1714,16 +1725,30 @@ Then it can be seen that $(\varnothing,b^{-1}(\varnothing,b^{-1}(\{0\},0))\in\se
 
   \step[\iffs]
     $\exists\overline{h},\overline{k},a^\prime\ldotp~b^{-1}(\varnothing,b^{-1}(\{0\},0)) = b^{-1}(\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{h}$
+    \marginnote{\Def-$\sembrack{t}$}
+
+  \step[\iffs]
+    $\exists\overline{h},\overline{k},a^\prime\ldotp~b(b^{-1}(\varnothing,b^{-1}(\{0\},0))) = b(b^{-1}(\overline{h}, b^{-1}(\overline{k},a^\prime)))\land a^\prime\in\overline{h}$
+    \marginnote{$b\compose -$}
 
   \step[\iffs]
     $\exists\overline{h},\overline{k},a^\prime\ldotp~(\varnothing,b^{-1}(\{0\},0)) = (\overline{h}, b^{-1}(\overline{k},a^\prime))\land a^\prime\in\overline{h}$
+    \marginnote{$b\compose b^{-1} =\id$}
+
+  \step[\iffs]
+    $\exists\overline{h},\overline{k},a^\prime\ldotp~\varnothing =\overline{h}\land b^{-1}(\{0\},0) = b^{-1}(\overline{k},a^\prime)\land a^\prime\in\overline{h}$
+    \marginnote{\Def-$=$}
 
   \step[\iffs]
     $\exists\overline{k},a^\prime\ldotp~b^{-1}(\{0\},0) = b^{-1}(\overline{k},a^\prime)\land a^\prime\in\varnothing$
 
   \step[\imps]
+    $a^\prime\in\varnothing$
+    \marginnote{$\land$-\Elim-R}
+
+  \step[\contras]
     $b^{-1}(\varnothing,b^{-1}(\{0\},0))\notin\sembrack{t}$
 
   \step[\imps]
-    $\sembrack{f}\neq\sembrack{t}$
+    $\sembrack{f}\neq\sembrack{t}$\hfill\qed
 \end{itemize}
