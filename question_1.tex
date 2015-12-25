@@ -62,7 +62,7 @@ Then we define the action of the functor on objects and morphisms. The covariant
 
       \step[\imps]
         $\forall g : A \to B\ldotp~\hom{C}{A}{B}(g) = \id_{\hom{C}{A}{B}}(g)$
-        \marginnote{$\forall$-\Intro-$\star$}
+        \marginnote{$\forall$-\Intro}
 
       \step[\iffs]
         $\hom{C}{A}{B} = \id_{\hom{C}{A}{B}}$
@@ -100,7 +100,7 @@ Then we define the action of the functor on objects and morphisms. The covariant
 
       \step[\imps]
         $\forall i : A\to B\ldotp~(\hom{C}{A}{g}\compose\hom{C}{A}{h})(i) = \hom{C}{A}{g\compose h}(i)$
-        \marginnote{$\forall$-\Intro-$\star$}
+        \marginnote{$\forall$-\Intro}
 
       \step[\iffs]
         $\hom{C}{A}{g}\compose\hom{C}{A}{h} = \hom{C}{A}{g\compose h}$
@@ -167,7 +167,7 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
 
       \step[\imps]
         $\forall g : B \to A\ldotp~\hom{C}{\id_B}{A}(g) = \id_{\hom{C}{B}{A}}(g)$
-        \marginnote{$\forall$-\Intro-$\star$}
+        \marginnote{$\forall$-\Intro}
 
       \step[\iffs]
         $\hom{C}{B}{A} = \id_{\hom{C}{B}{A}}$
@@ -205,7 +205,7 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
 
       \step[\imps]
         $\forall i : B\to A\ldotp~(\hom{C}{g}{A}\compose\hom{C}{h}{A})(i) = \hom{C}{h\compose g}{A}(i)$
-        \marginnote{$\forall$-\Intro-$\star$}
+        \marginnote{$\forall$-\Intro}
 
       \step[\iffs]
         $\hom{C}{g}{A}\compose\hom{C}{h}{A} = \hom{C}{h\compose g}{A}$
@@ -243,10 +243,10 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
             \end{itemize}
 
           \step[\imps] $\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h) \implies g = h$
-            \marginnote{$\imps$-\Intro-$\dagger$}
+            \marginnote{$\imps$-\Intro}
         \end{itemize}
       \step[\imps] $\forall g, h : B \to C\ldotp~\hom{C}{f}{C}(g) = \hom{C}{f}{C}(h) \implies g = h$
-        \marginnote{$\forall$-\Intro-$\star$}
+        \marginnote{$\forall$-\Intro}
 
       \step[\iffs] $\hom{C}{f}{C}$ injective
         \marginnote{\Def-injective}
@@ -277,10 +277,10 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
             \end{itemize}
 
           \step[\imps] $g\compose f = h\compose f \implies g = h$
-            \marginnote{$\imps$-\Intro-$\dagger$}
+            \marginnote{$\imps$-\Intro}
         \end{itemize}
       \step[\imps] $\forall g, h : B \to C\ldotp~g\compose f = h\compose f \implies g = h$
-        \marginnote{$\forall$-\Intro-$\star$}
+        \marginnote{$\forall$-\Intro}
 
       \step[\iffs] $f$ epic
         \marginnote{\Def-epic}
@@ -318,10 +318,10 @@ By dualising the result in part (a.ii), we get a characterisation of monics as f
             \end{itemize}
 
           \step[\imps] $\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h) \implies g = h$
-            \marginnote{$\imps$-\Intro-$\dagger$}
+            \marginnote{$\imps$-\Intro}
         \end{itemize}
       \step[\imps] $\forall g, h : A \to B\ldotp~\hom{C}{A}{f}(g) = \hom{C}{A}{f}(h) \implies g = h$
-        \marginnote{$\forall$-\Intro-$\star$}
+        \marginnote{$\forall$-\Intro}
 
       \step[\iffs] $\hom{C}{A}{f}$ injective
         \marginnote{\Def-injective}
@@ -351,10 +351,10 @@ By dualising the result in part (a.ii), we get a characterisation of monics as f
             \end{itemize}
 
           \step[\imps] $f\compose g = f\compose h \implies g = h$
-            \marginnote{$\imps$-\Intro-$\dagger$}
+            \marginnote{$\imps$-\Intro}
         \end{itemize}
       \step[\imps] $\forall g, h : A \to B\ldotp~f\compose g = f\compose h \implies g = h$
-        \marginnote{$\forall$-\Intro-$\star$}
+        \marginnote{$\forall$-\Intro}
 
       \step[\iffs] $f$ monic
         \marginnote{\Def-monic}
@@ -408,7 +408,7 @@ Our intended result then follows from the previous lemma, and a general result f
       \step
         \begin{itemize}
           \subp{\star}
-            \Ass~$\forall x\in X\ldotp~P(x)$
+            \Ass~$\forall x\in X\ldotp~P(x)^{\text~(1)}$
             \marginnote{\Hyp}
 
           \step
@@ -419,7 +419,7 @@ Our intended result then follows from the previous lemma, and a general result f
 
               \step
                 $P(x)$
-                \marginnote{$\forall$-\Elim-$\star$}
+                \marginnote{$\forall$-\Elim-(1)}
 
               \step
                 $P(x)\iff Q(x)$
@@ -432,12 +432,12 @@ Our intended result then follows from the previous lemma, and a general result f
 
             \step[\imps]
               $\forall x\in X\ldotp~Q(x)$
-              \marginnote{$\forall$-\Intro-$\dagger$}
+              \marginnote{$\forall$-\Intro}
         \end{itemize}
 
       \step[\imps]
         $(\forall x\in X\ldotp~P(x))\implies(\forall x\in X\ldotp~Q(x))$
-        \marginnote{$\imps$-\Intro-$\star$}
+        \marginnote{$\imps$-\Intro}
       \step[\phantom{\imps}]
         $(\forall x\in X\ldotp~Q(x))\implies(\forall x\in X\ldotp~P(x))$
         \marginnote{follows from a symmetric argument}
@@ -536,7 +536,7 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
             \end{itemize}
             \step[\imps]
               $\forall e : B \epic C\ldotp~\forall f : F \to C\ldotp~\exists h^\prime : F\to B\ldotp~f = e\compose h^\prime$
-              \marginnote{$\forall$-\Intro-$\dagger$}
+              \marginnote{$\forall$-\Intro}
 
             \step[\iffs] $F$ preserves epics
               \marginnote{\Thm-\ref{prop:epic-preserving}}
@@ -605,7 +605,7 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
 
               \step[\imps]
                 $\forall x\in X\ldotp~(e\compose h)(x) = f(x)$
-                \marginnote{$\forall$-\Intro-$\dagger$}
+                \marginnote{$\forall$-\Intro}
 
               \step[\iffs]
                 $e\compose h = f$
@@ -618,7 +618,7 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
 
         \step[\imps]
           $\forall e : B\epic C\ldotp~\forall f : X \to C\ldotp~\exists h : X \to B\ldotp~e\compose h = f$
-          \marginnote{$\forall$-\Intro-$\star$}
+          \marginnote{$\forall$-\Intro}
 
         \step[\iffs]
           $X$ preserves epics
@@ -694,7 +694,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
         \end{itemize}
 
       \step[\contras] $g$ monotone
-        \marginnote{\Contra-$\star$}
+        \marginnote{\Contra}
 
       \step $h$ monotone
         \marginnote{similar argument to $\star$.}
@@ -736,7 +736,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
 
         \step[\contras] $e$ epic in $\mathbf{Set}$
           \qedhere
-          \marginnote{\Contra-$\dagger$,~$\ddagger$}
+          \marginnote{\Contra-$\dagger$}
     \end{itemize}
   \end{proof}
 \end{lemma}
@@ -806,7 +806,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
             \end{itemize}
         \end{itemize}
         \step[\imps]
-          \marginnote[3em]{$\forall$-\Intro-($\star$,~$\forall$-\Intro-$\dagger$)}
+          \marginnote[3em]{$\forall$-\Intro-($\forall$-\Intro-$\dagger$)}
           \begin{flalign*}
             & \forall e : (Q,\preceq_Q)\epic(R,\preceq_R)\ldotp &&\\
             & \forall f : (P,\preceq_P)\to(R,\preceq_R)\ldotp &&\\
@@ -960,7 +960,7 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
             \marginnote{$i\compose h = \id_{(P,\preceq_P)}$}
         \end{itemize}
         \step[\contras] Such an $x,y\in P$ cannot exist
-          \marginnote{\Contra-$\star$-(1)}
+          \marginnote{\Contra-(1)}
 
         \step[\imps] $(P, \preceq_P)$ discrete\qedhere
     \end{itemize}
@@ -1076,7 +1076,7 @@ Now, similar to the proof of Proposition~\ref{prop:set-epic-preserving} (That ev
 
         \step[\imps]
           $\forall v\in\Basis{V}\ldotp~g(e(v))=h(e(v))$
-          \marginnote{$\forall$-\Intro-$\ddagger$}
+          \marginnote{$\forall$-\Intro}
 
         \step[\imps]
           $g\compose e = h\compose e$
@@ -1141,10 +1141,10 @@ As a corollary to this lemma, we see that any basis vector $w_i\in\Basis{W}$ can
               \step $f(u_i)$
 
               \step[=] $\displaystyle\sum\limits_{k=1}^{\Dim{W}}\lambda_{ik}w_k$
-                \marginnote{\textbf{follows}-(ii)}
+                \marginnote{\textbf{observation}-(ii)}
 
               \step[=] $\displaystyle\sum\limits_{k=1}^{\Dim{W}}\lambda_{ik}\displaystyle\sum\limits_{v\in\Basis{V}}\mu_{kv}e(v).$
-                \marginnote{\textbf{follows}-(i)}
+                \marginnote{\textbf{observation}-(i)}
 
               \step[=] $e(\displaystyle\sum\limits_{k=1}^{\Dim{W}}\displaystyle\sum\limits_{v\in\Basis{V}}\lambda_{ik}\mu_{kv}v).$
                 \marginnote{\textbf{linear}-$e$}
@@ -1154,7 +1154,7 @@ As a corollary to this lemma, we see that any basis vector $w_i\in\Basis{W}$ can
             \end{itemize}
             \step[\imps]
               $\forall u_i\in\Basis{U}\ldotp~f(u_i) = e(h(u_i))$
-              \marginnote{$\forall$-\Intro-$\dagger$}
+              \marginnote{$\forall$-\Intro}
 
             \step[\iffs]
               $f = e\compose h$
@@ -1167,7 +1167,7 @@ As a corollary to this lemma, we see that any basis vector $w_i\in\Basis{W}$ can
 
         \step[\imps]
           $\forall e : V\epic W, f : U \to W\ldotp~\exists h : U\to V\ldotp~e\compose h = f$
-          \marginnote{$\forall$-\Intro-$\star$}
+          \marginnote{$\forall$-\Intro}
 
         \step[\imps]
           $U$ preserves epics
