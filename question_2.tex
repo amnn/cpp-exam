@@ -48,7 +48,7 @@ Then we may define $(-)^*$ inductively over the structure of $\lambda$-terms by:
     \begin{prooftree}
       \AXC{}
       \RightLabel{\scriptsize(\textbf{r}-intro)}
-      \UIC{$\vdash \mathbf{r} : A\to A$}
+      \UIC{$\vdash \mathbf{r} : A\to (A\to A)$}
       \AXC{$\vdots$}
       \RightLabel{\scriptsize(I.H.)}
       \UIC{$x_1 : A,\ldots,x_i : A\vdash u^* : A$}
@@ -217,7 +217,7 @@ Then we may define $(-)^*$ inductively over the structure of $\lambda$-terms by:
 
 \begin{prop}
   $((\lambda x\ldotp t)u)^* =_{\text rs} t^*[u^*/x]$
-  \begin{proof}
+  \begin{proof}~\\
     \begin{itemize}
       \step
         $((\lambda x\ldotp t)u)^*$
