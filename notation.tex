@@ -1,0 +1,70 @@
+An explanation of the notation used throughout the answers to this exam follows. They are, for the most part, standard, and are included to avoid ambiguity.
+
+\subsection{Proofs}
+
+Proofs are structured as lists of propositions, joined together by relations (e.g. $\imps$, $\iffs$, $=$) and furnished with justifications. Justifications provide an explanation why one proposition follows another, and can call on other proofs and propositions (including the proposition followed) for evidence. Some common justifications include:
+\begin{description}
+  \item[\normalfont\Hyp]
+    The proposition is assumed as part of a hypothesis. This justification is often used at the beginning of sub-proofs that will be used as evidence of an implication or a universal quantification.
+  \item[\normalfont\Def-x]
+    The proof step follows as a result of definition ``x'', where ``x'' could be a common definition (given by name), or a reference to a definition in the answers (given by a number).
+  \item[\normalfont\Thm-x]
+    Similar to \Def, the proof step follows as a result of a theorem (``x'') either given by name or number depending on whether it is commonly known, or whether it was proven somewhere in the exam.
+  \item[\normalfont\Lemma-x]
+    Like \Thm~but used only for proofs that are labeled by a ``Lemma'' heading.
+  \item[\normalfont$\forall$-\Intro-p]
+    Given a proof of proposition $P(x)$ from assumption $x\in X$, referenced by ``p'' (or as an immediate antecedent), we may conclude $\forall x\in X\ldotp~P(x)$.
+  \item[\normalfont$\exists$-\Intro-p]
+    Given a proposition $P(x)$ for a particular $x$, we may conclude $\exists x\ldotp~P(x)$.
+  \item[\normalfont$\imps$-\Intro-p]
+    Given a proof of proposition $Q$ from assumption $P$, we may conclude $P\implies Q$.
+  \item[\normalfont$\forall$-\Elim-(p,q)]
+    Given a proposition of the form $\forall x\in X\ldotp~P(x)$, and another of the form $x^\prime\in X$, we conclude that $P(x^\prime)$ holds.
+  \item[\normalfont$\exists$-\Elim-p]
+    Given a proposition of the form $\exists x\ldotp~P(x)$ we may conclude $P(x^\prime)$ for a \textit{fresh} $x^\prime$.
+  \item[\normalfont\Contra-p]
+    Given a proof that yields a contradiction, we may conclude anything.
+\end{description}
+
+Sub-proofs are represented by indentation, and are labeled with a symbol such as $\star$, $\dagger$, or $\ddagger$. Labels are used when a sub-proof is used as evidence in another part of the proof.
+
+\subsection{Diagrams}
+
+We adopt some common short-hands for use in commutative diagrams:
+\begin{align*}
+  \begin{tikzcd}[ampersand replacement=\&]
+    A \arrow[r, dashed, "u"] \& B
+  \end{tikzcd}
+   & \triangleq
+  \text{A unique morphism from $A$ to $B$.}\\
+  \begin{tikzcd}[ampersand replacement=\&]
+    A \arrow[r, hook, "i"] \& B
+  \end{tikzcd}
+   & \triangleq
+  \text{An inclusion map to $B$ from $A\subseteq B$.}\\
+  \begin{tikzcd}[ampersand replacement=\&]
+    A \arrow[r, two heads, "e"] \& B
+  \end{tikzcd}
+   & \triangleq
+  \text{An epimorphism from $A$ to $B$.}\\
+  \begin{tikzcd}[ampersand replacement=\&]
+    A \arrow[r, dashed, "!"] \& \top
+  \end{tikzcd}
+   & \triangleq
+  \text{The unique terminal arrow from $A$.}\\
+\end{align*}
+
+\subsection{Posets}
+
+When defining a partial-order $(X,\preceq_X)$, in the course of this exam, we will use the notation $X = \{x_1\preceq_X\ldots\preceq_X x_k\}$ to mean:
+\begin{align*}
+  X \triangleq & \{x_1,\ldots,x_k\} \\
+  \forall1\leq i < k \ldotp &~x_i\preceq_X x_{(i+1)}
+\end{align*}
+
+\subsection{Functions}
+
+Given a function $f : A\to B$, and a set $X\subseteq A$, then:
+\begin{align*}
+  f(X) & \triangleq \{f(x) : x\in X\}
+\end{align*}
