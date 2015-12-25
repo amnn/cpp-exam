@@ -375,7 +375,7 @@ In order to prove the main result in this question, it is useful to construct a 
   $\iff$ $\hom{C}{E}{e}$ is epic.
 
   \begin{proof}
-    Let epic $e : B \epic C$ in $\cat{C}$.
+    Consider epic $e : B \epic C$ in $\cat{C}$.
     \begin{itemize}
       \step $\forall f : E\to C\ldotp\exists h : E\to B\ldotp~e\compose h = f$
         \marginnote{\Hyp}
@@ -642,7 +642,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
       \step[\iffs] $e$ is not surjective
         \marginnote{\textbf{sheet} 1 \textbf{q}1}
 
-      \step[\imps] There exists some $\hat{q}\in Q\setminus e(P)$.
+      \step[\imps] There exists some $\widehat{q}\in Q\setminus e(P)$.
         \marginnote{\Def-$\neg$surjective}
 
       \addtolength{\itemsep}{.5\baselineskip}
@@ -653,12 +653,12 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
         \begin{align*}
           g & : q \mapsto
           \begin{cases}
-            1 & \text{if }\hat{q}\preceq_Q q\\
+            1 & \text{if }\widehat{q}\preceq_Q q\\
             0 & \text{otherwise}
           \end{cases}\\
           h & : q \mapsto
           \begin{cases}
-            1 & \text{if }\hat{q}\preceq_Q q\wedge\hat{q}\neq q\\
+            1 & \text{if }\widehat{q}\preceq_Q q\wedge\widehat{q}\neq q\\
             0 & \text{otherwise}
           \end{cases}
         \end{align*}
@@ -685,11 +685,11 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
             \marginnote{\Def-$\mathbb{B}$}
 
           \step[\imps]
-            $a\preceq_Qb\wedge \hat{q}\preceq_Qa\wedge \hat{q}\npreceq_Qb$
+            $a\preceq_Qb\wedge \widehat{q}\preceq_Qa\wedge \widehat{q}\npreceq_Qb$
             \marginnote{\Def-$g$}
 
           \step[\imps]
-            $\hat{q}\preceq_Qb\wedge \hat{q}\npreceq_Qb$
+            $\widehat{q}\preceq_Qb\wedge \widehat{q}\npreceq_Qb$
             \marginnote{\Trans-$\preceq_Q$}
         \end{itemize}
 
@@ -705,12 +705,12 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
       \step
         \begin{itemize}
           \subp{\dagger}
-            $\forall q\in Q\setminus\{\hat{q}\}\ldotp~g(q) = h(q)$
+            $\forall q\in Q\setminus\{\widehat{q}\}\ldotp~g(q) = h(q)$
             \marginnote{\Def-$g$;~\Def-$h$}
 
           \step[\imps]
             $\forall p\in P\ldotp~g(e(p)) = h(e(q))$
-            \marginnote{$e(P)\subseteq Q\setminus\{\hat{q}\}$}
+            \marginnote{$e(P)\subseteq Q\setminus\{\widehat{q}\}$}
 
 
           \step[\iffs]
@@ -726,7 +726,7 @@ Our proof of this result hinges on two facts, which we will present as lemmas. F
       \step
         \begin{itemize}
           \subp{\ddagger}
-            $g(\hat{q})\neq h(\hat{q})$
+            $g(\widehat{q})\neq h(\widehat{q})$
             \marginnote{\Def-$g$;~\Def-$h$}
 
           \step[\imps]
@@ -915,12 +915,12 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
     Let $(P,\preceq_P)\in\mathbf{Pos}$ be epic-preserving.
     \begin{itemize}
       \step
-        Define $(P, \preceq_{\hat{P}})$ to be a discrete poset.
+        Define $(P, \preceq_{\widehat{P}})$ to be a discrete poset.
 
       \step[\imps]
         The inclusion map
         \begin{tikzcd}
-          (P,\preceq_{\hat{P}}) \arrow[r, hook, "i"] & (P, \preceq_P)
+          (P,\preceq_{\widehat{P}}) \arrow[r, hook, "i"] & (P, \preceq_P)
         \end{tikzcd}
         is epic in $\mathbf{Pos}$
         \marginnote{$i$ is bijective}
@@ -929,7 +929,7 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
         \marginnote[1em]{$(P,\preceq_P)$-\textbf{epic-preserving}}
         \begin{center}
           \begin{tikzcd}[sep=large]
-            &  (P, \preceq_{\hat{P}}) \arrow[d, "i", hook, two heads]
+            &  (P, \preceq_{\widehat{P}}) \arrow[d, "i", hook, two heads]
             \\ (P, \preceq_P) \arrow[ur, "h", dashed]
                               \arrow[r, "\id_{(P,\preceq_P)}"'] & (P, \preceq_P)
           \end{tikzcd}
@@ -945,12 +945,12 @@ Which in turn imply the monotonicity of $e$ and $f$. Furthermore, we have (again
             \Ass~$x\neq y^{\text~(1)}$
             \marginnote{\Hyp}
 
-          \step[\imps] $h(x) \preceq_{\hat{P}} h(y)$
+          \step[\imps] $h(x) \preceq_{\widehat{P}} h(y)$
             \marginnote{\textbf{monotone}-$h$}
 
           \step[\imps]
             $h(x) = h(y)$
-            \marginnote{\textbf{discrete}-$(P,\preceq_{\hat{P}})$}
+            \marginnote{\textbf{discrete}-$(P,\preceq_{\widehat{P}})$}
 
           \step[\imps]
             $(i\compose h)(x) = (i\compose h)(y)$
