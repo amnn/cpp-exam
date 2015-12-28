@@ -346,7 +346,7 @@ And for rs-terms, take
 
 It remains to show that ${t =_{\text rs} u\implies \sembrack{t} = \sembrack{u}}$. Firstly, we observe that this definition builds on the the definition in the notes, for the use of a CCC as a model of $\lambda\beta\eta$-theory, adding new rules only to deal with the distinguished type $A$, and the constants $\mathbf{r}$ and $\mathbf{s}$ that have been introduced. This implies that for terms ${u,t\in\Lambda}$ not mentioning $\mathbf{r}$, or $\mathbf{s}$ and type judgements not involving $A$, ${u =_\beta t \implies \sembrack{u} = \sembrack{t}}$.\\[1em]
 
-All the that remains to be shown is that for those terms and type judgements that do contain the aforementioned, the proposition holds. For this, it suffices to prove that $\sembrack{\mathbf{r}(\mathbf{s}t)} = \sembrack{t}$ (Proposition~\ref{prop:rs-model}).\\[1em]
+All that remains to be shown is that for those terms and type judgements that do contain the aforementioned, the proposition holds. For this, it suffices to prove that $\sembrack{\mathbf{r}(\mathbf{s}t)} = \sembrack{t}$ (Proposition~\ref{prop:rs-model}).\\[1em]
 
 Our definition and proof rely in part upon the isomorphism ${\cong~:\top\times A\rightleftarrows A :~\cong^{-1}}$, which is known to exist because $\cat{C}$ is a CCC. This fact is used in our construction of the interpretations of $\mathbf{r}$ and $\mathbf{s}$. Below we give explicit constructions for the isomorphism.
 
@@ -524,7 +524,7 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
   \begin{proof}[Case]
     $A = \varnothing$
     \begin{align*}
-      \abs{A^A} = \abs{A}^{\abs{A}} = 0^0 = 1 \nleq 0 = \abs{A}
+      \abs{A^A} = \abs{A}^{\abs{A}} = 0^0 \nleq 0 = \abs{A}
       \tag*{\qedhere}
     \end{align*}
   \end{proof}
@@ -727,7 +727,7 @@ As a corollary to this result, the only rs model in $\mathbf{Set}$ is the termin
           The right to left direction, follows by setting $t_z \triangleq t$, for every ${z\in u}$ (a special case of the theorem ${\exists x\ldotp~\forall y\ldotp~P(x, y)\vdash\forall y\ldotp\exists x\ldotp~P(x,y)}$).
 
       \step[\iffs]
-        $\exists t\in\Pfin{Y}\ldotp~\forall z\in u\ldotp~(t,z)\in S\land\forall y\in t\ldotp~(s,y)\in R$
+        $\exists t\in\Pfin{Y}\ldotp~(\forall z\in u\ldotp~(t,z)\in S)\land(\forall y\in t\ldotp~(s,y)\in R)$
 
         \addtolength{\itemsep}{-1\baselineskip}
       \step[\iffs]
@@ -992,7 +992,10 @@ This follows from the definitions of $~\widehat{\cdot}~$.
 
       \addtolength{\itemsep}{.5\baselineskip}
       \step
-        By $\exists$-\Elim, let $(\overline{a}^\prime_1,\overline{b}^\prime_1)$ and $(\overline{a}^\prime_2,\overline{b}^\prime_2)$ be sets satisfying the first and second quantification respectively. Then (Through the image of the isomorphism) ${(\overline{c},(\overline{a}^\prime_1\cup\overline{a}^\prime_2,~\overline{b}^\prime_1\cup\overline{b}^\prime_2))\in\widehat{h}}$ and ${(\overline{a},\overline{b})\subseteq(\overline{a}^\prime_1\cup\overline{a}^\prime_2,~\overline{b}^\prime_1\cup\overline{b}^\prime_2)}$. So from Proposition~\ref{prop:rel-hat-subset} left to right follows.
+        By $\exists$-\Elim, let $(\overline{a}^\prime_1,\overline{b}^\prime_1)$ and $(\overline{a}^\prime_2,\overline{b}^\prime_2)$ be sets satisfying the first and second quantifications respectively. As a consequence of the isomorphism (Proposition~\ref{prop:union-product-iso}), $(\overline{a}^\prime_1,\overline{b}^\prime_1)\cup(\overline{a}^\prime_2,\overline{b}^\prime_2) = (\overline{a}^\prime_1\cup\overline{a}^\prime_2,\overline{b}^\prime_1\cup\overline{b}^\prime_2)$.
+
+      \step
+        Then ${(\overline{c},(\overline{a}^\prime_1\cup\overline{a}^\prime_2,~\overline{b}^\prime_1\cup\overline{b}^\prime_2))\in\widehat{h}}$ and ${(\overline{a},\overline{b})\subseteq(\overline{a}^\prime_1\cup\overline{a}^\prime_2,~\overline{b}^\prime_1\cup\overline{b}^\prime_2)}$. So from Proposition~\ref{prop:rel-hat-subset} left to right follows.
 
       \step
         Right to left follows by setting $\overline{a}^\prime\triangleq\overline{a},~\overline{b}^\prime\triangleq\overline{b}$ in both quantifications.

@@ -61,11 +61,11 @@ Then we define the action of the functor on objects and morphisms. The covariant
         \end{itemize}
 
       \step[\imps]
-        $\forall g : A \to B\ldotp~\hom{C}{A}{B}(g) = \id_{\hom{C}{A}{B}}(g)$
+        $\forall g : A \to B\ldotp~\hom{C}{A}{\id_B}(g) = \id_{\hom{C}{A}{B}}(g)$
         \marginnote{$\forall$-\Intro}
 
       \step[\iffs]
-        $\hom{C}{A}{B} = \id_{\hom{C}{A}{B}}$
+        $\hom{C}{A}{\id_B} = \id_{\hom{C}{A}{B}}$
         \marginnote{\Def-=}
         \qedhere
     \end{itemize}
@@ -170,7 +170,7 @@ Similarly the contravariant Hom-functor maps objects to the set of morphisms \te
         \marginnote{$\forall$-\Intro}
 
       \step[\iffs]
-        $\hom{C}{B}{A} = \id_{\hom{C}{B}{A}}$
+        $\hom{C}{\id_B}{A} = \id_{\hom{C}{B}{A}}$
         \marginnote{\Def-=}
         \qedhere
     \end{itemize}
@@ -397,7 +397,9 @@ In order to prove the main result in this question, it is useful to construct a 
   \end{proof}
 \end{lemma}
 
-Our intended result then follows from the previous lemma, and a general result from first-order logic:
+In this lemma, we use a result we have proven in the first question of the first problem sheet: That surjective functions are precisely epic morphisms in $\mathbf{Set}$. We can apply this result because $\hom{C}{E}{e}$ is a function, and so a morphism in $\mathbf{Set}$.
+
+Our intended result follows from the previous lemma, and a general result from first-order logic:
 
 \begin{lemma}\label{lemma:epic-preserve-2}
   If, given sets $X, P, Q$, for any $x\in X$ we have that ${P(x) \iff Q(x)}$ then $\forall x\in X\ldotp~P(x)$ iff $\forall x\in X\ldotp~Q(x)$.
@@ -526,7 +528,7 @@ All that remains to be done, is to join the two lemmas together (the conclusion 
                 \end{center}
 
               \step[\imps] $f\compose\id_F = e\compose h\compose s$
-                \marginnote{\textbf diagram chase}
+                \marginnote{\textbf{diagram chase}}
 
               \step[\imps] $f = e\compose h\compose s$
                 \marginnote{\Def-$\id$}
